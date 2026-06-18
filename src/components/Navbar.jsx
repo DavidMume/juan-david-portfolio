@@ -1,0 +1,67 @@
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+
+const anchorLinks = [
+  ['home', '#home'],
+  ['about', '#about'],
+  ['projects', '#projects'],
+  ['skills', '#skills'],
+  ['contact', '#contact'],
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  function handleAnchorClick(hash) {
+    setOpen(false);
+    if (location.pathname !== '/') {
+      navigate(`/${hash}`);
+      return;
+    }
+    document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  return (
+    <header className="navbar">
+      <Link to="/" className="brand" onClick={() => setOpen(false)} aria-label="Juan David portfolio home">
+        <span>JDM</span>
+        <strong>Juan David</strong>
+      </Link>
+
+      <nav className={open ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">
+        {anchorLinks.map(([key, hash]) => (
+          <button key={key} type="button" onClick={() => handleAnchorClick(hash)}>
+            {t.nav[key]}
+          </button>
+        ))}
+      </nav>
+
+      <div className="nav-actions">
+        <div className="language-switch" aria-label={t.nav.languageLabel}>
+          <button
+            type="button"
+            className={language === 'en' ? 'active' : ''}
+            onClick={() => setLanguage('en')}
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            className={language === 'es' ? 'active' : ''}
+            onClick={() => setLanguage('es')}
+          >
+            ES
+          </button>
+        </div>
+        <button className="mobile-menu" type="button" onClick={() => setOpen((value) => !value)}>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+    </header>
+  );
+}
