@@ -211,14 +211,6 @@ location / {
 }
 ```
 
-## Future Contact Form Options
+## Contact Form
 
-The contact form is visual only for now. It can later be connected to:
-
-- Cloudflare Forms or Workers
-- Formspree
-- Resend
-- EmailJS
-- A custom backend endpoint
-
-Update `src/components/Contact.jsx` when you are ready to connect the form.
+The contact form opens the visitor's email application with a message addressed to `juan.mu.me@hotmail.com`.

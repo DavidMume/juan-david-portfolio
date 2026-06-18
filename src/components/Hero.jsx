@@ -1,6 +1,7 @@
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { contactDetails } from '../data/contact';
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false);
@@ -33,11 +34,11 @@ export default function Hero() {
             <Mail size={18} />
             {t.hero.contactMe}
           </a>
-          <a className="icon-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <a className="icon-link" href={contactDetails.github} target="_blank" rel="noreferrer" aria-label="GitHub">
             <Github size={21} />
             <span>{t.hero.github}</span>
           </a>
-          <a className="icon-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a className="icon-link" href={contactDetails.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <Linkedin size={21} />
             <span>{t.hero.linkedin}</span>
           </a>

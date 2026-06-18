@@ -289,23 +289,19 @@ textarea {
   position: relative;
 }
 
-.hero-media::before {
-  content: '';
-  position: absolute;
-  inset: 18px -18px -18px 18px;
-  border-radius: 8px;
-  background: #08a6c8;
-  opacity: 0.16;
-}
-
 .hero-media img,
 .profile-placeholder {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 28px 80px rgba(16, 34, 63, 0.18);
+}
+
+.hero-media img {
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
 }
 
 .profile-placeholder {
