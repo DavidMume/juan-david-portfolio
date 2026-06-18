@@ -77,10 +77,10 @@ npm run preview
 Add your real profile image here:
 
 ```text
-public/images/profile.jpg
+public/images/profile.png
 ```
 
-The app already points to `/images/profile.jpg`. If that image is not present, the hero shows a clean initials placeholder.
+The app already points to `/images/profile.png`. If that image is not present, the hero shows a clean initials placeholder.
 
 ## Editing Projects
 

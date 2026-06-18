@@ -10,11 +10,11 @@ export default function Hero() {
     <section id="home" className="hero section-pad">
       <div className="hero-media" data-reveal>
         {!imageError ? (
-          <img src="/images/profile.jpg" alt={t.hero.profileAlt} onError={() => setImageError(true)} />
+          <img src="/images/profile.png" alt={t.hero.profileAlt} onError={() => setImageError(true)} />
         ) : (
           <div className="profile-placeholder">
             <span>JDM</span>
-            <small>/public/images/profile.jpg</small>
+            <small>/public/images/profile.png</small>
           </div>
         )}
       </div>
