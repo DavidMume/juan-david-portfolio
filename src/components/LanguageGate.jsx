@@ -10,7 +10,7 @@ export default function LanguageGate() {
         <div className="gate-icon" aria-hidden="true">
           <Globe2 size={30} />
         </div>
-        <p className="eyebrow">Juan David Muñoz Mendivelso</p>
+        <p className="eyebrow">{t.authorName}</p>
         <h1>{t.gate.title}</h1>
         <p>{t.gate.subtitle}</p>
         <div className="gate-actions">

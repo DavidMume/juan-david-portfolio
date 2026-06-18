@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div>
-        <strong>Juan David Muñoz Mendivelso</strong>
+        <strong>{t.authorName}</strong>
         <p>{t.footer.text}</p>
       </div>
       <div className="footer-links">

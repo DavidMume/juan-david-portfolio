@@ -11,7 +11,11 @@ export default function Hero() {
     <section id="home" className="hero section-pad">
       <div className="hero-media" data-reveal>
         {!imageError ? (
-          <img src="/images/profile.png" alt={t.hero.profileAlt} onError={() => setImageError(true)} />
+          <img
+            src="/images/profile.png"
+            alt={`${t.hero.profileAlt} ${t.authorName}`}
+            onError={() => setImageError(true)}
+          />
         ) : (
           <div className="profile-placeholder">
             <span>JDM</span>
@@ -22,7 +26,7 @@ export default function Hero() {
 
       <div className="hero-content" data-reveal>
         <p className="eyebrow">{t.hero.eyebrow}</p>
-        <h1>{t.hero.title}</h1>
+        <h1>{t.authorName}</h1>
         <h2>{t.hero.subtitle}</h2>
         <p>{t.hero.body}</p>
         <div className="hero-actions">

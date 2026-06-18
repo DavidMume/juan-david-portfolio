@@ -28,12 +28,17 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <Link to="/" className="brand" onClick={() => setOpen(false)} aria-label="Juan David portfolio home">
+      <Link
+        to="/"
+        className="brand"
+        onClick={() => setOpen(false)}
+        aria-label={`${t.authorName} ${t.nav.brandLabel}`}
+      >
         <span>JDM</span>
-        <strong>Juan David</strong>
+        <strong>{t.authorName}</strong>
       </Link>
 
-      <nav className={open ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">
+      <nav className={open ? 'nav-links is-open' : 'nav-links'} aria-label={t.nav.primaryLabel}>
         {anchorLinks.map(([key, hash]) => (
           <button key={key} type="button" onClick={() => handleAnchorClick(hash)}>
             {t.nav[key]}

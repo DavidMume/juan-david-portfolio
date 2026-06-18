@@ -12,9 +12,21 @@ export function LanguageProvider({ children }) {
   });
 
   useEffect(() => {
-    if (!language) return;
-    window.localStorage.setItem(STORAGE_KEY, language);
-    document.documentElement.lang = language;
+    const activeLanguage = language ?? 'en';
+    const activeTranslations = translations[activeLanguage];
+
+    if (language) {
+      window.localStorage.setItem(STORAGE_KEY, language);
+    }
+
+    document.documentElement.lang = activeLanguage;
+    document.title = `${activeTranslations.authorName} | ${activeTranslations.meta.title}`;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        'content',
+        `${activeTranslations.authorName} — ${activeTranslations.meta.description}`,
+      );
   }, [language]);
 
   const value = useMemo(

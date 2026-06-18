@@ -1,5 +1,10 @@
 export const translations = {
   en: {
+    authorName: 'David Munoz',
+    meta: {
+      title: 'Portfolio',
+      description: 'Economist and Data Scientist portfolio.',
+    },
     nav: {
       home: 'Home',
       about: 'About',
@@ -7,6 +12,8 @@ export const translations = {
       skills: 'Skills',
       contact: 'Contact',
       languageLabel: 'Change language',
+      brandLabel: 'portfolio home',
+      primaryLabel: 'Primary navigation',
     },
     gate: {
       title: 'Choose your language / Elige tu idioma',
@@ -16,14 +23,13 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Economist · Data Scientist · Technology Builder',
-      title: 'Juan David Muñoz Mendivelso',
       subtitle: 'Economist & Data Scientist building practical tools with data, AI and technology.',
       body: 'I combine economic thinking, analytics and hands-on technical delivery to turn complex information into useful products, decisions and workflows.',
       viewProjects: 'View Projects',
       contactMe: 'Contact Me',
       github: 'GitHub',
       linkedin: 'LinkedIn',
-      profileAlt: 'Juan David Muñoz Mendivelso profile',
+      profileAlt: 'Profile portrait of',
     },
     about: {
       eyebrow: 'About',
@@ -92,6 +98,11 @@ export const translations = {
     },
   },
   es: {
+    authorName: 'Juan Muñoz',
+    meta: {
+      title: 'Portafolio',
+      description: 'Portafolio de economista y científico de datos.',
+    },
     nav: {
       home: 'Inicio',
       about: 'Sobre mí',
@@ -99,6 +110,8 @@ export const translations = {
       skills: 'Habilidades',
       contact: 'Contacto',
       languageLabel: 'Cambiar idioma',
+      brandLabel: 'inicio del portafolio',
+      primaryLabel: 'Navegación principal',
     },
     gate: {
       title: 'Choose your language / Elige tu idioma',
@@ -108,14 +121,13 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Economista · Científico de datos · Constructor tecnológico',
-      title: 'Juan David Muñoz Mendivelso',
       subtitle: 'Economista y científico de datos creando herramientas prácticas con datos, inteligencia artificial y tecnología.',
       body: 'Combino criterio económico, analítica y ejecución técnica para convertir información compleja en productos, decisiones y flujos de trabajo útiles.',
       viewProjects: 'Ver proyectos',
       contactMe: 'Contacto',
       github: 'GitHub',
       linkedin: 'LinkedIn',
-      profileAlt: 'Foto de perfil de Juan David Muñoz Mendivelso',
+      profileAlt: 'Foto de perfil de',
     },
     about: {
       eyebrow: 'Sobre mí',
