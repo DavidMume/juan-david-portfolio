@@ -50,7 +50,9 @@ export const translations = {
       title: 'Projects built around data, decisions and useful tools.',
       body: 'These examples are editable project entries designed so new work can be added from a single data file.',
       viewProject: 'View Project',
+      viewAnalysis: 'View analysis',
       githubRepo: 'GitHub Repo',
+      readArticle: 'Read article',
     },
     skills: {
       eyebrow: 'Capabilities',
@@ -88,8 +90,52 @@ export const translations = {
       links: 'External links',
       noLinks: 'Links can be added when the public project or repository is ready.',
     },
+    highlights: {
+      eyebrow: 'What I do',
+      title: 'Areas of expertise.',
+      items: [
+        {
+          id: 'economics',
+          title: 'Economics',
+          desc: 'Development economics, public policy and economic analysis applied to practical decisions and public-interest questions.',
+        },
+        {
+          id: 'dataScience',
+          title: 'Data Science',
+          desc: 'Statistical analysis, machine learning and data pipelines that extract clear insight from complex, messy datasets.',
+        },
+        {
+          id: 'aiTools',
+          title: 'AI Tools',
+          desc: 'Building responsible AI applications — LLM integrations, custom tools and institutional deployment with proper governance.',
+        },
+        {
+          id: 'webApps',
+          title: 'Web Applications',
+          desc: 'Interactive dashboards and data-driven web apps that make analysis accessible to real audiences, not just analysts.',
+        },
+        {
+          id: 'automation',
+          title: 'Automation',
+          desc: 'Workflow automation, scripting and data pipelines that reduce manual effort and improve operational reliability.',
+        },
+        {
+          id: 'ictSystems',
+          title: 'ICT Systems',
+          desc: 'Endpoint management, identity, enterprise Microsoft 365 and Intune for education and organisational settings.',
+        },
+      ],
+    },
     footer: {
       text: 'Built as a bilingual portfolio for data, economics and technology work.',
+      projectsLabel: 'Projects',
+      connectLabel: 'Connect',
+      projectLinks: [
+        { label: 'Índice Chocorramo', url: 'https://indice-chocorramo.juan-mu-me.workers.dev/' },
+        { label: 'Travel Planner', url: 'https://colombia-australia-travel-planner.juan-mu-me.workers.dev/' },
+        { label: 'StudentHelper', url: '/projects/studenthelper' },
+        { label: 'Colombia 2026', url: '/projects/colombia-2026-discourse' },
+      ],
     },
     notFound: {
       title: 'Project not found',
@@ -148,7 +194,9 @@ export const translations = {
       title: 'Proyectos construidos alrededor de datos, decisiones y herramientas útiles.',
       body: 'Estos ejemplos son entradas editables pensadas para que puedas agregar nuevos proyectos desde un solo archivo de datos.',
       viewProject: 'Ver proyecto',
+      viewAnalysis: 'Ver análisis',
       githubRepo: 'Repositorio GitHub',
+      readArticle: 'Leer artículo',
     },
     skills: {
       eyebrow: 'Capacidades',
@@ -186,8 +234,52 @@ export const translations = {
       links: 'Links externos',
       noLinks: 'Los links se pueden agregar cuando el proyecto público o repositorio esté listo.',
     },
+    highlights: {
+      eyebrow: 'Lo que hago',
+      title: 'Áreas de experiencia.',
+      items: [
+        {
+          id: 'economics',
+          title: 'Economía',
+          desc: 'Economía del desarrollo, política pública y análisis económico aplicados a decisiones prácticas y preguntas de interés público.',
+        },
+        {
+          id: 'dataScience',
+          title: 'Ciencia de datos',
+          desc: 'Análisis estadístico, machine learning y pipelines de datos que extraen insights claros de conjuntos de datos complejos.',
+        },
+        {
+          id: 'aiTools',
+          title: 'Herramientas de IA',
+          desc: 'Construcción de aplicaciones de IA responsables — integraciones LLM, herramientas personalizadas y despliegue institucional.',
+        },
+        {
+          id: 'webApps',
+          title: 'Aplicaciones web',
+          desc: 'Dashboards interactivos y apps web basadas en datos que hacen el análisis accesible a audiencias reales, no solo a analistas.',
+        },
+        {
+          id: 'automation',
+          title: 'Automatización',
+          desc: 'Automatización de flujos, scripts y pipelines que reducen el esfuerzo manual y mejoran la confiabilidad operativa.',
+        },
+        {
+          id: 'ictSystems',
+          title: 'Sistemas ICT',
+          desc: 'Gestión de endpoints, identidad, Microsoft 365 empresarial e Intune para entornos educativos y organizacionales.',
+        },
+      ],
+    },
     footer: {
       text: 'Construido como portafolio bilingüe para trabajos de datos, economía y tecnología.',
+      projectsLabel: 'Proyectos',
+      connectLabel: 'Conectar',
+      projectLinks: [
+        { label: 'Índice Chocorramo', url: 'https://indice-chocorramo.juan-mu-me.workers.dev/' },
+        { label: 'Travel Planner', url: 'https://colombia-australia-travel-planner.juan-mu-me.workers.dev/' },
+        { label: 'StudentHelper', url: '/projects/studenthelper' },
+        { label: 'Colombia 2026', url: '/projects/colombia-2026-discourse' },
+      ],
     },
     notFound: {
       title: 'Proyecto no encontrado',

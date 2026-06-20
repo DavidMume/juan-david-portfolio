@@ -8,44 +8,69 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="hero section-pad">
-      <div className="hero-media" data-reveal>
-        {!imageError ? (
-          <img
-            src="/images/profile.png"
-            alt={`${t.hero.profileAlt} ${t.authorName}`}
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <div className="profile-placeholder">
-            <span>JDM</span>
-            <small>/public/images/profile.png</small>
-          </div>
-        )}
-      </div>
+    <section id="home" className="hero">
+      {/* Animated background decorations */}
+      <div className="hero-blob hero-blob-1" aria-hidden="true" />
+      <div className="hero-blob hero-blob-2" aria-hidden="true" />
+      <div className="hero-blob hero-blob-3" aria-hidden="true" />
+      <div className="hero-dots" aria-hidden="true" />
+      <div className="hero-line-accent" aria-hidden="true" />
 
-      <div className="hero-content" data-reveal>
-        <p className="eyebrow">{t.hero.eyebrow}</p>
-        <h1>{t.authorName}</h1>
-        <h2>{t.hero.subtitle}</h2>
-        <p>{t.hero.body}</p>
-        <div className="hero-actions">
-          <a className="btn primary" href="#projects">
-            {t.hero.viewProjects}
-            <ArrowDown size={18} />
-          </a>
-          <a className="btn secondary" href="#contact">
-            <Mail size={18} />
-            {t.hero.contactMe}
-          </a>
-          <a className="icon-link" href={contactDetails.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-            <Github size={21} />
-            <span>{t.hero.github}</span>
-          </a>
-          <a className="icon-link" href={contactDetails.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <Linkedin size={21} />
-            <span>{t.hero.linkedin}</span>
-          </a>
+      {/* Constrained content grid */}
+      <div className="hero-inner">
+        <div className="hero-media" data-reveal>
+          {!imageError ? (
+            <img
+              src="/images/profile.png"
+              alt={`${t.hero.profileAlt} ${t.authorName}`}
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="profile-placeholder">
+              <span>JDM</span>
+              <small>/public/images/profile.png</small>
+            </div>
+          )}
+        </div>
+
+        <div className="hero-content" data-reveal style={{ transitionDelay: '120ms' }}>
+          <div className="hero-eyebrow">
+            <span className="hero-eyebrow-dot" aria-hidden="true" />
+            {t.hero.eyebrow}
+          </div>
+          <h1>{t.authorName}</h1>
+          <h2>{t.hero.subtitle}</h2>
+          <p>{t.hero.body}</p>
+          <div className="hero-actions">
+            <a className="btn primary" href="#projects">
+              {t.hero.viewProjects}
+              <ArrowDown size={17} />
+            </a>
+            <a className="btn secondary" href="#contact">
+              <Mail size={17} />
+              {t.hero.contactMe}
+            </a>
+            <a
+              className="icon-link"
+              href={contactDetails.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+              <span>{t.hero.github}</span>
+            </a>
+            <a
+              className="icon-link"
+              href={contactDetails.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+              <span>{t.hero.linkedin}</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

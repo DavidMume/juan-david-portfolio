@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -13,9 +13,16 @@ const anchorLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   function handleAnchorClick(hash) {
     setOpen(false);
@@ -27,7 +34,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="navbar">
+    <header className={`navbar${scrolled ? ' is-scrolled' : ''}`}>
       <Link
         to="/"
         className="brand"
@@ -63,7 +70,12 @@ export default function Navbar() {
             ES
           </button>
         </div>
-        <button className="mobile-menu" type="button" onClick={() => setOpen((value) => !value)}>
+        <button
+          className="mobile-menu"
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+        >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
