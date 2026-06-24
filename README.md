@@ -1,6 +1,88 @@
-# Juan David Portfolio
+# Juan David Portfolio — juandamunoz.com
+
+Live: **https://juandamunoz.com**
 
 Personal bilingual portfolio for Juan David Muñoz Mendivelso, built with React, Vite and Tailwind CSS. The first visit opens a language gate, saves the selected language in `localStorage`, and then shows the portfolio in English or Spanish.
+
+## Domain Structure
+
+The domain `juandamunoz.com` is registered on Cloudflare. All projects use subdomains under this root.
+
+### Main site
+
+| URL | Cloudflare Pages project |
+|---|---|
+| `https://juandamunoz.com` | `juan-david-portfolio` |
+| `https://www.juandamunoz.com` | same — add both in Pages > Custom domains |
+
+### Project subdomains
+
+| Subdomain | Project | Cloudflare type | Pages project / Worker name |
+|---|---|---|---|
+| `chocorramo.juandamunoz.com` | Índice Chocorramo | Pages | `indice-chocorramo` |
+| `votar.juandamunoz.com` | Votar desde lejos | Pages | `votar-desde-lejos` |
+| `cepeda.juandamunoz.com` | Cepeda NLP Analysis | Pages | `analisis-plan-gobierno-ivan-cepeda-2026-web` |
+| `patria-milagro.juandamunoz.com` | Patria Milagro Analysis | Pages | `patria-milagro-analysis-web` |
+| `travel.juandamunoz.com` | Colombia–Australia Travel Planner | Workers | `colombia-australia-travel-planner` |
+| `transit.juandamunoz.com` | SEQ Transit Predictor | External (Render) | set CNAME → `seq-transit-predictor.onrender.com` + configure in Render |
+| `studenthelper.juandamunoz.com` | StudentHelper (case study) | Redirect rule | redirect to `juandamunoz.com/projects/studenthelper` |
+| `waterbuilt.juandamunoz.com` | WaterBuilt Site Vision | — | no live site yet |
+| `fracking.juandamunoz.com` | Fracking Papers NLP | — | no live site yet |
+| `discurso2026.juandamunoz.com` | Colombia 2026 Discourse | — | no live site yet |
+
+### Where project links are stored
+
+The URL shown on each portfolio card is the `liveUrl` field in:
+
+```text
+src/data/projects.js
+```
+
+The footer quick-links are in:
+
+```text
+src/data/translations.js  →  footer.projectLinks  (both en and es)
+```
+
+### Adding a new project subdomain (Cloudflare Pages)
+
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages**
+2. Open the correct Pages project
+3. **Custom domains** → **Set up a domain**
+4. Enter the subdomain (e.g. `chocorramo.juandamunoz.com`)
+5. Cloudflare adds the CNAME automatically (domain is already on Cloudflare)
+6. SSL issues within seconds
+7. Update `liveUrl` in `src/data/projects.js` and redeploy
+
+### Adding a new Workers custom domain
+
+1. **Workers & Pages** → open the Worker
+2. **Settings** → **Triggers** → **Custom Domains** → **Add Custom Domain**
+3. Enter the subdomain (e.g. `travel.juandamunoz.com`)
+
+### Adding a custom domain for Render (SEQ Transit)
+
+1. In [Render dashboard](https://dashboard.render.com) → open the service → **Settings** → **Custom Domains** → add `transit.juandamunoz.com`
+2. In Cloudflare DNS: add **CNAME** `transit` → `seq-transit-predictor.onrender.com` with proxy **off** (grey cloud)
+3. Render will issue its own SSL certificate
+
+### Cloudflare Pages build settings (for all Vite projects)
+
+```text
+Framework preset:      Vite
+Build command:         npm run build
+Build output directory: dist
+Root directory:        /
+Node.js version:       20 or newer
+```
+
+SPA routing is handled by `public/_redirects`:
+
+```text
+/*    /index.html   200
+```
+
+---
 
 ## Tech Stack
 

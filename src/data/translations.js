@@ -148,8 +148,8 @@ export const translations = {
       projectsLabel: 'Projects',
       connectLabel: 'Connect',
       projectLinks: [
-        { label: 'Índice Chocorramo', url: 'https://indice-chocorramo.juan-mu-me.workers.dev/' },
-        { label: 'Travel Planner', url: 'https://colombia-australia-travel-planner.juan-mu-me.workers.dev/' },
+        { label: 'Índice Chocorramo', url: 'https://chocorramo.juandamunoz.com' },
+        { label: 'Travel Planner', url: 'https://travel.juandamunoz.com' },
         { label: 'StudentHelper', url: '/projects/studenthelper' },
         { label: 'Colombia 2026', url: '/projects/colombia-2026-discourse' },
       ],
@@ -309,8 +309,8 @@ export const translations = {
       projectsLabel: 'Proyectos',
       connectLabel: 'Conectar',
       projectLinks: [
-        { label: 'Índice Chocorramo', url: 'https://indice-chocorramo.juan-mu-me.workers.dev/' },
-        { label: 'Travel Planner', url: 'https://colombia-australia-travel-planner.juan-mu-me.workers.dev/' },
+        { label: 'Índice Chocorramo', url: 'https://chocorramo.juandamunoz.com' },
+        { label: 'Travel Planner', url: 'https://travel.juandamunoz.com' },
         { label: 'StudentHelper', url: '/projects/studenthelper' },
         { label: 'Colombia 2026', url: '/projects/colombia-2026-discourse' },
       ],
