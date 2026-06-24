@@ -16,6 +16,11 @@ export default function Hero() {
       <div className="hero-dots" aria-hidden="true" />
       <div className="hero-line-accent" aria-hidden="true" />
 
+      {/* DM heraldic crest — decorative background watermark */}
+      <div className="hero-crest" aria-hidden="true">
+        <img src="/images/portfolio/01-hero-dm-editorial-crest.png" alt="" />
+      </div>
+
       {/* Constrained content grid */}
       <div className="hero-inner">
         <div className="hero-media" data-reveal>

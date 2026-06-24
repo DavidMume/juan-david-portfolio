@@ -13,6 +13,13 @@ import {
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
+const PROJECT_IMAGES = {
+  'chocorramo-index':       '/images/portfolio/08-project-chocorramo-index.png',
+  'votar-desde-lejos':      '/images/portfolio/09-project-votar-desde-lejos.png',
+  'seq-transit-predictor':  '/images/portfolio/10-project-seq-transit-predictor.png',
+};
+const PLACEHOLDER_IMG = '/images/portfolio/01-hero-dm-editorial-crest.png';
+
 function CategoryIcon({ category }) {
   switch (category) {
     case 'data-journalism':
@@ -34,6 +41,8 @@ export default function ProjectCard({ project, index }) {
   const { language, t } = useLanguage();
 
   const hasLinks = project.liveUrl || project.repoUrl || project.articleUrl;
+  const cardImage = PROJECT_IMAGES[project.slug];
+  const isPlaceholder = !cardImage;
 
   return (
     <article
@@ -41,6 +50,17 @@ export default function ProjectCard({ project, index }) {
       data-reveal
       style={{ transitionDelay: `${index * 60}ms` }}
     >
+      {/* Project image or DM crest placeholder */}
+      <div className="project-card-image-wrap">
+        <img
+          src={cardImage || PLACEHOLDER_IMG}
+          alt={cardImage ? project.title[language] : ''}
+          aria-hidden={isPlaceholder}
+          className={`project-card-image${isPlaceholder ? ' is-placeholder' : ''}`}
+          loading="lazy"
+        />
+      </div>
+
       {/* Card header: category chip + status badge */}
       <div className="card-header">
         <span className="category-chip">{project.categoryLabel[language]}</span>
@@ -125,11 +145,7 @@ export default function ProjectCard({ project, index }) {
         {/* No links available */}
         {!hasLinks && (
           <span className="btn-card-muted">
-            {project.status === 'research' || project.status === 'concept'
-              ? language === 'es'
-                ? 'En desarrollo'
-                : 'In development'
-              : ''}
+            {(project.status === 'research' || project.status === 'concept') && t.projects.inDevelopment}
           </span>
         )}
       </div>

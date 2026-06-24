@@ -66,6 +66,10 @@ export const translations = {
       caseStudy: 'Case study',
       liveTool: 'Live tool',
       liveDemo: 'Live demo',
+      comingSoon: 'Coming soon',
+      publishedWork: 'Published work',
+      featuredVisual: 'Featured visual analysis',
+      inDevelopment: 'In development',
     },
     skills: {
       eyebrow: 'Capabilities',
@@ -104,7 +108,7 @@ export const translations = {
       noLinks: 'Links can be added when the public project or repository is ready.',
     },
     highlights: {
-      eyebrow: 'What I do',
+      eyebrow: 'Areas of expertise',
       title: 'Areas of expertise.',
       items: [
         {
@@ -223,6 +227,10 @@ export const translations = {
       caseStudy: 'Caso de estudio',
       liveTool: 'Herramienta en vivo',
       liveDemo: 'Ver demo',
+      comingSoon: 'Próximamente',
+      publishedWork: 'Trabajo publicado',
+      featuredVisual: 'Análisis visual destacado',
+      inDevelopment: 'En desarrollo',
     },
     skills: {
       eyebrow: 'Capacidades',
@@ -261,7 +269,7 @@ export const translations = {
       noLinks: 'Los links se pueden agregar cuando el proyecto público o repositorio esté listo.',
     },
     highlights: {
-      eyebrow: 'Lo que hago',
+      eyebrow: 'Áreas de experiencia',
       title: 'Áreas de experiencia.',
       items: [
         {

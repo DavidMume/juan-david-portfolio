@@ -1307,3 +1307,253 @@ button, input, textarea { font: inherit; }
   .project-search-wrap { width: 100%; }
   .project-search { width: 100%; }
 }
+
+/* ============================================================
+   EDITORIAL IDENTITY — DM Portfolio visual overrides
+   Palette: deep crimson · warm gold · cream/ivory · ink
+   ============================================================ */
+
+/* --- New design tokens --- */
+:root {
+  --crimson:       #9F1239;
+  --crimson-dark:  #6B0827;
+  --crimson-deep:  #3B0018;
+  --gold:          #C99700;
+  --gold-light:    #D4A017;
+  --gold-pale:     rgba(201, 151, 0, 0.12);
+  --cream:         #FAF7F0;
+  --cream-2:       #F3EDE0;
+  --ink:           #1C1917;
+}
+
+/* --- Body: warm cream background --- */
+body { background: var(--cream); }
+
+/* --- Pulse dot: gold instead of cyan --- */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(212, 160, 23, 0.85); }
+  50%       { opacity: 0.5; box-shadow: 0 0 4px rgba(212, 160, 23, 0.35); }
+}
+
+/* --- Section eyebrow: crimson instead of cyan --- */
+.eyebrow { color: var(--crimson); }
+.eyebrow::before { background: var(--crimson); }
+
+/* Preserve gate panel eyebrow (stays cyan-light on dark bg) */
+.gate-panel .eyebrow { color: var(--cyan-light); }
+.gate-panel .eyebrow::before { background: var(--cyan-light); }
+/* Preserve detail-hero eyebrow */
+.detail-hero .eyebrow { color: var(--cyan-light); }
+.detail-hero .eyebrow::before { background: var(--cyan-light); }
+
+/* --- Hero: crimson editorial gradient --- */
+.hero {
+  background: linear-gradient(135deg, var(--crimson-deep) 0%, var(--crimson-dark) 55%, var(--crimson) 100%);
+}
+.hero-blob-1 {
+  background: radial-gradient(circle, rgba(212, 160, 23, 0.16), transparent 70%);
+}
+.hero-blob-2 {
+  background: radial-gradient(circle, rgba(250, 247, 240, 0.06), transparent 70%);
+}
+.hero-blob-3 {
+  background: radial-gradient(circle, rgba(159, 18, 57, 0.22), transparent 70%);
+}
+.hero-line-accent {
+  background: linear-gradient(90deg, transparent, rgba(201, 151, 0, 0.40), transparent);
+}
+.hero-dots {
+  background-image: radial-gradient(rgba(250, 247, 240, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Hero eyebrow: gold treatment */
+.hero-eyebrow {
+  background: rgba(201, 151, 0, 0.13);
+  border-color: rgba(201, 151, 0, 0.28);
+  color: var(--gold-light);
+}
+.hero-eyebrow-dot {
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 160, 23, 0.85);
+}
+
+/* Hero CTA buttons: gold primary */
+.btn.primary {
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 4px 18px rgba(201, 151, 0, 0.42);
+}
+.btn.primary:hover {
+  background: var(--gold-light);
+  box-shadow: 0 8px 30px rgba(201, 151, 0, 0.60);
+}
+.icon-link:hover { color: var(--gold-light); }
+
+/* DM heraldic crest: decorative hero background accent */
+.hero-crest {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(300px, 35vw, 520px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.09;
+  user-select: none;
+}
+.hero-crest img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+@media (max-width: 900px) { .hero-crest { display: none; } }
+
+/* --- Highlights (expertise) section: editorial cream bg --- */
+.highlights-section {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+}
+
+/* Expertise cards with image at top */
+.highlight-card {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+.highlight-card::after {
+  background: linear-gradient(90deg, var(--crimson), var(--gold));
+}
+.highlight-card:hover {
+  border-color: rgba(159, 18, 57, 0.20);
+  box-shadow: 0 14px 44px rgba(59, 0, 24, 0.09);
+}
+.highlight-card-image-wrap {
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--cream-2);
+}
+.highlight-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.highlight-card:hover .highlight-card-image { transform: scale(1.05); }
+.highlight-card-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+/* Icon: crimson/gold editorial palette */
+.highlight-icon {
+  background: linear-gradient(135deg, rgba(159, 18, 57, 0.08), rgba(201, 151, 0, 0.06));
+  color: var(--crimson);
+  border-color: rgba(159, 18, 57, 0.16);
+}
+
+/* --- Projects section: cream background --- */
+.projects-section { background: var(--cream); }
+
+/* Project cards: image at top */
+.project-card-image-wrap {
+  margin: -24px -28px 20px; /* -24 leaves the 4px accent strip visible */
+  height: 185px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--cream-2);
+  position: relative;
+  z-index: 1;
+}
+.project-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover .project-card-image { transform: scale(1.04); }
+.project-card-image.is-placeholder {
+  object-fit: contain;
+  padding: 28px;
+  opacity: 0.07;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-2) 100%);
+  filter: sepia(0.6) hue-rotate(330deg);
+}
+
+/* Tag list and tech list: cream-aware palette */
+.tag-list span {
+  border-color: rgba(159, 18, 57, 0.22);
+  color: var(--crimson);
+  background: rgba(159, 18, 57, 0.05);
+}
+
+/* Filter pills: crimson active state */
+.filter-pill.active {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  box-shadow: 0 2px 8px rgba(159, 18, 57, 0.25);
+}
+
+/* About / Skills / Contact sections: warm cream bg */
+.about-section,
+.skills-section,
+.contact-section-wrap { background: var(--cream); }
+
+/* Pill grid: cream-aware */
+.pill-grid span {
+  background: linear-gradient(135deg, #fff8f0, #fff5e8);
+  color: var(--crimson-dark);
+  border-color: rgba(159, 18, 57, 0.15);
+}
+.pill-grid span:hover {
+  background: linear-gradient(135deg, rgba(159, 18, 57, 0.08), rgba(201, 151, 0, 0.06));
+  border-color: rgba(159, 18, 57, 0.28);
+  color: var(--crimson);
+}
+
+/* Skill group icon: crimson/gold */
+.skill-group-icon {
+  background: linear-gradient(135deg, rgba(159, 18, 57, 0.08), rgba(201, 151, 0, 0.06));
+  color: var(--crimson);
+  border-color: rgba(159, 18, 57, 0.15);
+}
+
+/* Contact link hover: crimson */
+.contact-links a:hover {
+  border-color: rgba(159, 18, 57, 0.28);
+  background: rgba(159, 18, 57, 0.05);
+  color: var(--crimson-dark);
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: rgba(159, 18, 57, 0.40);
+  box-shadow: 0 0 0 3px rgba(159, 18, 57, 0.07);
+}
+.contact-form button { background: var(--crimson); }
+.contact-form button:hover { background: var(--crimson-dark); box-shadow: 0 8px 24px rgba(159, 18, 57, 0.25); }
+
+/* Back link hover */
+.back-link:hover { border-color: rgba(159, 18, 57, 0.28); color: var(--crimson-dark); }
+
+/* Navbar: warm white tint */
+.navbar { background: rgba(250, 247, 240, 0.92); }
+.navbar.is-scrolled { background: rgba(250, 247, 240, 0.98); }
+.language-switch { background: var(--cream-2); }
+.language-switch button.active { background: var(--crimson); }
+
+/* Brand monogram: crimson */
+.brand span { background: linear-gradient(135deg, var(--crimson-dark), var(--crimson)); }
+
+/* Responsive: hide project card image on mobile to keep cards compact */
+@media (max-width: 640px) {
+  .project-card-image-wrap { height: 150px; }
+  .highlight-card-image-wrap { height: 130px; }
+  .hero-crest { display: none; }
+}
