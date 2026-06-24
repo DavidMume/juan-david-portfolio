@@ -1557,3 +1557,124 @@ body { background: var(--cream); }
   .highlight-card-image-wrap { height: 130px; }
   .hero-crest { display: none; }
 }
+
+/* ============================================================
+   M-BRAND IDENTITY — red-square M visual system
+   ============================================================ */
+
+/* --- Navbar: M logo image replaces initials block --- */
+.brand span { display: none; } /* hide old JDM span if lingering */
+.brand-logo-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+  transition: opacity 150ms ease;
+}
+.brand:hover .brand-logo-img { opacity: 0.88; }
+
+/* --- Hero: M editorial brand mark above eyebrow --- */
+.hero-brand-row {
+  margin-bottom: 18px;
+}
+.hero-brand-mark {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+}
+
+/* Hero crest: M editorial brand, more visible than old crest */
+.hero-crest { opacity: 0.11; }
+
+/* --- Footer: M logo in brand section --- */
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.footer-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+  flex-shrink: 0;
+}
+.footer-brand strong { display: block; margin-bottom: 0; }
+
+/* --- Editorial serif headings --- */
+.hero-content h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.section-heading h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+.contact-copy h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+/* --- Editorial section dividers --- */
+.section-heading { position: relative; }
+.section-heading::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--crimson);
+  margin-bottom: 18px;
+}
+.section-heading.centered::before { margin-left: auto; margin-right: auto; }
+
+/* --- Editorial card refinements: less rounded = more serious --- */
+.project-card { border-radius: 10px; }
+.highlight-card { border-radius: 10px; }
+.highlight-card-image-wrap { border-radius: 10px 10px 0 0; }
+.project-card-image-wrap { border-radius: 10px 10px 0 0; }
+.project-card-image-wrap { margin: -24px -28px 20px; border-radius: 10px 10px 0 0; }
+
+/* --- Project card: softer placeholder with M-brand tint --- */
+.project-card-image.is-placeholder {
+  background: linear-gradient(135deg, #f5ece0 0%, #ede2d0 100%);
+  filter: sepia(0.3) hue-rotate(330deg) brightness(0.85);
+  opacity: 0.10;
+}
+
+/* --- Eyebrow: clean editorial label style (no dot prefix, use rule) --- */
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+/* --- Strong editorial top rule on cards --- */
+.project-card::before { height: 3px; }
+
+/* --- Button: slightly more squared, editorial feel --- */
+.btn { border-radius: 6px; }
+.btn-card-primary { border-radius: 6px; }
+.btn-card-secondary { border-radius: 6px; }
+.filter-pill { border-radius: 4px; }
+
+/* --- Navbar: tighter, more editorial --- */
+.nav-links button { font-size: 0.84rem; letter-spacing: 0.01em; }
+.language-switch button { letter-spacing: 0.05em; }
+
+/* --- Section backgrounds: consistent warm cream --- */
+.highlights-section { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%); }
+.about-section { background: var(--cream); }
+.skills-section { background: var(--cream-2); }
+
+/* --- Responsive: brand logo on mobile --- */
+@media (max-width: 640px) {
+  .brand-logo-img { width: 34px; height: 34px; }
+  .hero-brand-mark { width: 44px; height: 44px; }
+}

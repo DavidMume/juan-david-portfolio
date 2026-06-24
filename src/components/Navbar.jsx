@@ -41,7 +41,11 @@ export default function Navbar() {
         onClick={() => setOpen(false)}
         aria-label={`${t.authorName} ${t.nav.brandLabel}`}
       >
-        <span>JDM</span>
+        <img
+          src="/images/brand/logo-m-red-square.png"
+          alt="M"
+          className="brand-logo-img"
+        />
         <strong>{t.authorName}</strong>
       </Link>
 

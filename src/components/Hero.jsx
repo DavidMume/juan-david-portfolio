@@ -16,9 +16,9 @@ export default function Hero() {
       <div className="hero-dots" aria-hidden="true" />
       <div className="hero-line-accent" aria-hidden="true" />
 
-      {/* DM heraldic crest — decorative background watermark */}
+      {/* M editorial brand — decorative background watermark */}
       <div className="hero-crest" aria-hidden="true">
-        <img src="/images/portfolio/01-hero-dm-editorial-crest.png" alt="" />
+        <img src="/images/portfolio/01-hero-m-editorial-brand.png" alt="" />
       </div>
 
       {/* Constrained content grid */}
@@ -39,6 +39,13 @@ export default function Hero() {
         </div>
 
         <div className="hero-content" data-reveal style={{ transitionDelay: '120ms' }}>
+          <div className="hero-brand-row" aria-hidden="true">
+            <img
+              src="/images/brand/logo-m-red-square.png"
+              alt=""
+              className="hero-brand-mark"
+            />
+          </div>
           <div className="hero-eyebrow">
             <span className="hero-eyebrow-dot" aria-hidden="true" />
             {t.hero.eyebrow}

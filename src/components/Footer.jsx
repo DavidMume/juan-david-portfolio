@@ -10,7 +10,14 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <strong>{t.authorName}</strong>
+          <div className="footer-brand-header">
+            <img
+              src="/images/brand/logo-m-red-square.png"
+              alt="M"
+              className="footer-logo-img"
+            />
+            <strong>{t.authorName}</strong>
+          </div>
           <p>{t.footer.text}</p>
           <div className="footer-links">
             <a href={`mailto:${contactDetails.email}`} aria-label="Email">
