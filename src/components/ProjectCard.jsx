@@ -1,40 +1,76 @@
-import { ArrowUpRight, Code2, Github, Globe } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Github,
+  Globe,
+  BookOpen,
+  BarChart3,
+  Map,
+  Bot,
+  FlaskConical,
+  Newspaper,
+  ExternalLink,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
+function CategoryIcon({ category }) {
+  switch (category) {
+    case 'data-journalism':
+      return <Newspaper size={18} />;
+    case 'data-science':
+      return <BarChart3 size={18} />;
+    case 'political-analysis':
+      return <BookOpen size={18} />;
+    case 'ai-tools':
+      return <Bot size={18} />;
+    case 'research':
+      return <FlaskConical size={18} />;
+    default:
+      return <Globe size={18} />;
+  }
+}
+
 export default function ProjectCard({ project, index }) {
   const { language, t } = useLanguage();
+
+  const hasLinks = project.liveUrl || project.repoUrl || project.articleUrl;
 
   return (
     <article
       className={`project-card accent-${project.accent}`}
       data-reveal
-      style={{ transitionDelay: `${index * 70}ms` }}
+      style={{ transitionDelay: `${index * 60}ms` }}
     >
-      <div className="project-icon" aria-hidden="true">
-        <Code2 size={22} />
+      {/* Card header: category chip + status badge */}
+      <div className="card-header">
+        <span className="category-chip">{project.categoryLabel[language]}</span>
+        <span className={`status-badge status-${project.status}`}>{project.statusLabel[language]}</span>
       </div>
 
-      {project.collection && (
-        <p className="project-collection">{project.collection[language]}</p>
-      )}
+      {/* Icon */}
+      <div className="project-icon" aria-hidden="true">
+        <CategoryIcon category={project.category} />
+      </div>
 
+      {/* Title */}
       <h3>{project.title[language]}</h3>
 
+      {/* Subtitle */}
       {project.subtitle && (
         <p className="project-subtitle">{project.subtitle[language]}</p>
       )}
 
-      <p>{project.description[language]}</p>
+      {/* Description */}
+      <p className="project-desc">{project.description[language]}</p>
 
-      {(project.date || project.category || project.status) && (
+      {/* Date + category meta */}
+      {project.date && (
         <div className="project-meta">
-          {project.date && <span>{project.date[language]}</span>}
-          {project.category && <span>{project.category[language]}</span>}
-          {project.status && <span>{project.status[language]}</span>}
+          <span>{project.date[language]}</span>
         </div>
       )}
 
+      {/* Tags */}
       {project.tags?.length > 0 && (
         <div className="tag-list">
           {project.tags.map((tag) => (
@@ -43,6 +79,7 @@ export default function ProjectCard({ project, index }) {
         </div>
       )}
 
+      {/* Technologies */}
       {project.technologies?.length > 0 && (
         <div className="tech-list">
           {project.technologies.map((tech) => (
@@ -51,29 +88,49 @@ export default function ProjectCard({ project, index }) {
         </div>
       )}
 
+      {/* Action buttons */}
       <div className="card-actions">
-        {project.liveUrl?.startsWith('http') ? (
-          <a href={project.liveUrl} target="_blank" rel="noreferrer">
-            <Globe size={15} />
-            {t.projects.viewAnalysis}
+        {/* Primary: live URL (external) */}
+        {project.liveUrl?.startsWith('http') && (
+          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn-card-primary">
+            <Globe size={14} />
+            {project.liveLabel?.[language] || t.projects.viewAnalysis}
           </a>
-        ) : (
-          <Link to={`/projects/${project.slug}`}>
-            {t.projects.viewProject}
-            <ArrowUpRight size={15} />
+        )}
+
+        {/* Primary: internal route */}
+        {project.liveUrl?.startsWith('/') && (
+          <Link to={project.liveUrl} className="btn-card-primary">
+            <ArrowUpRight size={14} />
+            {project.liveLabel?.[language] || t.projects.caseStudy}
           </Link>
         )}
+
+        {/* GitHub */}
         {project.repoUrl && (
-          <a href={project.repoUrl} target="_blank" rel="noreferrer">
-            <Github size={15} />
+          <a href={project.repoUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+            <Github size={14} />
             {t.projects.githubRepo}
           </a>
         )}
+
+        {/* Article */}
         {project.articleUrl && (
-          <a href={project.articleUrl} target="_blank" rel="noreferrer">
+          <a href={project.articleUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+            <ExternalLink size={14} />
             {t.projects.readArticle}
-            <ArrowUpRight size={15} />
           </a>
+        )}
+
+        {/* No links available */}
+        {!hasLinks && (
+          <span className="btn-card-muted">
+            {project.status === 'research' || project.status === 'concept'
+              ? language === 'es'
+                ? 'En desarrollo'
+                : 'In development'
+              : ''}
+          </span>
         )}
       </div>
     </article>
