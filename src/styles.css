@@ -1687,3 +1687,115 @@ body { background: var(--cream); }
   transition: color 0.15s ease;
 }
 .project-card-title-link:hover { color: var(--crimson); }
+
+/* ============================================================
+   HERO — CREAM EDITORIAL REDESIGN
+   Replaces the full-crimson gradient with a clean cream layout.
+   Crimson is used only as the masthead rule and photo-card accent.
+   ============================================================ */
+
+/* Cream background with thin crimson masthead rule at top */
+.hero {
+  background: var(--cream);
+  border-top: 4px solid var(--crimson);
+}
+
+/* Blobs: near-invisible on cream */
+.hero-blob-1 {
+  background: radial-gradient(circle, rgba(201, 151, 0, 0.05), transparent 70%);
+}
+.hero-blob-2 {
+  background: radial-gradient(circle, rgba(159, 18, 57, 0.03), transparent 70%);
+}
+.hero-blob-3 { background: none; }
+
+/* Dot grid: very faint on cream */
+.hero-dots {
+  background-image: radial-gradient(rgba(28, 25, 23, 0.022) 1px, transparent 1px);
+}
+
+/* Bottom rule: subtle */
+.hero-line-accent {
+  background: linear-gradient(90deg, transparent, rgba(159, 18, 57, 0.16), transparent);
+}
+
+/* Watermark crest: show as subtle dark mark on cream */
+.hero-crest { opacity: 0.05; }
+.hero-crest img { filter: none; }
+
+/* Eyebrow: crimson on cream (matches the rest of the site) */
+.hero-eyebrow {
+  background: rgba(159, 18, 57, 0.06);
+  border-color: rgba(159, 18, 57, 0.22);
+  color: var(--crimson);
+}
+.hero-eyebrow-dot {
+  background: var(--crimson);
+  box-shadow: 0 0 8px rgba(159, 18, 57, 0.65);
+}
+
+/* Typography: dark ink on cream */
+.hero-content h1 { color: var(--ink); }
+.hero-content h2 { color: #5C5548; font-weight: 500; }
+.hero-content > p { color: #6B6459; }
+
+/* CTA buttons: crimson primary, ink-bordered secondary */
+.btn.primary {
+  background: var(--crimson);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(159, 18, 57, 0.28);
+}
+.btn.primary:hover {
+  background: var(--crimson-dark);
+  box-shadow: 0 8px 28px rgba(159, 18, 57, 0.42);
+  transform: translateY(-2px);
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(28, 25, 23, 0.22);
+}
+.btn.secondary:hover {
+  background: rgba(28, 25, 23, 0.04);
+  border-color: rgba(28, 25, 23, 0.36);
+  transform: translateY(-2px);
+}
+
+/* Icon links: dark on cream */
+.icon-link { color: #7A7268; }
+.icon-link:hover { color: var(--crimson); }
+
+/* M brand mark: softer shadow on light background */
+.hero-brand-mark {
+  filter: drop-shadow(0 2px 8px rgba(159, 18, 57, 0.20));
+}
+
+/* Editorial portrait card — photo sits inside a framed container */
+.hero-media {
+  border: 1px solid rgba(28, 25, 23, 0.10);
+  border-top: 3px solid var(--crimson);
+  background: #fff;
+  overflow: hidden;
+  box-shadow:
+    0 6px 32px rgba(28, 25, 23, 0.10),
+    0 1px 4px rgba(28, 25, 23, 0.05);
+}
+.hero-media img {
+  border-radius: 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.profile-placeholder {
+  border: 1px dashed rgba(159, 18, 57, 0.22);
+  background: linear-gradient(145deg, #fff, var(--cream));
+  color: var(--ink);
+}
+.profile-placeholder span { color: rgba(28, 25, 23, 0.12); }
+
+/* Mobile: keep card frame but ensure it reads well stacked */
+@media (max-width: 768px) {
+  .hero-media {
+    border-top-width: 3px;
+    box-shadow: 0 4px 20px rgba(28, 25, 23, 0.08);
+  }
+}
