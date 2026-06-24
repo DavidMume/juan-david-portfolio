@@ -1678,3 +1678,12 @@ body { background: var(--cream); }
   .brand-logo-img { width: 34px; height: 34px; }
   .hero-brand-mark { width: 44px; height: 44px; }
 }
+
+/* --- Project card: clickable image cover and title --- */
+.project-card-cover-link { display: block; }
+.project-card-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.project-card-title-link:hover { color: var(--crimson); }

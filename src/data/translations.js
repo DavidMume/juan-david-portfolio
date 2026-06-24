@@ -148,10 +148,10 @@ export const translations = {
       projectsLabel: 'Projects',
       connectLabel: 'Connect',
       projectLinks: [
-        { label: 'Índice Chocorramo', url: 'https://chocorramo.juandamunoz.com' },
-        { label: 'Travel Planner', url: 'https://travel.juandamunoz.com' },
-        { label: 'StudentHelper', url: '/projects/studenthelper' },
-        { label: 'Colombia 2026', url: '/projects/colombia-2026-discourse' },
+        { label: 'Índice Chocorramo', url: '/chocorramo' },
+        { label: 'Travel Planner', url: '/travel' },
+        { label: 'StudentHelper', url: '/studenthelper' },
+        { label: 'Colombia 2026', url: '/discurso2026' },
       ],
     },
     notFound: {
@@ -309,10 +309,10 @@ export const translations = {
       projectsLabel: 'Proyectos',
       connectLabel: 'Conectar',
       projectLinks: [
-        { label: 'Índice Chocorramo', url: 'https://chocorramo.juandamunoz.com' },
-        { label: 'Travel Planner', url: 'https://travel.juandamunoz.com' },
-        { label: 'StudentHelper', url: '/projects/studenthelper' },
-        { label: 'Colombia 2026', url: '/projects/colombia-2026-discourse' },
+        { label: 'Índice Chocorramo', url: '/chocorramo' },
+        { label: 'Travel Planner', url: '/travel' },
+        { label: 'StudentHelper', url: '/studenthelper' },
+        { label: 'Colombia 2026', url: '/discurso2026' },
       ],
     },
     notFound: {

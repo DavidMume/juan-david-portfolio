@@ -4,83 +4,119 @@ Live: **https://juandamunoz.com**
 
 Personal bilingual portfolio for Juan David Muñoz Mendivelso, built with React, Vite and Tailwind CSS. The first visit opens a language gate, saves the selected language in `localStorage`, and then shows the portfolio in English or Spanish.
 
-## Domain Structure
+## Domain and routing strategy
 
-The domain `juandamunoz.com` is registered on Cloudflare. All projects use subdomains under this root.
+The domain `juandamunoz.com` is registered on Cloudflare. The portfolio SPA at that domain acts as the hub for all published work.
 
-### Main site
+### Routing approach: path-based, within the SPA
 
-| URL | Cloudflare Pages project |
+All project paths live under `juandamunoz.com` — no subdomains required for navigation:
+
+| Path | Project |
 |---|---|
-| `https://juandamunoz.com` | `juan-david-portfolio` |
-| `https://www.juandamunoz.com` | same — add both in Pages > Custom domains |
+| `https://juandamunoz.com` | Main portfolio |
+| `https://juandamunoz.com/chocorramo` | Índice Chocorramo |
+| `https://juandamunoz.com/votar` | Votar desde lejos |
+| `https://juandamunoz.com/transit` | SEQ Transit Predictor |
+| `https://juandamunoz.com/cepeda` | Iván Cepeda NLP Analysis |
+| `https://juandamunoz.com/patria-milagro` | Patria Milagro Analysis |
+| `https://juandamunoz.com/travel` | Colombia–Australia Travel Planner |
+| `https://juandamunoz.com/studenthelper` | StudentHelper AI case study |
+| `https://juandamunoz.com/waterbuilt` | WaterBuilt Site Vision |
+| `https://juandamunoz.com/fracking` | Fracking Papers NLP |
+| `https://juandamunoz.com/discurso2026` | Colombia 2026 Digital Discourse |
+| `https://juandamunoz.com/lockdown` | Lockdown App |
 
-### Project subdomains
+These are React Router routes inside the portfolio SPA. Each path renders the project detail page for that project. The URL stays at `juandamunoz.com/chocorramo` — no redirect, no subdomain. Clicking the project card title or image navigates to this internal path.
 
-| Subdomain | Project | Cloudflare type | Pages project / Worker name |
-|---|---|---|---|
-| `chocorramo.juandamunoz.com` | Índice Chocorramo | Pages | `indice-chocorramo` |
-| `votar.juandamunoz.com` | Votar desde lejos | Pages | `votar-desde-lejos` |
-| `cepeda.juandamunoz.com` | Cepeda NLP Analysis | Pages | `analisis-plan-gobierno-ivan-cepeda-2026-web` |
-| `patria-milagro.juandamunoz.com` | Patria Milagro Analysis | Pages | `patria-milagro-analysis-web` |
-| `travel.juandamunoz.com` | Colombia–Australia Travel Planner | Workers | `colombia-australia-travel-planner` |
-| `transit.juandamunoz.com` | SEQ Transit Predictor | External (Render) | set CNAME → `seq-transit-predictor.onrender.com` + configure in Render |
-| `studenthelper.juandamunoz.com` | StudentHelper (case study) | Redirect rule | redirect to `juandamunoz.com/projects/studenthelper` |
-| `waterbuilt.juandamunoz.com` | WaterBuilt Site Vision | — | no live site yet |
-| `fracking.juandamunoz.com` | Fracking Papers NLP | — | no live site yet |
-| `discurso2026.juandamunoz.com` | Colombia 2026 Discourse | — | no live site yet |
-
-### Where project links are stored
-
-The URL shown on each portfolio card is the `liveUrl` field in:
+The longer route form also works (same content, different URL):
 
 ```text
-src/data/projects.js
+https://juandamunoz.com/projects/chocorramo-index
+https://juandamunoz.com/projects/votar-desde-lejos
+...
 ```
 
-The footer quick-links are in:
+### Why not a Cloudflare Worker reverse proxy?
 
-```text
-src/data/translations.js  →  footer.projectLinks  (both en and es)
-```
+All deployed projects are Vite SPAs built with `base: '/'`. Their HTML files reference assets as `/assets/index-abc.js` — absolute paths from the origin. A Worker proxying `juandamunoz.com/chocorramo` would cause the browser to fetch `juandamunoz.com/assets/index-abc.js`, which does not exist at that path. The proxy approach would require rebuilding every project with a different Vite base path — too invasive. The internal route approach is the safe and stable alternative.
 
-### Adding a new project subdomain (Cloudflare Pages)
+### External "launch" links in project detail pages
 
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages**
-2. Open the correct Pages project
-3. **Custom domains** → **Set up a domain**
-4. Enter the subdomain (e.g. `chocorramo.juandamunoz.com`)
-5. Cloudflare adds the CNAME automatically (domain is already on Cloudflare)
-6. SSL issues within seconds
-7. Update `liveUrl` in `src/data/projects.js` and redeploy
+Each project detail page has a "Launch" button that goes to the actual deployed app. Those external URLs are stored in `liveUrl` in `src/data/projects.js`:
 
-### Adding a new Workers custom domain
+| Project | External launch URL |
+|---|---|
+| Índice Chocorramo | `https://indice-chocorramo.pages.dev` |
+| Votar desde lejos | `https://votar-desde-lejos.pages.dev` |
+| SEQ Transit Predictor | `https://seq-transit-predictor.onrender.com` |
+| Iván Cepeda Analysis | `https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev` |
+| Patria Milagro | `https://patria-milagro-analysis-web.pages.dev` |
+| Travel Planner | `https://colombia-australia-travel-planner.juan-mu-me.workers.dev/` |
 
-1. **Workers & Pages** → open the Worker
-2. **Settings** → **Triggers** → **Custom Domains** → **Add Custom Domain**
-3. Enter the subdomain (e.g. `travel.juandamunoz.com`)
+You can replace these with custom subdomains (e.g. `chocorramo.juandamunoz.com`) once you configure them in the Cloudflare dashboard. The internal portfolio paths (`/chocorramo`) work independently of those external URLs.
 
-### Adding a custom domain for Render (SEQ Transit)
+### Cloudflare Pages: connect juandamunoz.com
 
-1. In [Render dashboard](https://dashboard.render.com) → open the service → **Settings** → **Custom Domains** → add `transit.juandamunoz.com`
-2. In Cloudflare DNS: add **CNAME** `transit` → `seq-transit-predictor.onrender.com` with proxy **off** (grey cloud)
-3. Render will issue its own SSL certificate
+The portfolio is deployed under the Cloudflare Pages project `juan-david-portfolio`. To connect the custom domain:
 
-### Cloudflare Pages build settings (for all Vite projects)
+1. **Cloudflare Dashboard → Workers & Pages → `juan-david-portfolio` → Custom domains**
+2. Add `juandamunoz.com`
+3. Add `www.juandamunoz.com`
 
-```text
-Framework preset:      Vite
-Build command:         npm run build
-Build output directory: dist
-Root directory:        /
-Node.js version:       20 or newer
-```
+Cloudflare adds the DNS records automatically and issues SSL within seconds.
 
-SPA routing is handled by `public/_redirects`:
+### SPA routing (how all paths work without a server)
+
+`public/_redirects` contains a single catch-all:
 
 ```text
 /*    /index.html   200
 ```
+
+This tells Cloudflare Pages to serve `index.html` for every path. React Router then reads the URL and renders the right component. No server config or additional Cloudflare rules are needed.
+
+### Where project data is stored
+
+| What | File |
+|---|---|
+| Card title / image link target | `project.shortPath` in `src/data/projects.js` |
+| External "launch" button URL | `project.liveUrl` in `src/data/projects.js` |
+| Footer quick-links | `src/data/translations.js` → `footer.projectLinks` (EN + ES) |
+| React Router routes | `src/App.jsx` |
+
+### Adding a new project path
+
+1. Add the project object to `src/data/projects.js` with a `shortPath` field (e.g. `shortPath: 'myproject'`)
+2. Add the route to `src/App.jsx`: `<Route path="/myproject" element={<ProjectDetail slug="my-project-slug" />} />`
+3. Add a footer link in `src/data/translations.js` under `footer.projectLinks` (both `en` and `es`)
+4. `npm run build` and push — Cloudflare Pages redeploys automatically via GitHub
+
+### Optional: custom subdomains for the external apps
+
+If you want `chocorramo.juandamunoz.com` to also work (as a direct link to the tool without the portfolio wrapper):
+
+**For Cloudflare Pages projects:**
+
+> Cloudflare Dashboard → Workers & Pages → [project] → Custom domains → Set up a domain
+
+| Pages project | Custom domain to add |
+|---|---|
+| `indice-chocorramo` | `chocorramo.juandamunoz.com` |
+| `votar-desde-lejos` | `votar.juandamunoz.com` |
+| `analisis-plan-gobierno-ivan-cepeda-2026-web` | `cepeda.juandamunoz.com` |
+| `patria-milagro-analysis-web` | `patria-milagro.juandamunoz.com` |
+
+**For the Travel Planner (Cloudflare Worker):**
+
+> Workers & Pages → Worker → Settings → Triggers → Custom Domains → Add: `travel.juandamunoz.com`
+
+**For SEQ Transit (Render.com):**
+
+1. Render dashboard → service → Settings → Custom Domains → add `transit.juandamunoz.com`
+2. Cloudflare DNS: CNAME `transit` → `seq-transit-predictor.onrender.com` with proxy **off**
+
+After configuring these, update `liveUrl` in `src/data/projects.js` to the subdomain URLs and push.
 
 ---
 

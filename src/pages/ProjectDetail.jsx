@@ -4,8 +4,9 @@ import { useLanguage } from '../context/LanguageContext';
 import { projects } from '../data/projects';
 import NotFound from './NotFound';
 
-export default function ProjectDetail() {
-  const { slug } = useParams();
+export default function ProjectDetail({ slug: slugProp }) {
+  const { slug: slugParam } = useParams();
+  const slug = slugProp ?? slugParam;
   const { language, t } = useLanguage();
   const project = projects.find((p) => p.slug === slug);
 

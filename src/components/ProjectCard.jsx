@@ -50,16 +50,18 @@ export default function ProjectCard({ project, index }) {
       data-reveal
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      {/* Project image or DM crest placeholder */}
-      <div className="project-card-image-wrap">
-        <img
-          src={cardImage || PLACEHOLDER_IMG}
-          alt={cardImage ? project.title[language] : ''}
-          aria-hidden={isPlaceholder}
-          className={`project-card-image${isPlaceholder ? ' is-placeholder' : ''}`}
-          loading="lazy"
-        />
-      </div>
+      {/* Project image — links to internal short path */}
+      <Link to={`/${project.shortPath}`} className="project-card-cover-link" tabIndex={-1} aria-hidden="true">
+        <div className="project-card-image-wrap">
+          <img
+            src={cardImage || PLACEHOLDER_IMG}
+            alt={cardImage ? project.title[language] : ''}
+            aria-hidden={isPlaceholder}
+            className={`project-card-image${isPlaceholder ? ' is-placeholder' : ''}`}
+            loading="lazy"
+          />
+        </div>
+      </Link>
 
       {/* Card header: category chip + status badge */}
       <div className="card-header">
@@ -72,8 +74,12 @@ export default function ProjectCard({ project, index }) {
         <CategoryIcon category={project.category} />
       </div>
 
-      {/* Title */}
-      <h3>{project.title[language]}</h3>
+      {/* Title — links to internal short path */}
+      <h3>
+        <Link to={`/${project.shortPath}`} className="project-card-title-link">
+          {project.title[language]}
+        </Link>
+      </h3>
 
       {/* Subtitle */}
       {project.subtitle && (
