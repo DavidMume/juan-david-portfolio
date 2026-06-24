@@ -18,7 +18,7 @@ export default function Hero() {
 
       {/* M editorial brand — decorative background watermark */}
       <div className="hero-crest" aria-hidden="true">
-        <img src="/images/portfolio/01-hero-m-editorial-brand.png" alt="" />
+        <img src="/images/brand/02-logo-m-red-square-transparent.png" alt="" />
       </div>
 
       {/* Constrained content grid */}
@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="hero-content" data-reveal style={{ transitionDelay: '120ms' }}>
           <div className="hero-brand-row" aria-hidden="true">
             <img
-              src="/images/brand/logo-m-red-square.png"
+              src="/images/brand/01-logo-m-red-square-1024.png"
               alt=""
               className="hero-brand-mark"
             />

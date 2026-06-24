@@ -16,10 +16,11 @@ export const translations = {
       primaryLabel: 'Primary navigation',
     },
     gate: {
-      title: 'Choose your language / Elige tu idioma',
-      subtitle: 'Welcome to my portfolio / Bienvenido a mi portafolio',
+      title: 'Choose your language · Elige tu idioma',
+      subtitle: 'A bilingual portfolio of economics, data and public analysis.\nUn portafolio bilingüe de economía, datos y análisis público.',
       english: 'English',
       spanish: 'Español',
+      byline: 'Juan David Muñoz · juandamunoz.com',
     },
     hero: {
       eyebrow: 'Economist · Data Scientist · Technology Builder',
@@ -177,10 +178,11 @@ export const translations = {
       primaryLabel: 'Navegación principal',
     },
     gate: {
-      title: 'Choose your language / Elige tu idioma',
-      subtitle: 'Welcome to my portfolio / Bienvenido a mi portafolio',
+      title: 'Choose your language · Elige tu idioma',
+      subtitle: 'A bilingual portfolio of economics, data and public analysis.\nUn portafolio bilingüe de economía, datos y análisis público.',
       english: 'English',
       spanish: 'Español',
+      byline: 'Juan David Muñoz · juandamunoz.com',
     },
     hero: {
       eyebrow: 'Economista · Científico de datos · Constructor tecnológico',

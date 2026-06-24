@@ -18,7 +18,7 @@ const PROJECT_IMAGES = {
   'votar-desde-lejos':      '/images/portfolio/09-project-votar-desde-lejos.png',
   'seq-transit-predictor':  '/images/portfolio/10-project-seq-transit-predictor.png',
 };
-const PLACEHOLDER_IMG = '/images/brand/logo-m-red-square.png';
+const PLACEHOLDER_IMG = '/images/brand/11-project-placeholder-editorial.png';
 
 function CategoryIcon({ category }) {
   switch (category) {

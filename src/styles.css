@@ -116,6 +116,7 @@ button, input, textarea { font: inherit; }
 [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 
 /* === LANGUAGE GATE === */
+/* === LANGUAGE GATE — editorial M-brand cover === */
 .language-gate {
   position: fixed;
   inset: 0;
@@ -123,66 +124,88 @@ button, input, textarea { font: inherit; }
   display: grid;
   place-items: center;
   padding: 24px;
-  background:
-    linear-gradient(rgba(6, 13, 26, 0.88), rgba(10, 22, 40, 0.94)),
-    radial-gradient(circle at 70% 20%, rgba(6, 182, 212, 0.28), transparent 24rem),
-    var(--navy);
+  background: var(--cream);
+}
+.gate-masthead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--crimson);
 }
 .gate-panel {
-  width: min(720px, 100%);
-  padding: clamp(32px, 6vw, 64px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  width: min(480px, 100%);
+  padding: clamp(40px, 7vw, 72px) clamp(32px, 6vw, 56px);
   text-align: center;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(24px);
+  color: var(--ink);
 }
-.gate-icon {
-  display: grid;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 24px;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(6, 182, 212, 0.12);
-  color: var(--cyan-light);
-  border: 1px solid rgba(6, 182, 212, 0.25);
+.gate-brand {
+  margin-bottom: 32px;
 }
-.gate-panel .eyebrow {
-  color: var(--cyan-light);
-  justify-content: center;
-  margin-bottom: 10px;
+.gate-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
 }
-.gate-panel .eyebrow::before { background: var(--cyan-light); }
-.gate-panel h1 { margin: 0 0 10px; font-size: clamp(2rem, 7vw, 4rem); line-height: 1.05; }
-.gate-panel > p:not(.eyebrow) { color: var(--slate-400); font-size: 1.1rem; margin: 0; }
+.gate-rule {
+  width: 36px;
+  height: 3px;
+  background: var(--crimson);
+  margin: 0 auto 28px;
+}
+.gate-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 3.5vw, 2rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.gate-subtitle {
+  font-size: 0.9rem;
+  color: #5C5548;
+  line-height: 1.7;
+  margin: 0 0 40px;
+  white-space: pre-line;
+}
 .gate-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 32px;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 .gate-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 64px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.07);
-  color: #fff;
+  min-height: 54px;
+  border: 1px solid rgba(28, 25, 23, 0.22);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink);
   cursor: pointer;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 .gate-actions button:hover {
-  background: rgba(6, 182, 212, 0.18);
-  border-color: rgba(6, 182, 212, 0.4);
-  transform: translateY(-2px);
+  background: var(--crimson);
+  border-color: var(--crimson);
+  color: #fff;
+}
+.gate-byline {
+  font-size: 0.68rem;
+  color: #9A9288;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 /* === NAVBAR === */
@@ -1309,21 +1332,21 @@ button, input, textarea { font: inherit; }
 }
 
 /* ============================================================
-   EDITORIAL IDENTITY — DM Portfolio visual overrides
-   Palette: deep crimson · warm gold · cream/ivory · ink
+   EDITORIAL IDENTITY — M brand visual system
+   Palette: editorial red #B00020 · muted gold · ivory · ink
    ============================================================ */
 
-/* --- New design tokens --- */
+/* --- Brand design tokens --- */
 :root {
-  --crimson:       #9F1239;
-  --crimson-dark:  #6B0827;
-  --crimson-deep:  #3B0018;
-  --gold:          #C99700;
-  --gold-light:    #D4A017;
-  --gold-pale:     rgba(201, 151, 0, 0.12);
-  --cream:         #FAF7F0;
-  --cream-2:       #F3EDE0;
-  --ink:           #1C1917;
+  --crimson:       #B00020;
+  --crimson-dark:  #87001A;
+  --crimson-deep:  #3D0009;
+  --gold:          #C9A227;
+  --gold-light:    #D4AE3C;
+  --gold-pale:     rgba(201, 162, 39, 0.12);
+  --cream:         #FFFDF7;
+  --cream-2:       #F7F0DF;
+  --ink:           #111111;
 }
 
 /* --- Body: warm cream background --- */
@@ -1339,9 +1362,6 @@ body { background: var(--cream); }
 .eyebrow { color: var(--crimson); }
 .eyebrow::before { background: var(--crimson); }
 
-/* Preserve gate panel eyebrow (stays cyan-light on dark bg) */
-.gate-panel .eyebrow { color: var(--cyan-light); }
-.gate-panel .eyebrow::before { background: var(--cyan-light); }
 /* Preserve detail-hero eyebrow */
 .detail-hero .eyebrow { color: var(--cyan-light); }
 .detail-hero .eyebrow::before { background: var(--cyan-light); }
@@ -1357,10 +1377,10 @@ body { background: var(--cream); }
   background: radial-gradient(circle, rgba(250, 247, 240, 0.06), transparent 70%);
 }
 .hero-blob-3 {
-  background: radial-gradient(circle, rgba(159, 18, 57, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(176, 0, 32, 0.22), transparent 70%);
 }
 .hero-line-accent {
-  background: linear-gradient(90deg, transparent, rgba(201, 151, 0, 0.40), transparent);
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.40), transparent);
 }
 .hero-dots {
   background-image: radial-gradient(rgba(250, 247, 240, 0.045) 1px, transparent 1px);
@@ -1369,8 +1389,8 @@ body { background: var(--cream); }
 
 /* Hero eyebrow: gold treatment */
 .hero-eyebrow {
-  background: rgba(201, 151, 0, 0.13);
-  border-color: rgba(201, 151, 0, 0.28);
+  background: rgba(201, 162, 39, 0.13);
+  border-color: rgba(201, 162, 39, 0.28);
   color: var(--gold-light);
 }
 .hero-eyebrow-dot {
@@ -1382,11 +1402,11 @@ body { background: var(--cream); }
 .btn.primary {
   background: var(--gold);
   color: var(--ink);
-  box-shadow: 0 4px 18px rgba(201, 151, 0, 0.42);
+  box-shadow: 0 4px 18px rgba(201, 162, 39, 0.42);
 }
 .btn.primary:hover {
   background: var(--gold-light);
-  box-shadow: 0 8px 30px rgba(201, 151, 0, 0.60);
+  box-shadow: 0 8px 30px rgba(201, 162, 39, 0.60);
 }
 .icon-link:hover { color: var(--gold-light); }
 
@@ -1425,7 +1445,7 @@ body { background: var(--cream); }
   background: linear-gradient(90deg, var(--crimson), var(--gold));
 }
 .highlight-card:hover {
-  border-color: rgba(159, 18, 57, 0.20);
+  border-color: rgba(176, 0, 32, 0.20);
   box-shadow: 0 14px 44px rgba(59, 0, 24, 0.09);
 }
 .highlight-card-image-wrap {
@@ -1453,9 +1473,9 @@ body { background: var(--cream); }
 }
 /* Icon: crimson/gold editorial palette */
 .highlight-icon {
-  background: linear-gradient(135deg, rgba(159, 18, 57, 0.08), rgba(201, 151, 0, 0.06));
+  background: linear-gradient(135deg, rgba(176, 0, 32, 0.08), rgba(201, 162, 39, 0.06));
   color: var(--crimson);
-  border-color: rgba(159, 18, 57, 0.16);
+  border-color: rgba(176, 0, 32, 0.16);
 }
 
 /* --- Projects section: cream background --- */
@@ -1490,16 +1510,16 @@ body { background: var(--cream); }
 
 /* Tag list and tech list: cream-aware palette */
 .tag-list span {
-  border-color: rgba(159, 18, 57, 0.22);
+  border-color: rgba(176, 0, 32, 0.22);
   color: var(--crimson);
-  background: rgba(159, 18, 57, 0.05);
+  background: rgba(176, 0, 32, 0.05);
 }
 
 /* Filter pills: crimson active state */
 .filter-pill.active {
   background: var(--crimson);
   border-color: var(--crimson);
-  box-shadow: 0 2px 8px rgba(159, 18, 57, 0.25);
+  box-shadow: 0 2px 8px rgba(176, 0, 32, 0.25);
 }
 
 /* About / Skills / Contact sections: warm cream bg */
@@ -1511,36 +1531,36 @@ body { background: var(--cream); }
 .pill-grid span {
   background: linear-gradient(135deg, #fff8f0, #fff5e8);
   color: var(--crimson-dark);
-  border-color: rgba(159, 18, 57, 0.15);
+  border-color: rgba(176, 0, 32, 0.15);
 }
 .pill-grid span:hover {
-  background: linear-gradient(135deg, rgba(159, 18, 57, 0.08), rgba(201, 151, 0, 0.06));
-  border-color: rgba(159, 18, 57, 0.28);
+  background: linear-gradient(135deg, rgba(176, 0, 32, 0.08), rgba(201, 162, 39, 0.06));
+  border-color: rgba(176, 0, 32, 0.28);
   color: var(--crimson);
 }
 
 /* Skill group icon: crimson/gold */
 .skill-group-icon {
-  background: linear-gradient(135deg, rgba(159, 18, 57, 0.08), rgba(201, 151, 0, 0.06));
+  background: linear-gradient(135deg, rgba(176, 0, 32, 0.08), rgba(201, 162, 39, 0.06));
   color: var(--crimson);
-  border-color: rgba(159, 18, 57, 0.15);
+  border-color: rgba(176, 0, 32, 0.15);
 }
 
 /* Contact link hover: crimson */
 .contact-links a:hover {
-  border-color: rgba(159, 18, 57, 0.28);
-  background: rgba(159, 18, 57, 0.05);
+  border-color: rgba(176, 0, 32, 0.28);
+  background: rgba(176, 0, 32, 0.05);
   color: var(--crimson-dark);
 }
 .contact-form input:focus, .contact-form textarea:focus {
-  border-color: rgba(159, 18, 57, 0.40);
-  box-shadow: 0 0 0 3px rgba(159, 18, 57, 0.07);
+  border-color: rgba(176, 0, 32, 0.40);
+  box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.07);
 }
 .contact-form button { background: var(--crimson); }
-.contact-form button:hover { background: var(--crimson-dark); box-shadow: 0 8px 24px rgba(159, 18, 57, 0.25); }
+.contact-form button:hover { background: var(--crimson-dark); box-shadow: 0 8px 24px rgba(176, 0, 32, 0.25); }
 
 /* Back link hover */
-.back-link:hover { border-color: rgba(159, 18, 57, 0.28); color: var(--crimson-dark); }
+.back-link:hover { border-color: rgba(176, 0, 32, 0.28); color: var(--crimson-dark); }
 
 /* Navbar: warm white tint */
 .navbar { background: rgba(250, 247, 240, 0.92); }
@@ -1702,10 +1722,10 @@ body { background: var(--cream); }
 
 /* Blobs: near-invisible on cream */
 .hero-blob-1 {
-  background: radial-gradient(circle, rgba(201, 151, 0, 0.05), transparent 70%);
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.05), transparent 70%);
 }
 .hero-blob-2 {
-  background: radial-gradient(circle, rgba(159, 18, 57, 0.03), transparent 70%);
+  background: radial-gradient(circle, rgba(176, 0, 32, 0.03), transparent 70%);
 }
 .hero-blob-3 { background: none; }
 
@@ -1716,7 +1736,7 @@ body { background: var(--cream); }
 
 /* Bottom rule: subtle */
 .hero-line-accent {
-  background: linear-gradient(90deg, transparent, rgba(159, 18, 57, 0.16), transparent);
+  background: linear-gradient(90deg, transparent, rgba(176, 0, 32, 0.16), transparent);
 }
 
 /* Watermark crest: show as subtle dark mark on cream */
@@ -1725,13 +1745,13 @@ body { background: var(--cream); }
 
 /* Eyebrow: crimson on cream (matches the rest of the site) */
 .hero-eyebrow {
-  background: rgba(159, 18, 57, 0.06);
-  border-color: rgba(159, 18, 57, 0.22);
+  background: rgba(176, 0, 32, 0.06);
+  border-color: rgba(176, 0, 32, 0.22);
   color: var(--crimson);
 }
 .hero-eyebrow-dot {
   background: var(--crimson);
-  box-shadow: 0 0 8px rgba(159, 18, 57, 0.65);
+  box-shadow: 0 0 8px rgba(176, 0, 32, 0.65);
 }
 
 /* Typography: dark ink on cream */
@@ -1743,11 +1763,11 @@ body { background: var(--cream); }
 .btn.primary {
   background: var(--crimson);
   color: #fff;
-  box-shadow: 0 4px 18px rgba(159, 18, 57, 0.28);
+  box-shadow: 0 4px 18px rgba(176, 0, 32, 0.28);
 }
 .btn.primary:hover {
   background: var(--crimson-dark);
-  box-shadow: 0 8px 28px rgba(159, 18, 57, 0.42);
+  box-shadow: 0 8px 28px rgba(176, 0, 32, 0.42);
   transform: translateY(-2px);
 }
 .btn.secondary {
@@ -1767,7 +1787,7 @@ body { background: var(--cream); }
 
 /* M brand mark: softer shadow on light background */
 .hero-brand-mark {
-  filter: drop-shadow(0 2px 8px rgba(159, 18, 57, 0.20));
+  filter: drop-shadow(0 2px 8px rgba(176, 0, 32, 0.20));
 }
 
 /* Editorial portrait card — photo sits inside a framed container */
@@ -1786,7 +1806,7 @@ body { background: var(--cream); }
   mask-image: none;
 }
 .profile-placeholder {
-  border: 1px dashed rgba(159, 18, 57, 0.22);
+  border: 1px dashed rgba(176, 0, 32, 0.22);
   background: linear-gradient(145deg, #fff, var(--cream));
   color: var(--ink);
 }

@@ -42,7 +42,7 @@ export default function Navbar() {
         aria-label={`${t.authorName} ${t.nav.brandLabel}`}
       >
         <img
-          src="/images/brand/logo-m-red-square.png"
+          src="/images/brand/01-logo-m-red-square-1024.png"
           alt="M"
           className="brand-logo-img"
         />
