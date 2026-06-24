@@ -4,57 +4,132 @@ Live: **https://juandamunoz.com**
 
 Personal bilingual portfolio for Juan David Muñoz Mendivelso, built with React, Vite and Tailwind CSS. The first visit opens a language gate, saves the selected language in `localStorage`, and then shows the portfolio in English or Spanish.
 
-## Domain and routing strategy
+---
 
-The domain `juandamunoz.com` is registered on Cloudflare. The portfolio SPA at that domain acts as the hub for all published work.
+## Brand identity
 
-### Routing approach: path-based, within the SPA
+### Primary red
+```
+#B00020
+```
+Used consistently for: logo areas, active buttons, hover states, section accents, links, badges, language selector, editorial rules and borders.
 
-All project paths live under `juandamunoz.com` — no subdomains required for navigation:
+Do not introduce other reds, pinks, purples, blues or gradients. Every tint of red on the site is derived from `#B00020`.
 
-| Path | Project |
-|---|---|
-| `https://juandamunoz.com` | Main portfolio |
-| `https://juandamunoz.com/chocorramo` | Índice Chocorramo |
-| `https://juandamunoz.com/votar` | Votar desde lejos |
-| `https://juandamunoz.com/transit` | SEQ Transit Predictor |
-| `https://juandamunoz.com/cepeda` | Iván Cepeda NLP Analysis |
-| `https://juandamunoz.com/patria-milagro` | Patria Milagro Analysis |
-| `https://juandamunoz.com/travel` | Colombia–Australia Travel Planner |
-| `https://juandamunoz.com/studenthelper` | StudentHelper AI case study |
-| `https://juandamunoz.com/waterbuilt` | WaterBuilt Site Vision |
-| `https://juandamunoz.com/fracking` | Fracking Papers NLP |
-| `https://juandamunoz.com/discurso2026` | Colombia 2026 Digital Discourse |
-| `https://juandamunoz.com/lockdown` | Lockdown App |
+### Color tokens (CSS `:root` in `src/styles.css`)
 
-These are React Router routes inside the portfolio SPA. Each path renders the project detail page for that project. The URL stays at `juandamunoz.com/chocorramo` — no redirect, no subdomain. Clicking the project card title or image navigates to this internal path.
+| Token | Value | Use |
+|---|---|---|
+| `--crimson` | `#B00020` | Primary brand red |
+| `--crimson-dark` | `#87001A` | Darker red for depth |
+| `--crimson-deep` | `#3D0009` | Near-black red for extremes |
+| `--gold` | `#C9A227` | Secondary accent |
+| `--cream` | `#FFFDF7` | Main background |
+| `--cream-2` | `#F7F0DF` | Secondary background |
+| `--ink` | `#111111` | Text color |
 
-The longer route form also works (same content, different URL):
+### Brand assets
+
+All brand assets are stored in:
 
 ```text
-https://juandamunoz.com/projects/chocorramo-index
-https://juandamunoz.com/projects/votar-desde-lejos
-...
+public/images/brand/
 ```
 
-### Why not a Cloudflare Worker reverse proxy?
-
-All deployed projects are Vite SPAs built with `base: '/'`. Their HTML files reference assets as `/assets/index-abc.js` — absolute paths from the origin. A Worker proxying `juandamunoz.com/chocorramo` would cause the browser to fetch `juandamunoz.com/assets/index-abc.js`, which does not exist at that path. The proxy approach would require rebuilding every project with a different Vite base path — too invasive. The internal route approach is the safe and stable alternative.
-
-### External "launch" links in project detail pages
-
-Each project detail page has a "Launch" button that goes to the actual deployed app. Those external URLs are stored in `liveUrl` in `src/data/projects.js`:
-
-| Project | External launch URL |
+| File | Use |
 |---|---|
-| Índice Chocorramo | `https://indice-chocorramo.pages.dev` |
-| Votar desde lejos | `https://votar-desde-lejos.pages.dev` |
-| SEQ Transit Predictor | `https://seq-transit-predictor.onrender.com` |
-| Iván Cepeda Analysis | `https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev` |
-| Patria Milagro | `https://patria-milagro-analysis-web.pages.dev` |
-| Travel Planner | `https://colombia-australia-travel-planner.juan-mu-me.workers.dev/` |
+| `01-logo-m-red-square-1024.png` | Primary logo — navbar (38px), hero brand mark (52px), language gate (80px) |
+| `02-logo-m-red-square-transparent.png` | Hero background watermark (opacity 0.05) |
+| `03-logo-m-red-square-with-border.png` | Alternative logo with border |
+| `04-logo-m-rounded-app-icon.png` | Rounded app icon variant |
+| `07-horizontal-lockup-ivory.png` | Horizontal brand lockup (ivory background) |
+| `08-vertical-lockup-ivory.png` | Vertical brand lockup (ivory background) |
+| `09-og-social-banner.png` | OG/Twitter social preview image (1200×630) |
+| `10-editorial-section-divider-transparent.png` | Editorial section divider accent |
+| `11-project-placeholder-editorial.png` | Project card placeholder for projects without a screenshot |
 
-You can replace these with custom subdomains (e.g. `chocorramo.juandamunoz.com`) once you configure them in the Cloudflare dashboard. The internal portfolio paths (`/chocorramo`) work independently of those external URLs.
+### Favicon / browser icon
+
+Favicon files are stored directly in `public/`:
+
+```text
+public/favicon.png          ← 32×32, used as default
+public/favicon-16x16.png
+public/favicon-32x32.png
+public/favicon-48x48.png
+public/favicon-64x64.png
+public/favicon-180x180.png  ← Apple touch icon
+public/favicon-192x192.png
+public/favicon-512x512.png
+```
+
+All referenced in `index.html`. To update the favicon, replace the files and rebuild.
+
+### Updating the logo
+
+Logo references live in three component files:
+
+| Component | Logo use |
+|---|---|
+| `src/components/Navbar.jsx` | `01-logo-m-red-square-1024.png` at 38×38px |
+| `src/components/Hero.jsx` | Brand mark at 52×52px + watermark `02-logo-m-red-square-transparent.png` |
+| `src/components/LanguageGate.jsx` | `01-logo-m-red-square-1024.png` at 80×80px |
+
+---
+
+## Domain and routing strategy
+
+The domain `juandamunoz.com` is registered on Cloudflare. The portfolio SPA at that domain is the editorial hub. Each live project runs under its own subdomain.
+
+### Main portfolio
+
+| URL | Content |
+|---|---|
+| `https://juandamunoz.com` | Main portfolio hub |
+| `https://juandamunoz.com/chocorramo` | Índice Chocorramo — case study page |
+| `https://juandamunoz.com/votar` | Votar desde lejos — case study page |
+| `https://juandamunoz.com/transit` | SEQ Transit Predictor — case study page |
+| `https://juandamunoz.com/cepeda` | Iván Cepeda NLP Analysis — case study page |
+| `https://juandamunoz.com/patria-milagro` | Patria Milagro Analysis — case study page |
+| `https://juandamunoz.com/travel` | Colombia–Australia Travel Planner — case study page |
+| `https://juandamunoz.com/studenthelper` | StudentHelper AI — case study page |
+| `https://juandamunoz.com/waterbuilt` | WaterBuilt Site Vision — case study page |
+| `https://juandamunoz.com/fracking` | Fracking Papers NLP — case study page |
+| `https://juandamunoz.com/discurso2026` | Colombia 2026 Digital Discourse — case study page |
+| `https://juandamunoz.com/lockdown` | Lockdown App — case study page |
+
+These are React Router routes inside the portfolio SPA. Clicking a card title or image navigates to the case study page at `juandamunoz.com/<path>` — no server redirect needed.
+
+### Live project subdomains
+
+Each deployed project has its own subdomain that takes visitors directly to the working tool:
+
+| Subdomain | Live project |
+|---|---|
+| `https://chocorramo.juandamunoz.com` | Índice Chocorramo — live tool |
+| `https://votar.juandamunoz.com` | Votar desde lejos — live tool |
+| `https://transit.juandamunoz.com` | SEQ Transit Predictor — live demo |
+| `https://cepeda.juandamunoz.com` | Iván Cepeda NLP Analysis — live analysis |
+| `https://patria-milagro.juandamunoz.com` | Patria Milagro Analysis — live analysis |
+| `https://travel.juandamunoz.com` | Colombia–Australia Travel Planner — live tool |
+
+These subdomain URLs are stored in `liveUrl` in `src/data/projects.js` and appear as the primary "Live tool" button on each project card.
+
+### Adding a new project subdomain
+
+1. In the Cloudflare dashboard, go to the relevant project under Workers & Pages → Custom domains and add `newproject.juandamunoz.com`.
+2. Update `liveUrl` in `src/data/projects.js` to `https://newproject.juandamunoz.com`.
+3. `npm run build` and push — Cloudflare Pages redeploys via GitHub.
+
+### Where project data is stored
+
+| What | File |
+|---|---|
+| Card title / image link target | `project.shortPath` in `src/data/projects.js` |
+| "Live tool" button URL | `project.liveUrl` in `src/data/projects.js` |
+| Button label (bilingual) | `project.liveLabel` in `src/data/projects.js` |
+| Footer quick-links | `src/data/translations.js` → `footer.projectLinks` (EN + ES) |
+| React Router routes | `src/App.jsx` |
 
 ### Cloudflare Pages: connect juandamunoz.com
 
@@ -64,9 +139,9 @@ The portfolio is deployed under the Cloudflare Pages project `juan-david-portfol
 2. Add `juandamunoz.com`
 3. Add `www.juandamunoz.com`
 
-Cloudflare adds the DNS records automatically and issues SSL within seconds.
+Cloudflare adds DNS records automatically and issues SSL within seconds.
 
-### SPA routing (how all paths work without a server)
+### SPA routing
 
 `public/_redirects` contains a single catch-all:
 
@@ -74,49 +149,14 @@ Cloudflare adds the DNS records automatically and issues SSL within seconds.
 /*    /index.html   200
 ```
 
-This tells Cloudflare Pages to serve `index.html` for every path. React Router then reads the URL and renders the right component. No server config or additional Cloudflare rules are needed.
-
-### Where project data is stored
-
-| What | File |
-|---|---|
-| Card title / image link target | `project.shortPath` in `src/data/projects.js` |
-| External "launch" button URL | `project.liveUrl` in `src/data/projects.js` |
-| Footer quick-links | `src/data/translations.js` → `footer.projectLinks` (EN + ES) |
-| React Router routes | `src/App.jsx` |
+This tells Cloudflare Pages to serve `index.html` for every path. React Router reads the URL and renders the correct component.
 
 ### Adding a new project path
 
-1. Add the project object to `src/data/projects.js` with a `shortPath` field (e.g. `shortPath: 'myproject'`)
+1. Add the project object to `src/data/projects.js` with `shortPath: 'myproject'`
 2. Add the route to `src/App.jsx`: `<Route path="/myproject" element={<ProjectDetail slug="my-project-slug" />} />`
 3. Add a footer link in `src/data/translations.js` under `footer.projectLinks` (both `en` and `es`)
-4. `npm run build` and push — Cloudflare Pages redeploys automatically via GitHub
-
-### Optional: custom subdomains for the external apps
-
-If you want `chocorramo.juandamunoz.com` to also work (as a direct link to the tool without the portfolio wrapper):
-
-**For Cloudflare Pages projects:**
-
-> Cloudflare Dashboard → Workers & Pages → [project] → Custom domains → Set up a domain
-
-| Pages project | Custom domain to add |
-|---|---|
-| `indice-chocorramo` | `chocorramo.juandamunoz.com` |
-| `votar-desde-lejos` | `votar.juandamunoz.com` |
-| `analisis-plan-gobierno-ivan-cepeda-2026-web` | `cepeda.juandamunoz.com` |
-| `patria-milagro-analysis-web` | `patria-milagro.juandamunoz.com` |
-
-**For the Travel Planner (Cloudflare Worker):**
-
-> Workers & Pages → Worker → Settings → Triggers → Custom Domains → Add: `travel.juandamunoz.com`
-
-**For SEQ Transit (Render.com):**
-
-1. Render dashboard → service → Settings → Custom Domains → add `transit.juandamunoz.com`
-2. Cloudflare DNS: CNAME `transit` → `seq-transit-predictor.onrender.com` with proxy **off**
-
-After configuring these, update `liveUrl` in `src/data/projects.js` to the subdomain URLs and push.
+4. `npm run build` and push
 
 ---
 
@@ -135,8 +175,12 @@ After configuring these, update `liveUrl` in `src/data/projects.js` to the subdo
 juan-david-portfolio/
 ├── public/
 │   ├── _redirects
+│   ├── favicon.png
+│   ├── favicon-*.png
 │   └── images/
-│       └── README.md
+│       ├── brand/       ← all M brand assets
+│       ├── portfolio/   ← project screenshots
+│       └── profile.png
 ├── src/
 │   ├── components/
 │   ├── context/
@@ -184,21 +228,23 @@ The production files are generated in:
 dist/
 ```
 
-## Preview Production Build
+## Cloudflare Pages build settings
 
-```bash
-npm run preview
+```text
+Framework preset: Vite
+Build command:    npm run build
+Build output:     dist
+Root directory:   /
+Node.js version:  20 or newer
 ```
 
 ## Profile Photo
-
-Add your real profile image here:
 
 ```text
 public/images/profile.png
 ```
 
-The app already points to `/images/profile.png`. If that image is not present, the hero shows a clean initials placeholder.
+The app points to `/images/profile.png`. If the image is missing, the hero shows a clean initials placeholder.
 
 ## Editing Projects
 
@@ -211,28 +257,12 @@ src/data/projects.js
 Each project has bilingual fields:
 
 ```js
-title: { en: '...', es: '...' },
-description: { en: '...', es: '...' }
+title:       { en: '...', es: '...' },
+description: { en: '...', es: '...' },
+liveLabel:   { en: 'Live tool', es: 'Herramienta en vivo' },
 ```
 
-Cards can also include `subtitle`, `date`, `category`, `status`, `collection`,
-`tags`, `technologies`, `liveUrl`, `repoUrl` and `articleUrl`. Use clean canonical
-URLs in these fields (without tracking parameters such as `fbclid`). The
-Colombia–Australia Travel Planner card is an example with the complete shape.
-
-Add a new object to the `projects` array and create a unique `slug`. The detail page route is generated automatically:
-
-```text
-/projects/your-project-slug
-```
-
-Current project routes:
-
-- `/projects/chocorramo-index`
-- `/projects/colombia-2026-discourse`
-- `/projects/studenthelper`
-- `/projects/travel-planner-colombia-australia`
-- `/projects/lockdown-app`
+Use `liveUrl` for the primary call-to-action link (subdomain or internal path), `repoUrl` for GitHub, `articleUrl` for published pieces.
 
 ## Editing Translations
 
@@ -241,11 +271,6 @@ Interface text lives in:
 ```text
 src/data/translations.js
 ```
-
-Supported language keys:
-
-- `en`
-- `es`
 
 Language state is handled in:
 
@@ -259,151 +284,10 @@ The selected language is saved to:
 localStorage["juan-david-portfolio-language"]
 ```
 
-## Deployment
-
-Run locally:
-
-```bash
-npm install
-npm run dev
-```
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-Preview the production build:
-
-```bash
-npm run preview
-```
-
-Deploy to Cloudflare Pages with these settings:
-
-Recommended Cloudflare Pages settings:
-
-```text
-Framework preset: Vite
-Build command: npm run build
-Build output directory: dist
-Root directory: /
-Node.js version: 20 or newer
-```
-
-The complete Cloudflare Pages workflow is:
-
-```bash
-npm install
-npm run dev
-npm run build
-```
-
-This project includes:
-
-```text
-public/_redirects
-```
-
-with:
-
-```text
-/*    /index.html   200
-```
-
-That keeps React Router project detail URLs working after refresh on Cloudflare Pages.
-
-## Deploy From GitHub
-
-1. Push this folder to a GitHub repository.
-2. In Cloudflare Pages, choose **Create a project**.
-3. Connect the GitHub repository.
-4. Use the build settings above.
-5. Deploy.
-
-## Migrating Later To Your Own Server
-
-This is a static frontend. After running:
-
-```bash
-npm run build
-```
-
-you can serve the `dist/` folder from any static web server, CDN or reverse proxy.
-
-For clean project URLs on your own server, configure SPA fallback so unknown routes serve `index.html`.
-
-Example Nginx location:
-
-```nginx
-location / {
-  try_files $uri $uri/ /index.html;
-}
-```
-
 ## Contact Form
 
-The contact form opens the visitor's email application with a message addressed to `juan.mu.me@hotmail.com`.
+The contact form opens the visitor's email client addressed to `juan.mu.me@hotmail.com`.
 
 ## StudentHelper Case Study
 
-The portfolio includes a full bilingual case-study page at:
-
-```text
-/projects/studenthelper
-```
-
-It presents **StudentHelper – AI Learning Assistant for Schools** as a technical prototype / proof of concept. Claims on the page were checked against the source repository; the page intentionally makes no commercial-readiness, compliance, usage, cost or performance claims.
-
-### Content and translations
-
-All English and Spanish case-study copy, architecture labels, comparison rows, metrics and repository URL live in:
-
-```text
-src/data/studentHelper.js
-```
-
-Edit the `en` and `es` objects together so the experience remains complete in both languages. The global ES/EN switch uses the existing `LanguageContext` and persists the selection in `localStorage`.
-
-### Project index data
-
-The StudentHelper card lives in:
-
-```text
-src/data/projects.js
-```
-
-Its `collection` field contains the bilingual index label, its `status` is `Prototype / Proof of concept`, and `articleUrl` remains an empty placeholder until an article exists. To add another project, copy an object in the exported `projects` array, assign a unique `slug`, add bilingual content and create a dedicated route only if it needs more than the generic project detail page.
-
-### Screenshots
-
-The four source screenshots are stored at:
-
-```text
-public/images/studenthelper/
-├── 01-loading.png
-├── 02-login.png
-├── 03-chat.png
-└── 04-admin.png
-```
-
-They were copied from `docs/screenshots` in the StudentHelper repository. Replace files using the same names to update the page without changing code. Screenshot labels are translated in `src/data/studentHelper.js`.
-
-### Data and cost placeholders
-
-The cost card is deliberately labelled **Pending real usage data / Pendiente de datos reales de uso**. Update it only after collecting measured request volume, input/output tokens, selected model pricing, active-student counts and infrastructure overhead. No invented KPI is used; the metric strip lists repository-demonstrated capabilities only.
-
-### Cloudflare Pages
-
-This case study is part of the existing Vite SPA and needs no separate build configuration:
-
-```text
-Framework preset: Vite
-Build command: npm run build
-Build output directory: dist
-Root directory: /
-Node.js version: 20 or newer
-```
-
-`public/_redirects` provides SPA fallback for direct visits to `/projects/studenthelper`. Connect this GitHub repository in Cloudflare Pages, use the settings above and deploy. No Cloudflare production URL is documented until a real deployment has been completed.
+Full bilingual case-study page at `/projects/studenthelper`. Content and translations live in `src/data/studentHelper.js`. Screenshots in `public/images/studenthelper/`.
