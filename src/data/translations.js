@@ -25,7 +25,7 @@ export const translations = {
     hero: {
       eyebrow: 'Economics · Data Science · AI Tools',
       subtitle: 'Economic research, data analysis and machine learning for real-world problems.',
-      body: 'I combine economics, data science and practical technology — from statistical analysis to LLM-powered tools — to investigate public-interest questions, build analytical resources and turn complex evidence into clear, useful stories.',
+      body: 'I combine economics, data science and practical technology — from statistical analysis to LLM-powered tools — to investigate public and business questions, build analytical resources, and design practical solutions that turn complex evidence into clear decisions, useful stories and operational improvements.',
       credibility: 'MSc Data Science · BSc Economics · Brisbane, Australia',
       viewProjects: 'View Projects',
       contactMe: 'Contact',
@@ -188,7 +188,7 @@ export const translations = {
     hero: {
       eyebrow: 'Economía · Ciencia de datos · Herramientas de IA',
       subtitle: 'Investigación económica, análisis de datos y machine learning para entender problemas reales.',
-      body: 'Combino economía, ciencia de datos y tecnología práctica — desde análisis estadístico hasta herramientas basadas en LLMs — para investigar preguntas de interés público, construir recursos analíticos y convertir evidencia compleja en historias claras y útiles.',
+      body: 'Combino economía, ciencia de datos y tecnología práctica — desde análisis estadístico hasta herramientas basadas en LLMs — para investigar preguntas públicas y empresariales, construir recursos analíticos y diseñar soluciones prácticas que conviertan evidencia compleja en decisiones claras, historias útiles y mejoras operativas.',
       credibility: 'MSc Data Science · Economista · Brisbane, Australia',
       viewProjects: 'Ver proyectos',
       contactMe: 'Contacto',
