@@ -100,26 +100,25 @@ The domain `juandamunoz.com` is registered on Cloudflare. The portfolio SPA at t
 
 These are React Router routes inside the portfolio SPA. Clicking a card title or image navigates to the case study page at `juandamunoz.com/<path>` — no server redirect needed.
 
-### Live project subdomains
+### Live project URLs
 
-Each deployed project has its own subdomain that takes visitors directly to the working tool:
+> **Note:** Custom project subdomains (`*.juandamunoz.com`) are postponed while the main domain setup is stabilised. Project buttons currently use the original working Cloudflare Pages / Workers URLs below.
 
-| Subdomain | Live project |
+| URL | Live project |
 |---|---|
-| `https://chocorramo.juandamunoz.com` | Índice Chocorramo — live tool |
-| `https://votar.juandamunoz.com` | Votar desde lejos — live tool |
-| `https://transit.juandamunoz.com` | SEQ Transit Predictor — live demo |
-| `https://cepeda.juandamunoz.com` | Iván Cepeda NLP Analysis — live analysis |
-| `https://patria-milagro.juandamunoz.com` | Patria Milagro Analysis — live analysis |
-| `https://travel.juandamunoz.com` | Colombia–Australia Travel Planner — live tool |
+| `https://indice-chocorramo.pages.dev` | Índice Chocorramo — live tool |
+| `https://votar-desde-lejos.pages.dev` | Votar desde lejos — live tool |
+| `https://ad8f849c.indice-chocorramo.pages.dev` | SEQ Transit Predictor — live demo |
+| `https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev` | Iván Cepeda NLP Analysis — live analysis |
+| `https://patria-milagro-analysis-web.pages.dev` | Patria Milagro Analysis — live analysis |
+| `https://colombia-australia-travel-planner.juan-mu-me.workers.dev` | Colombia–Australia Travel Planner — live tool |
 
-These subdomain URLs are stored in `liveUrl` in `src/data/projects.js` and appear as the primary "Live tool" button on each project card.
+These URLs are stored in `liveUrl` in `src/data/projects.js` and appear as the primary "Live tool" button on each project card.
 
-### Adding a new project subdomain
+### Updating a project live URL
 
-1. In the Cloudflare dashboard, go to the relevant project under Workers & Pages → Custom domains and add `newproject.juandamunoz.com`.
-2. Update `liveUrl` in `src/data/projects.js` to `https://newproject.juandamunoz.com`.
-3. `npm run build` and push — Cloudflare Pages redeploys via GitHub.
+1. Edit `liveUrl` in `src/data/projects.js` for the relevant project.
+2. `npm run build` and push — Cloudflare Pages redeploys via GitHub.
 
 ### Where project data is stored
 
