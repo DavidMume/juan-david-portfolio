@@ -4,36 +4,36 @@ export default function LanguageGate() {
   const { setLanguage, t } = useLanguage();
 
   return (
-    <section className="language-gate">
-      {/* Masthead rule at top */}
-      <div className="gate-masthead" aria-hidden="true" />
+    <div className="lg-cover">
+      {/* Subtle dot-grid texture */}
+      <div className="lg-bg-grid" aria-hidden="true" />
+      {/* Red top rule */}
+      <div className="lg-top-rule" aria-hidden="true" />
 
-      <div className="gate-panel">
-        {/* Brand identity lockup — M logo + name + tagline */}
-        <div className="gate-brand">
-          <img
-            src="/images/brand/08-vertical-lockup-ivory.png"
-            alt="Juan David Muñoz — Análisis · Datos · Decisiones"
-            className="gate-lockup"
-          />
-        </div>
+      <div className="lg-panel">
+        <img
+          src="/images/brand/01-logo-m-red-square-1024.png"
+          alt="M — Juan David Muñoz"
+          className="lg-logo"
+        />
 
-        {/* Bilingual subheading */}
-        <p className="gate-subtitle">{t.gate.subtitle}</p>
+        <div className="lg-rule" aria-hidden="true" />
 
-        {/* Language buttons */}
-        <div className="gate-actions">
-          <button type="button" onClick={() => setLanguage('en')}>
-            English
+        <p className="lg-overline">{t.gate.byline}</p>
+        <h1 className="lg-title">{t.gate.title}</h1>
+        <p className="lg-subtitle">{t.gate.subtitle}</p>
+
+        <div className="lg-actions">
+          <button type="button" className="lg-btn" onClick={() => setLanguage('en')}>
+            <span className="lg-btn-code">EN</span>
+            {t.gate.english}
           </button>
-          <button type="button" onClick={() => setLanguage('es')}>
-            Español
+          <button type="button" className="lg-btn" onClick={() => setLanguage('es')}>
+            <span className="lg-btn-code">ES</span>
+            {t.gate.spanish}
           </button>
         </div>
-
-        {/* Footer byline */}
-        <p className="gate-byline">{t.gate.byline}</p>
       </div>
-    </section>
+    </div>
   );
 }

@@ -23,11 +23,12 @@ export const translations = {
       byline: 'Juan David Muñoz · juandamunoz.com',
     },
     hero: {
-      eyebrow: 'Economics · Data Science · AI Tools',
+      eyebrow: 'Economics · Data Science · Machine Learning · LLM Tools',
       subtitle: 'Economic research, data analysis and machine learning for real-world problems.',
       body: 'I combine economics, data science and practical technology — from statistical analysis to LLM-powered tools — to investigate public and business questions, build analytical resources, and design practical solutions that turn complex evidence into clear decisions, useful stories and operational improvements.',
       credibility: 'MSc Data Science · BSc Economics · Brisbane, Australia',
       viewProjects: 'View Projects',
+      readAnalysis: 'Read analysis',
       contactMe: 'Contact',
       github: 'GitHub',
       linkedin: 'LinkedIn',
@@ -156,6 +157,16 @@ export const translations = {
         { label: 'Colombia 2026', url: '/discurso2026' },
       ],
     },
+    whatIInvestigate: {
+      eyebrow: 'What I investigate',
+      title: 'Questions I work on.',
+      items: [
+        { id: 'policy', title: 'Economic behaviour and public policy', desc: 'Applying economic frameworks to understand incentives, welfare and policy effectiveness in real-world contexts.' },
+        { id: 'business', title: 'Business operations and decision-making', desc: 'Using data and analytical tools to support operational decisions, identify inefficiencies and improve business outcomes.' },
+        { id: 'tools', title: 'Data products and analytical tools', desc: 'Building dashboards, interactive tools and analytical resources that make complex evidence accessible to real audiences.' },
+        { id: 'ml', title: 'Machine learning and LLM-powered workflows', desc: 'Developing ML models, LLM integrations and automated workflows that extract clear signal from complex, messy data.' },
+      ],
+    },
     notFound: {
       title: 'Project not found',
       body: 'The project you are looking for is not available.',
@@ -186,11 +197,12 @@ export const translations = {
       byline: 'Juan David Muñoz · juandamunoz.com',
     },
     hero: {
-      eyebrow: 'Economía · Ciencia de datos · Herramientas de IA',
+      eyebrow: 'Economía · Ciencia de datos · Machine Learning · Herramientas LLM',
       subtitle: 'Investigación económica, análisis de datos y machine learning para entender problemas reales.',
       body: 'Combino economía, ciencia de datos y tecnología práctica — desde análisis estadístico hasta herramientas basadas en LLMs — para investigar preguntas públicas y empresariales, construir recursos analíticos y diseñar soluciones prácticas que conviertan evidencia compleja en decisiones claras, historias útiles y mejoras operativas.',
       credibility: 'MSc Data Science · Economista · Brisbane, Australia',
       viewProjects: 'Ver proyectos',
+      readAnalysis: 'Leer análisis',
       contactMe: 'Contacto',
       github: 'GitHub',
       linkedin: 'LinkedIn',
@@ -317,6 +329,16 @@ export const translations = {
         { label: 'Travel Planner', url: '/travel' },
         { label: 'StudentHelper', url: '/studenthelper' },
         { label: 'Colombia 2026', url: '/discurso2026' },
+      ],
+    },
+    whatIInvestigate: {
+      eyebrow: 'Qué investigo',
+      title: 'Preguntas en las que trabajo.',
+      items: [
+        { id: 'policy', title: 'Comportamiento económico y política pública', desc: 'Aplicando marcos económicos para entender incentivos, bienestar y efectividad de políticas en contextos reales.' },
+        { id: 'business', title: 'Operaciones empresariales y toma de decisiones', desc: 'Usando datos y herramientas analíticas para apoyar decisiones operativas, identificar ineficiencias y mejorar resultados.' },
+        { id: 'tools', title: 'Productos de datos y herramientas analíticas', desc: 'Construyendo dashboards, herramientas interactivas y recursos analíticos que hacen la evidencia accesible a audiencias reales.' },
+        { id: 'ml', title: 'Machine learning y flujos basados en LLMs', desc: 'Desarrollando modelos ML, integraciones LLM y flujos automatizados que extraen señal clara de datos complejos.' },
       ],
     },
     notFound: {
