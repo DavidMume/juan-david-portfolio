@@ -53,6 +53,9 @@ export default function Hero() {
           <h1>{t.authorName}</h1>
           <h2>{t.hero.subtitle}</h2>
           <p>{t.hero.body}</p>
+          {t.hero.credibility && (
+            <p className="hero-credibility">{t.hero.credibility}</p>
+          )}
           <div className="hero-actions">
             <a className="btn primary" href="#projects">
               {t.hero.viewProjects}
