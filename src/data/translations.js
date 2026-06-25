@@ -24,8 +24,8 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Economics · Data Science · AI Tools',
-      subtitle: 'Public analysis with data, economics and AI.',
-      body: 'I build editorial projects, analytical tools and AI workflows that turn complex information into clear stories, practical decisions and public-facing products.',
+      subtitle: 'Economic research, data analysis and AI tools for understanding real-world problems.',
+      body: 'I combine economics, data science and practical technology to investigate public-interest questions, build analytical tools and turn complex evidence into clear, useful stories.',
       credibility: 'MSc Data Science · BSc Economics · Brisbane, Australia',
       viewProjects: 'View Projects',
       contactMe: 'Contact',
@@ -187,8 +187,8 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Economía · Ciencia de datos · Herramientas de IA',
-      subtitle: 'Análisis público con datos, economía e inteligencia artificial.',
-      body: 'Construyo proyectos editoriales, herramientas analíticas y flujos de IA que convierten información compleja en historias claras, decisiones prácticas y productos públicos.',
+      subtitle: 'Investigación económica, análisis de datos e IA para entender problemas reales.',
+      body: 'Combino economía, ciencia de datos y tecnología práctica para investigar preguntas de interés público, construir herramientas analíticas y convertir evidencia compleja en historias claras y útiles.',
       credibility: 'MSc Data Science · Economista · Brisbane, Australia',
       viewProjects: 'Ver proyectos',
       contactMe: 'Contacto',
