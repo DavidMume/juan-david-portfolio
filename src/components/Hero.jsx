@@ -1,10 +1,8 @@
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { contactDetails } from '../data/contact';
 
 export default function Hero() {
-  const [imageError, setImageError] = useState(false);
   const { t } = useLanguage();
 
   return (
@@ -23,19 +21,30 @@ export default function Hero() {
 
       {/* Constrained content grid */}
       <div className="hero-inner">
-        <div className="hero-media" data-reveal>
-          {!imageError ? (
-            <img
-              src="/images/profile.png"
-              alt={`${t.hero.profileAlt} ${t.authorName}`}
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <div className="profile-placeholder">
-              <span>JDM</span>
-              <small>/public/images/profile.png</small>
+        <div className="hero-editorial-panel" data-reveal aria-hidden="true">
+          <div className="hep-rule hep-rule-top" />
+          <div className="hep-inner">
+            <div className="hep-grid-lines">
+              <span /><span /><span /><span />
             </div>
-          )}
+            <img
+              src="/images/brand/01-logo-m-red-square-1024.png"
+              alt=""
+              className="hep-logo"
+            />
+            <div className="hep-meta">
+              <span className="hep-label">Economics</span>
+              <span className="hep-dot" />
+              <span className="hep-label">Data Science</span>
+              <span className="hep-dot" />
+              <span className="hep-label">AI</span>
+            </div>
+            <div className="hep-rule hep-rule-mid" />
+            <p className="hep-tagline">juandamunoz.com</p>
+          </div>
+          <div className="hep-rule hep-rule-bottom" />
+          <div className="hep-corner hep-corner-tl" />
+          <div className="hep-corner hep-corner-br" />
         </div>
 
         <div className="hero-content" data-reveal style={{ transitionDelay: '120ms' }}>
