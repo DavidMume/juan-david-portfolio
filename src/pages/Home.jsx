@@ -12,10 +12,13 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <About />
       <Highlights />
+      <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <Projects />
       <Skills />
+      <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <Contact />
     </main>
   );

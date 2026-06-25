@@ -41,9 +41,9 @@ export default function Hero() {
         <div className="hero-content" data-reveal style={{ transitionDelay: '120ms' }}>
           <div className="hero-brand-row" aria-hidden="true">
             <img
-              src="/images/brand/01-logo-m-red-square-1024.png"
+              src="/images/brand/07-horizontal-lockup-ivory.png"
               alt=""
-              className="hero-brand-mark"
+              className="hero-lockup"
             />
           </div>
           <div className="hero-eyebrow">

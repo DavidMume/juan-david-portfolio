@@ -9,20 +9,14 @@ export default function LanguageGate() {
       <div className="gate-masthead" aria-hidden="true" />
 
       <div className="gate-panel">
-        {/* M brand mark */}
+        {/* Brand identity lockup — M logo + name + tagline */}
         <div className="gate-brand">
           <img
-            src="/images/brand/01-logo-m-red-square-1024.png"
-            alt="M"
-            className="gate-logo"
+            src="/images/brand/08-vertical-lockup-ivory.png"
+            alt="Juan David Muñoz — Análisis · Datos · Decisiones"
+            className="gate-lockup"
           />
         </div>
-
-        {/* Editorial divider rule */}
-        <div className="gate-rule" aria-hidden="true" />
-
-        {/* Headline */}
-        <h1 className="gate-title">{t.gate.title}</h1>
 
         {/* Bilingual subheading */}
         <p className="gate-subtitle">{t.gate.subtitle}</p>
