@@ -38,7 +38,8 @@ export default function App() {
           <Route path="/waterbuilt"    element={<ProjectDetail slug="waterbuilt-site-vision" />} />
           <Route path="/fracking"      element={<ProjectDetail slug="fracking-papers-analysis" />} />
           <Route path="/discurso2026"  element={<ProjectDetail slug="colombia-2026-discourse" />} />
-          <Route path="/lockdown"      element={<ProjectDetail slug="lockdown-app" />} />
+          <Route path="/lockdown"        element={<ProjectDetail slug="inclusive-alert-system" />} />
+          <Route path="/inclusive-alert" element={<ProjectDetail slug="inclusive-alert-system" />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
