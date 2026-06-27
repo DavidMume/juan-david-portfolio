@@ -237,8 +237,8 @@ export const projects = [
     articleUrl: '',
   },
   {
-    slug: 'waterbuilt-site-vision',
-    title: { en: 'WaterBuilt Site Vision', es: 'WaterBuilt Site Vision' },
+    slug: 'siteguard-vision',
+    title: { en: 'SiteGuard Vision', es: 'SiteGuard Vision' },
     subtitle: {
       en: 'AI-powered construction site safety monitor',
       es: 'Monitor de seguridad en obras con visión artificial',
@@ -263,8 +263,8 @@ export const projects = [
     tags: ['Computer Vision', 'Claude Vision', 'Construction Safety', 'FastAPI', 'OpenCV', 'n8n', 'PDF Automation', 'Python'],
     technologies: ['Python', 'Claude Vision', 'OpenCV', 'FastAPI', 'ReportLab', 'SQLite', 'n8n'],
     accent: 'orange',
-    shortPath: 'waterbuilt',
-    liveUrl: 'https://waterbuilt-site-vision.pages.dev',
+    shortPath: 'siteguard',
+    liveUrl: 'https://siteguard-vision.pages.dev',
     liveLabel: { en: 'View analysis', es: 'Ver análisis' },
     repoUrl: 'https://github.com/DavidMume/waterbuilt-site-vision',
     articleUrl: '',
