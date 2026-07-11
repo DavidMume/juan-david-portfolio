@@ -17,6 +17,7 @@ const PROJECT_IMAGES = {
   'chocorramo-index':       '/images/portfolio/08-project-chocorramo-index.png',
   'votar-desde-lejos':      '/images/portfolio/09-project-votar-desde-lejos.png',
   'seq-transit-predictor':  '/images/portfolio/10-project-seq-transit-predictor.png',
+  'careerops-agent':        '/images/portfolio/12-project-careerops-agent.svg',
 };
 const PLACEHOLDER_IMG = '/images/brand/11-project-placeholder-editorial.png';
 

@@ -35,6 +35,7 @@ export default function App() {
           <Route path="/patria-milagro" element={<ProjectDetail slug="patria-milagro-analysis" />} />
           <Route path="/travel"        element={<ProjectDetail slug="travel-planner-colombia-australia" />} />
           <Route path="/studenthelper" element={<StudentHelper />} />
+          <Route path="/careerops"    element={<ProjectDetail slug="careerops-agent" />} />
           <Route path="/waterbuilt"    element={<ProjectDetail slug="siteguard-vision" />} />
           <Route path="/siteguard"     element={<ProjectDetail slug="siteguard-vision" />} />
           <Route path="/fracking"      element={<ProjectDetail slug="fracking-papers-analysis" />} />

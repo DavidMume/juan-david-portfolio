@@ -1,5 +1,38 @@
 export const projects = [
   {
+    slug: 'careerops-agent',
+    title: { en: 'CareerOps Agent', es: 'CareerOps Agent' },
+    subtitle: {
+      en: 'Private job-search operations assistant for scoring roles and preparing application packages',
+      es: 'Asistente privado de búsqueda laboral para puntuar cargos y preparar paquetes de aplicación',
+    },
+    description: {
+      en: 'Local-first application workflow that discovers permitted roles, scores fit honestly, generates CV and cover-letter PDFs, checks ATS readability, prepares interview notes and tracks outcomes.',
+      es: 'Flujo local de aplicaciones que descubre cargos permitidos, puntúa el encaje con honestidad, genera CV y carta en PDF, revisa legibilidad ATS, prepara entrevistas y registra resultados.',
+    },
+    problem: {
+      en: 'Job searches lose context across job boards, notes, generated documents and follow-up decisions.',
+      es: 'Las búsquedas laborales pierden contexto entre portales, notas, documentos generados y decisiones de seguimiento.',
+    },
+    results: {
+      en: 'A deployed public product site plus a private source app with manual job entry, Queensland Smart Jobs discovery, scoring, PDF packages, ATS reports and daily summaries.',
+      es: 'Un sitio público desplegado y una app privada desde código con ingreso manual, búsqueda en Queensland Smart Jobs, puntaje, paquetes PDF, reportes ATS y resúmenes diarios.',
+    },
+    date: { en: 'July 2026', es: 'Julio de 2026' },
+    category: 'ai-tools',
+    categoryLabel: { en: 'AI tools · Automation', es: 'Herramientas IA · Automatización' },
+    status: 'published',
+    statusLabel: { en: 'Public site', es: 'Sitio público' },
+    tags: ['LLM tools', 'Automation', 'Career operations', 'FastAPI', 'Local-first'],
+    technologies: ['React', 'TypeScript', 'FastAPI', 'SQLite', 'ReportLab', 'Cloudflare Pages'],
+    accent: 'emerald',
+    shortPath: 'careerops',
+    liveUrl: 'https://careerops-d7y.pages.dev',
+    liveLabel: { en: 'Product site', es: 'Sitio del producto' },
+    repoUrl: 'https://github.com/DavidMume/careerops-agent',
+    articleUrl: '',
+  },
+  {
     slug: 'chocorramo-index',
     title: { en: 'Índice Chocorramo', es: 'Índice Chocorramo' },
     subtitle: {
