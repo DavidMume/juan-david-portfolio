@@ -1,5 +1,38 @@
 export const projects = [
   {
+    slug: 'impuesto-saludable-colombia',
+    title: { en: 'Colombia’s healthy tax', es: 'Impuesto saludable en Colombia' },
+    subtitle: {
+      en: 'What prices, mortality data and the evidence can—and cannot—say',
+      es: 'Qué pueden —y qué no pueden— decir los precios, la mortalidad y la evidencia',
+    },
+    description: {
+      en: 'A health economics and data science analysis of sugar-sweetened beverages, ultra-processed foods, Law 2277 and disease burden in Colombia.',
+      es: 'Análisis de economía de la salud y ciencia de datos sobre bebidas azucaradas, ultraprocesados, Ley 2277 y carga de enfermedad en Colombia.',
+    },
+    problem: {
+      en: 'The policy debate often moves faster than the Colombian evidence, mixing a sound public-health rationale with effects that have not yet been measured.',
+      es: 'El debate de política pública suele avanzar más rápido que la evidencia colombiana y mezcla una justificación sanitaria seria con efectos que todavía no se han medido.',
+    },
+    results: {
+      en: 'A bilingual editorial investigation with a legal timeline, transparent literature review, reproducible DANE mortality and CPI pipelines, and exploratory—not causal—charts.',
+      es: 'Una investigación editorial bilingüe con cronología legal, revisión transparente de literatura, procesos reproducibles de mortalidad e IPC del DANE y gráficas exploratorias, no causales.',
+    },
+    date: { en: 'July 2026', es: 'Julio de 2026' },
+    category: 'data-journalism',
+    categoryLabel: { en: 'Health economics', es: 'Economía de la salud' },
+    status: 'research',
+    statusLabel: { en: 'In progress', es: 'En desarrollo' },
+    tags: ['Health economics', 'Data science', 'Public policy', 'Colombia', 'DANE', 'Ultra-processed foods', 'Sugar-sweetened beverages'],
+    technologies: ['Python', 'pandas', 'matplotlib', 'React', 'TypeScript', 'DANE', 'Cloudflare Pages'],
+    accent: 'rose',
+    shortPath: 'impuesto-saludable',
+    liveUrl: 'https://impuesto-saludable.pages.dev/',
+    liveLabel: { en: 'View project', es: 'Ver proyecto' },
+    repoUrl: '',
+    articleUrl: '',
+  },
+  {
     slug: 'careerops-agent',
     title: { en: 'CareerOps Agent', es: 'CareerOps Agent' },
     subtitle: {

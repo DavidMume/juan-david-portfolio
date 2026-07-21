@@ -29,6 +29,7 @@ export default function App() {
 
           {/* Short-path aliases — URL stays as /chocorramo etc. */}
           <Route path="/chocorramo"    element={<ProjectDetail slug="chocorramo-index" />} />
+          <Route path="/impuesto-saludable" element={<ProjectDetail slug="impuesto-saludable-colombia" />} />
           <Route path="/votar"         element={<ProjectDetail slug="votar-desde-lejos" />} />
           <Route path="/transit"       element={<ProjectDetail slug="seq-transit-predictor" />} />
           <Route path="/cepeda"        element={<ProjectDetail slug="ivan-cepeda-analysis" />} />
