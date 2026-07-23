@@ -3,6 +3,7 @@ import LanguageGate from './components/LanguageGate';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import ArticleDetail from './pages/ArticleDetail';
 import ProjectDetail from './pages/ProjectDetail';
 import NotFound from './pages/NotFound';
 import StudentHelper from './pages/StudentHelper';
@@ -22,6 +23,9 @@ export default function App() {
         {!isStudentHelper && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />
+
+          {/* Editorial / opinion articles */}
+          <Route path="/articles/:id" element={<ArticleDetail />} />
 
           {/* Long-form project routes */}
           <Route path="/projects/studenthelper" element={<StudentHelper />} />

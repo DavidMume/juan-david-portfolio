@@ -1,4 +1,5 @@
 import About from '../components/About';
+import ArticlesSection from '../components/ArticlesSection';
 import Contact from '../components/Contact';
 import Hero from '../components/Hero';
 import Highlights from '../components/Highlights';
@@ -16,6 +17,7 @@ export default function Home() {
       <WhatIInvestigate />
       <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <About />
+      <ArticlesSection />
       <Highlights />
       <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <Projects />
