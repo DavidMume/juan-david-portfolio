@@ -38,7 +38,7 @@ export const translations = {
     about: {
       eyebrow: 'About',
       title: 'Practical data work with economic context.',
-      body: 'I am a Colombian economist and data scientist living in Australia. My work connects development economics, data science and ICT to build practical solutions: dashboards, automation, AI tools, public policy analysis and web applications that people can actually use.',
+      body: 'I am an economist and data scientist based in Australia. My work connects economics, data science, machine learning, automation and ICT to create practical solutions: economic analysis, dashboards, LLM-powered tools, web applications and decision resources people can actually use. I am passionate about politics, finance, applied research and the way data can turn complex problems into clearer decisions.',
       interestsTitle: 'Focus areas',
       interests: [
         'Development Economics',
@@ -238,7 +238,7 @@ export const translations = {
     about: {
       eyebrow: 'Sobre mí',
       title: 'Trabajo práctico con datos y contexto económico.',
-      body: 'Soy un economista y científico de datos colombiano viviendo en Australia. Mi trabajo conecta economía del desarrollo, ciencia de datos e ICT para crear soluciones prácticas: tableros, automatización, herramientas de IA, análisis de política pública y aplicaciones web que la gente pueda usar de verdad.',
+      body: 'Soy economista y científico de datos viviendo en Australia. Mi trabajo conecta economía, ciencia de datos, machine learning, automatización e ICT para crear soluciones prácticas: análisis económico, tableros, herramientas basadas en LLMs, aplicaciones web y recursos de decisión que la gente pueda usar de verdad. Me apasionan la política, las finanzas, la investigación aplicada y la forma en que los datos pueden convertir problemas complejos en decisiones más claras.',
       interestsTitle: 'Áreas de interés',
       interests: [
         'Economía del desarrollo',
