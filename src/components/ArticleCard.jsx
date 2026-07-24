@@ -1,4 +1,4 @@
-import { ArrowUpRight, ExternalLink, Github } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -36,11 +36,11 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
           <ArrowUpRight size={14} />
           {t.articles.readArticle}
         </Link>
-        {article.projectUrl && (
-          <a href={article.projectUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
-            <ExternalLink size={14} />
+        {article.internalProjectPath && (
+          <Link to={article.internalProjectPath} className="btn-card-secondary">
+            <ArrowUpRight size={14} />
             {t.articles.viewRelatedAnalysis}
-          </a>
+          </Link>
         )}
         {article.repoUrl && (
           <a href={article.repoUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">

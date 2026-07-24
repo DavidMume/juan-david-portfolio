@@ -10,6 +10,7 @@ export default function ArticleDetail() {
   const article = articles.find((a) => a.id === id);
 
   if (!article) return <NotFound />;
+  const hasArticleUrl = article.articleUrl && !article.articleUrl.includes('TODO');
 
   return (
     <main className="project-detail section-pad">
@@ -51,7 +52,7 @@ export default function ArticleDetail() {
 
       <section className="detail-links">
         <h2>{t.projectDetail.links}</h2>
-        {article.articleUrl ? (
+        {hasArticleUrl ? (
           <a href={article.articleUrl} target="_blank" rel="noreferrer">
             <Linkedin size={15} />
             {t.articleDetail.ctaSource}
@@ -59,11 +60,11 @@ export default function ArticleDetail() {
         ) : (
           <span className="btn-card-muted">{t.articles.sourcePending}</span>
         )}
-        {article.projectUrl && (
-          <a href={article.projectUrl} target="_blank" rel="noreferrer">
+        {article.internalProjectPath && (
+          <Link to={article.internalProjectPath}>
             <ExternalLink size={15} />
             {t.articleDetail.ctaRelated}
-          </a>
+          </Link>
         )}
         {article.repoUrl && (
           <a href={article.repoUrl} target="_blank" rel="noreferrer">

@@ -4,7 +4,6 @@ import {
   Globe,
   BookOpen,
   BarChart3,
-  Map,
   Bot,
   FlaskConical,
   Newspaper,
@@ -41,7 +40,9 @@ function CategoryIcon({ category }) {
 export default function ProjectCard({ project, index }) {
   const { language, t } = useLanguage();
 
-  const hasLinks = project.liveUrl || project.repoUrl || project.articleUrl;
+  const hasLiveUrl = project.liveUrl?.startsWith('http') && !project.liveUrl.includes('TODO');
+  const hasArticleUrl = project.articleUrl && !project.articleUrl.includes('TODO');
+  const hasLinks = project.internalPath || hasLiveUrl || project.repoUrl || hasArticleUrl;
   const cardImage = PROJECT_IMAGES[project.slug];
   const isPlaceholder = !cardImage;
 
@@ -51,8 +52,8 @@ export default function ProjectCard({ project, index }) {
       data-reveal
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      {/* Project image — links to internal short path */}
-      <Link to={`/${project.shortPath}`} className="project-card-cover-link" tabIndex={-1} aria-hidden="true">
+      {/* Project image — links to canonical internal case study */}
+      <Link to={project.internalPath} className="project-card-cover-link" tabIndex={-1} aria-hidden="true">
         <div className="project-card-image-wrap">
           <img
             src={cardImage || PLACEHOLDER_IMG}
@@ -75,9 +76,9 @@ export default function ProjectCard({ project, index }) {
         <CategoryIcon category={project.category} />
       </div>
 
-      {/* Title — links to internal short path */}
+      {/* Title — links to canonical internal case study */}
       <h3>
-        <Link to={`/${project.shortPath}`} className="project-card-title-link">
+        <Link to={project.internalPath} className="project-card-title-link">
           {project.title[language]}
         </Link>
       </h3>
@@ -117,20 +118,20 @@ export default function ProjectCard({ project, index }) {
 
       {/* Action buttons */}
       <div className="card-actions">
-        {/* Primary: live URL (external) */}
-        {project.liveUrl?.startsWith('http') && (
-          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn-card-primary">
-            <Globe size={14} />
-            {project.liveLabel?.[language] || t.projects.viewAnalysis}
-          </a>
+        {/* Primary: internal portfolio case study */}
+        {project.internalPath && (
+          <Link to={project.internalPath} className="btn-card-primary">
+            <ArrowUpRight size={14} />
+            {t.projects.viewAnalysis}
+          </Link>
         )}
 
-        {/* Primary: internal route */}
-        {project.liveUrl?.startsWith('/') && (
-          <Link to={project.liveUrl} className="btn-card-primary">
-            <ArrowUpRight size={14} />
-            {project.liveLabel?.[language] || t.projects.caseStudy}
-          </Link>
+        {/* Verified external deployment */}
+        {hasLiveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+            <Globe size={14} />
+            {t.projects.liveTool}
+          </a>
         )}
 
         {/* GitHub */}
@@ -142,7 +143,13 @@ export default function ProjectCard({ project, index }) {
         )}
 
         {/* Article */}
-        {project.articleUrl && (
+        {hasArticleUrl && project.articleUrl.startsWith('/') && (
+          <Link to={project.articleUrl} className="btn-card-secondary">
+            <ExternalLink size={14} />
+            {t.projects.readArticle}
+          </Link>
+        )}
+        {hasArticleUrl && project.articleUrl.startsWith('http') && (
           <a href={project.articleUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
             <ExternalLink size={14} />
             {t.projects.readArticle}

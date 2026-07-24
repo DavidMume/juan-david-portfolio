@@ -177,10 +177,10 @@ export const translations = {
       projectsLabel: 'Projects',
       connectLabel: 'Connect',
       projectLinks: [
-        { label: 'Índice Chocorramo', url: '/chocorramo' },
-        { label: 'Travel Planner', url: '/travel' },
+        { label: 'Índice Chocorramo', url: '/chocorramo-index' },
+        { label: 'Travel Planner', url: '/travel-planner' },
         { label: 'StudentHelper', url: '/studenthelper' },
-        { label: 'Colombia 2026', url: '/discurso2026' },
+        { label: 'Colombia 2026', url: '/digital-discourse' },
       ],
     },
     whatIInvestigate: {
@@ -377,10 +377,10 @@ export const translations = {
       projectsLabel: 'Proyectos',
       connectLabel: 'Conectar',
       projectLinks: [
-        { label: 'Índice Chocorramo', url: '/chocorramo' },
-        { label: 'Travel Planner', url: '/travel' },
+        { label: 'Índice Chocorramo', url: '/chocorramo-index' },
+        { label: 'Travel Planner', url: '/travel-planner' },
         { label: 'StudentHelper', url: '/studenthelper' },
-        { label: 'Colombia 2026', url: '/discurso2026' },
+        { label: 'Colombia 2026', url: '/digital-discourse' },
       ],
     },
     whatIInvestigate: {

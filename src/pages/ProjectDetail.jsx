@@ -12,9 +12,11 @@ export default function ProjectDetail({ slug: slugProp }) {
 
   if (!project) return <NotFound />;
 
+  const hasLiveUrl = project.liveUrl?.startsWith('http') && !project.liveUrl.includes('TODO');
+  const hasArticleUrl = project.articleUrl && !project.articleUrl.includes('TODO');
   const links = [
-    project.liveUrl?.startsWith('http') && {
-      label: t.projects.viewProject,
+    hasLiveUrl && {
+      label: t.projects.liveTool,
       url: project.liveUrl,
       icon: 'globe',
     },
@@ -23,7 +25,7 @@ export default function ProjectDetail({ slug: slugProp }) {
       url: project.repoUrl,
       icon: 'github',
     },
-    project.articleUrl && {
+    hasArticleUrl && {
       label: t.projects.readArticle,
       url: project.articleUrl,
       icon: 'external',

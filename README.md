@@ -77,56 +77,64 @@ Logo references live in three component files:
 
 ---
 
-## Domain and routing strategy
+## Project link strategy
 
-The domain `juandamunoz.com` is registered on Cloudflare. The portfolio SPA at that domain is the editorial hub. Each live project runs under its own subdomain.
+The main site is `https://juandamunoz.com/`. It is the editorial hub and the canonical home for every portfolio case study.
+
+- Internal case studies use short, descriptive paths under the main domain.
+- `internalPath` is the React Router path; `caseStudyUrl` is its absolute public equivalent.
+- `liveUrl` is reserved for a separately deployed tool or report and is set only after the deployment is verified.
+- `repoUrl` remains the verified GitHub repository URL.
+- `articleUrl` is used only for a verified published article.
+- A broken, unavailable or unverified deployment must use `liveUrl: null`. The UI does not render a Live tool button for `null` or `TODO` values.
 
 ### Main portfolio
 
 | URL | Content |
 |---|---|
 | `https://juandamunoz.com` | Main portfolio hub |
-| `https://juandamunoz.com/chocorramo` | Índice Chocorramo — case study page |
-| `https://juandamunoz.com/votar` | Votar desde lejos — case study page |
-| `https://juandamunoz.com/transit` | SEQ Transit Predictor — case study page |
-| `https://juandamunoz.com/cepeda` | Iván Cepeda NLP Analysis — case study page |
+| `https://juandamunoz.com/chocorramo-index` | Índice Chocorramo — case study page |
+| `https://juandamunoz.com/votar-desde-lejos` | Votar desde lejos — case study page |
+| `https://juandamunoz.com/seq-transit` | SEQ Transit Predictor — case study page |
+| `https://juandamunoz.com/cepeda-program` | Iván Cepeda NLP Analysis — case study page |
+| `https://juandamunoz.com/cepeda-context` | Colombia 2026 context evaluation — case study page |
 | `https://juandamunoz.com/patria-milagro` | Patria Milagro Analysis — case study page |
-| `https://juandamunoz.com/travel` | Colombia–Australia Travel Planner — case study page |
+| `https://juandamunoz.com/travel-planner` | Colombia–Australia Travel Planner — case study page |
 | `https://juandamunoz.com/studenthelper` | StudentHelper AI — case study page |
-| `https://juandamunoz.com/waterbuilt` | WaterBuilt Site Vision — case study page |
-| `https://juandamunoz.com/fracking` | Fracking Papers NLP — case study page |
-| `https://juandamunoz.com/discurso2026` | Colombia 2026 Digital Discourse — case study page |
-| `https://juandamunoz.com/lockdown` | Lockdown App — case study page |
+| `https://juandamunoz.com/waterbuilt-vision` | SiteGuard / WaterBuilt Vision — case study page |
+| `https://juandamunoz.com/fracking-papers` | Fracking Papers NLP — case study page |
+| `https://juandamunoz.com/digital-discourse` | Colombia 2026 Digital Discourse — case study page |
+| `https://juandamunoz.com/inclusive-alert` | Inclusive Alert System — case study page |
 
-These are React Router routes inside the portfolio SPA. Clicking a card title or image navigates to the case study page at `juandamunoz.com/<path>` — no server redirect needed.
+These are React Router routes inside the portfolio SPA. Legacy short routes remain as aliases so existing links continue to work.
 
 ### Live project URLs
 
-> **Note:** Custom project subdomains (`*.juandamunoz.com`) are postponed while the main domain setup is stabilised. Project buttons currently use the original working Cloudflare Pages / Workers URLs below.
-
 | URL | Live project |
 |---|---|
+| `https://impuesto-saludable.pages.dev/` | Colombia’s healthy tax — live report |
+| `https://careerops-d7y.pages.dev` | CareerOps — public product site |
 | `https://indice-chocorramo.pages.dev` | Índice Chocorramo — live tool |
 | `https://votar-desde-lejos.pages.dev` | Votar desde lejos — live tool |
-| `https://ad8f849c.indice-chocorramo.pages.dev` | SEQ Transit Predictor — live demo |
+| `https://seq-transit-predictor.onrender.com` | SEQ Transit Predictor — Render lite demo |
 | `https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev` | Iván Cepeda NLP Analysis — live analysis |
 | `https://patria-milagro-analysis-web.pages.dev` | Patria Milagro Analysis — live analysis |
 | `https://colombia-australia-travel-planner.juan-mu-me.workers.dev` | Colombia–Australia Travel Planner — live tool |
+| `https://siteguard-vision.pages.dev` | SiteGuard Vision — live case-study site |
+| `https://inclusive-alert-system.pages.dev` | Inclusive Alert System — live case-study site |
 
-These URLs are stored in `liveUrl` in `src/data/projects.js` and appear as the primary "Live tool" button on each project card.
-
-### Updating a project live URL
-
-1. Edit `liveUrl` in `src/data/projects.js` for the relevant project.
-2. `npm run build` and push — Cloudflare Pages redeploys via GitHub.
+These URLs were verified during the July 2026 link audit. The SEQ URL is documented in its public repository README; Render free services can take time to wake from a cold start.
 
 ### Where project data is stored
 
 | What | File |
 |---|---|
-| Card title / image link target | `project.shortPath` in `src/data/projects.js` |
+| Project metadata and all link fields | `src/data/projects.js` |
+| Card title / image / View analysis target | `project.internalPath` |
+| Absolute canonical case-study URL | `project.caseStudyUrl` |
 | "Live tool" button URL | `project.liveUrl` in `src/data/projects.js` |
-| Button label (bilingual) | `project.liveLabel` in `src/data/projects.js` |
+| GitHub and article buttons | `project.repoUrl` and `project.articleUrl` |
+| Editorial article links | `src/data/articles.js` |
 | Footer quick-links | `src/data/translations.js` → `footer.projectLinks` (EN + ES) |
 | React Router routes | `src/App.jsx` |
 
@@ -152,7 +160,7 @@ This tells Cloudflare Pages to serve `index.html` for every path. React Router r
 
 ### Adding a new project path
 
-1. Add the project object to `src/data/projects.js` with `shortPath: 'myproject'`
+1. Add the project object to `src/data/projects.js` with `internalPath`, `caseStudyUrl`, `liveUrl`, `repoUrl` and `articleUrl`.
 2. Add the route to `src/App.jsx`: `<Route path="/myproject" element={<ProjectDetail slug="my-project-slug" />} />`
 3. Add a footer link in `src/data/translations.js` under `footer.projectLinks` (both `en` and `es`)
 4. `npm run build` and push
@@ -256,12 +264,24 @@ src/data/projects.js
 Each project has bilingual fields:
 
 ```js
-title:       { en: '...', es: '...' },
-description: { en: '...', es: '...' },
-liveLabel:   { en: 'Live tool', es: 'Herramienta en vivo' },
+{
+  slug: 'seq-transit-predictor',
+  internalPath: '/seq-transit',
+  caseStudyUrl: 'https://juandamunoz.com/seq-transit',
+  liveUrl: 'https://seq-transit-predictor.onrender.com',
+  repoUrl: 'https://github.com/DavidMume/seq-transit-predictor',
+  articleUrl: null,
+  status: 'published',
+  category: 'data-science',
+  title: { en: '...', es: '...' },
+  subtitle: { en: '...', es: '...' },
+  description: { en: '...', es: '...' },
+  technologies: ['...'],
+  tags: ['...'],
+}
 ```
 
-Use `liveUrl` for the primary call-to-action link (subdomain or internal path), `repoUrl` for GitHub, `articleUrl` for published pieces.
+Never put an internal route in `liveUrl`. Use `null` until an external deployment is verified.
 
 ## Editing Translations
 
@@ -289,4 +309,4 @@ The contact form opens the visitor's email client addressed to `juan.mu.me@hotma
 
 ## StudentHelper Case Study
 
-Full bilingual case-study page at `/projects/studenthelper`. Content and translations live in `src/data/studentHelper.js`. Screenshots in `public/images/studenthelper/`.
+Full bilingual case-study page at `/studenthelper` (with `/projects/studenthelper` retained as a legacy alias). Content and translations live in `src/data/studentHelper.js`. Screenshots live in `public/images/studenthelper/`.

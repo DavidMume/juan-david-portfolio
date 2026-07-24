@@ -1,9 +1,8 @@
 // Opinion / editorial articles — distinct from src/data/projects.js.
 // Each article here already has a fuller technical write-up as a project
 // (see projects.js). Articles surface the editorial/opinion angle and link
-// back to the existing project page, live analysis and repo rather than
-// duplicating content. articleUrl is the original LinkedIn article — left
-// null with a TODO where the real URL has not been provided yet.
+// back to the existing internal project page and verified repo rather than
+// duplicating content. External articleUrl values are rendered only when verified.
 
 export const articles = [
   {
@@ -24,10 +23,10 @@ export const articles = [
     category: { en: 'Political analysis', es: 'Análisis político' },
     tags: ['NLP', 'Colombia 2026', 'Political economy', 'Readability', 'Government plan', 'Economic analysis'],
     source: { en: 'LinkedIn article', es: 'Artículo de LinkedIn' },
-    articleUrl: null, // TODO: add LinkedIn article URL
-    projectUrl: 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev',
+    articleUrl: 'https://www.linkedin.com/pulse/el-programa-de-gobierno-iv%C3%A1n-cepeda-y-sus-433-p%C3%A1ginas-david-mu%C3%B1oz-w515c',
+    caseStudyUrl: 'https://juandamunoz.com/cepeda-program',
     repoUrl: 'https://github.com/DavidMume/analisis-plan-gobierno-ivan-cepeda-2026',
-    internalProjectPath: '/cepeda',
+    internalProjectPath: '/cepeda-program',
     status: 'published',
     language: 'es',
     featured: true,
@@ -50,8 +49,8 @@ export const articles = [
     category: { en: 'Political analysis', es: 'Análisis político' },
     tags: ['NLP', 'Colombia 2026', 'Political communication', 'Patria Milagro', 'Policy analysis', 'Readability'],
     source: { en: 'LinkedIn article', es: 'Artículo de LinkedIn' },
-    articleUrl: null, // TODO: add LinkedIn article URL
-    projectUrl: 'https://patria-milagro-analysis-web.pages.dev',
+    articleUrl: 'https://www.linkedin.com/pulse/el-plan-de-tres-p%C3%A1ginas-por-qu%C3%A9-leer-solo-resumen-es-programa-mu%C3%B1oz-trfsc',
+    caseStudyUrl: 'https://juandamunoz.com/patria-milagro',
     repoUrl: 'https://github.com/DavidMume/patria-milagro-analysis',
     internalProjectPath: '/patria-milagro',
     status: 'published',
@@ -76,10 +75,10 @@ export const articles = [
     category: { en: 'Opinion · Political economy', es: 'Opinión · Economía política' },
     tags: ['Colombia 2026', 'Political economy', 'Editorial', 'Purchasing power', 'Algorithms', 'Public opinion'],
     source: { en: 'Portfolio article', es: 'Artículo del portafolio' },
-    articleUrl: null, // TODO: add LinkedIn article URL, if one exists
-    projectUrl: 'https://votar-desde-lejos.pages.dev',
+    articleUrl: null,
+    caseStudyUrl: 'https://juandamunoz.com/votar-desde-lejos',
     repoUrl: 'https://github.com/DavidMume/votar-desde-lejos',
-    internalProjectPath: '/votar',
+    internalProjectPath: '/votar-desde-lejos',
     status: 'published',
     language: 'es',
     featured: false,
