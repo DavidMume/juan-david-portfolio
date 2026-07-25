@@ -37,6 +37,13 @@ function CategoryIcon({ category }) {
   }
 }
 
+function ProjectRouteLink({ project, children, ...props }) {
+  if (project.staticBundle) {
+    return <a href={project.internalPath} {...props}>{children}</a>;
+  }
+  return <Link to={project.internalPath} {...props}>{children}</Link>;
+}
+
 export default function ProjectCard({ project, index }) {
   const { language, t } = useLanguage();
 
@@ -53,7 +60,7 @@ export default function ProjectCard({ project, index }) {
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       {/* Project image — links to canonical internal case study */}
-      <Link to={project.internalPath} className="project-card-cover-link" tabIndex={-1} aria-hidden="true">
+      <ProjectRouteLink project={project} className="project-card-cover-link" tabIndex={-1} aria-hidden="true">
         <div className="project-card-image-wrap">
           <img
             src={cardImage || PLACEHOLDER_IMG}
@@ -63,7 +70,7 @@ export default function ProjectCard({ project, index }) {
             loading="lazy"
           />
         </div>
-      </Link>
+      </ProjectRouteLink>
 
       {/* Card header: category chip + status badge */}
       <div className="card-header">
@@ -78,9 +85,9 @@ export default function ProjectCard({ project, index }) {
 
       {/* Title — links to canonical internal case study */}
       <h3>
-        <Link to={project.internalPath} className="project-card-title-link">
+        <ProjectRouteLink project={project} className="project-card-title-link">
           {project.title[language]}
-        </Link>
+        </ProjectRouteLink>
       </h3>
 
       {/* Subtitle */}
@@ -120,17 +127,17 @@ export default function ProjectCard({ project, index }) {
       <div className="card-actions">
         {/* Primary: internal portfolio case study */}
         {project.internalPath && (
-          <Link to={project.internalPath} className="btn-card-primary">
+          <ProjectRouteLink project={project} className="btn-card-primary">
             <ArrowUpRight size={14} />
             {t.projects.viewAnalysis}
-          </Link>
+          </ProjectRouteLink>
         )}
 
         {/* Verified external deployment */}
         {hasLiveUrl && (
           <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
             <Globe size={14} />
-            {t.projects.liveTool}
+            {project.liveLabel?.[language] ?? t.projects.liveTool}
           </a>
         )}
 

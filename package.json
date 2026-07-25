@@ -9,8 +9,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "sync:impuesto-saludable": "node scripts/sync-impuesto-saludable.mjs",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint src scripts"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

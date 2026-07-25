@@ -93,6 +93,7 @@ The main site is `https://juandamunoz.com/`. It is the editorial hub and the can
 | URL | Content |
 |---|---|
 | `https://juandamunoz.com` | Main portfolio hub |
+| `https://juandamunoz.com/impuesto-saludable` | Full Colombia healthy-tax data-journalism report |
 | `https://juandamunoz.com/chocorramo-index` | Índice Chocorramo — case study page |
 | `https://juandamunoz.com/votar-desde-lejos` | Votar desde lejos — case study page |
 | `https://juandamunoz.com/seq-transit` | SEQ Transit Predictor — case study page |
@@ -107,6 +108,11 @@ The main site is `https://juandamunoz.com/`. It is the editorial hub and the can
 | `https://juandamunoz.com/inclusive-alert` | Inclusive Alert System — case study page |
 
 These are React Router routes inside the portfolio SPA. Legacy short routes remain as aliases so existing links continue to work.
+
+The healthy-tax report is the exception: it is a self-contained production
+bundle served from `public/impuesto-saludable/`. This preserves its bilingual
+research interface and charts while keeping the canonical URL on the portfolio
+domain. Its standalone Pages deployment remains a backup.
 
 ### Live project URLs
 
@@ -153,10 +159,28 @@ Cloudflare adds DNS records automatically and issues SSL within seconds.
 `public/_redirects` contains a single catch-all:
 
 ```text
-/*    /index.html   200
+/impuesto-saludable     /impuesto-saludable/index.html   200
+/impuesto-saludable/    /impuesto-saludable/index.html   200
+/*                      /index.html                       200
 ```
 
-This tells Cloudflare Pages to serve `index.html` for every path. React Router reads the URL and renders the correct component.
+The two specific rules make direct navigation and refresh work for the embedded
+report. The final catch-all keeps normal React Router routes working.
+
+### Refreshing the healthy-tax report
+
+Keep `impuesto-saludable` and `juan-david-portfolio` as sibling folders, then
+run:
+
+```bash
+npm run sync:impuesto-saludable
+npm run build
+```
+
+The sync command builds the research site with
+`/impuesto-saludable/` as its Vite base and copies only the compiled web bundle
+into `public/impuesto-saludable/`. Raw DANE/DIAN files, processing scripts and
+research documentation remain in the source repository.
 
 ### Adding a new project path
 
