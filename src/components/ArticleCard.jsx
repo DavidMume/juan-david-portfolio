@@ -4,6 +4,11 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function ArticleCard({ article, featured = false, index = 0 }) {
   const { language, t } = useLanguage();
+  const articlePath = `/articulos/${article.id}`;
+  const projectUrl = article.projectUrl || article.analysisUrl;
+  const hasProjectUrl = Boolean(projectUrl && projectUrl.startsWith('http'));
+  const hasSourcesUrl = Boolean(article.sourcesUrl && article.sourcesUrl.startsWith('http'));
+  const analysisLabel = article.projectUrl ? t.articles.viewProject : (t.articles.viewRelatedAnalysis || t.articles.readAnalysis);
 
   return (
     <article
@@ -13,11 +18,18 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
     >
       <p className="article-kicker">
         <span>{article.category[language]}</span>
-        <span className="article-kicker-date">{article.date[language]}</span>
+        <span className="article-kicker-date">
+          {article.date[language]}
+          {article.readingTime && (
+            <span className="article-kicker-reading">
+              · {article.readingTime[language] ?? article.readingTime}
+            </span>
+          )}
+        </span>
       </p>
 
       <h3 className="article-title">
-        <Link to={`/articles/${article.id}`}>{article.title[language]}</Link>
+        <Link to={articlePath}>{article.title[language]}</Link>
       </h3>
       {article.subtitle && <p className="article-subtitle">{article.subtitle[language]}</p>}
 
@@ -32,10 +44,22 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
       )}
 
       <div className="article-actions">
-        <Link to={`/articles/${article.id}`} className="btn-card-primary">
+        <Link to={articlePath} className="btn-card-primary">
           <ArrowUpRight size={14} />
           {t.articles.readArticle}
         </Link>
+        {hasProjectUrl && (
+          <a href={projectUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+            <ArrowUpRight size={14} />
+            {analysisLabel}
+          </a>
+        )}
+        {featured && hasSourcesUrl && (
+          <a href={article.sourcesUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+            <ArrowUpRight size={14} />
+            {t.articles.sourcesMethodology}
+          </a>
+        )}
       </div>
     </article>
   );

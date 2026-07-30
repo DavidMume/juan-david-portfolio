@@ -141,6 +141,7 @@ These URLs were verified during the July 2026 link audit. The SEQ URL is documen
 | "Live tool" button URL | `project.liveUrl` in `src/data/projects.js` |
 | GitHub and article buttons | `project.repoUrl` and `project.articleUrl` |
 | Editorial article links | `src/data/articles.js` |
+| Editorial article routes | `src/App.jsx` → `/articulos/:id` (canonical) and `/articles/:id` (legacy alias) |
 | Footer quick-links | `src/data/translations.js` → `footer.projectLinks` (EN + ES) |
 | React Router routes | `src/App.jsx` |
 

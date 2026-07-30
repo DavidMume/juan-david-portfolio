@@ -25,6 +25,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
 
           {/* Editorial / opinion articles */}
+          <Route path="/articulos/:id" element={<ArticleDetail />} />
           <Route path="/articles/:id" element={<ArticleDetail />} />
 
           {/* Long-form project routes */}

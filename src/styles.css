@@ -1089,6 +1089,12 @@ h1, h2, h3, h4 {
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
+.article-kicker-reading {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--subtle);
+  font-weight: 600;
+}
 
 .article-title {
   margin: 0 0 8px;
@@ -1417,6 +1423,24 @@ h1, h2, h3, h4 {
 .article-detail {
   width: min(900px, calc(100% - 32px));
   padding-top: 72px;
+  position: relative;
+}
+.article-progress {
+  position: sticky;
+  top: 64px;
+  z-index: 25;
+  height: 3px;
+  margin: 0 0 18px;
+  background: rgba(216, 208, 191, 0.8);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.article-progress span {
+  display: block;
+  height: 100%;
+  background: var(--red);
+  border-radius: inherit;
+  transition: width 120ms linear;
 }
 .article-detail .back-link {
   padding: 4px 0;
@@ -1434,6 +1458,33 @@ h1, h2, h3, h4 {
   border-top: 4px solid var(--red);
   border-bottom: 1px solid var(--line);
 }
+.article-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  margin: 18px 0 16px;
+  color: var(--subtle);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.article-topline span + span {
+  position: relative;
+}
+.article-topline span + span::before {
+  content: "•";
+  position: absolute;
+  left: -11px;
+  color: var(--red);
+}
+.article-topline-reading {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .article-detail-kicker {
   margin: 0 0 18px;
   color: var(--red);
@@ -1449,6 +1500,15 @@ h1, h2, h3, h4 {
   font-size: clamp(2.5rem, 6vw, 4.7rem);
   line-height: 1.02;
   letter-spacing: -0.035em;
+}
+.article-detail-subtitle {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--charcoal);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.08rem, 2.3vw, 1.42rem);
+  line-height: 1.55;
 }
 .article-detail-meta {
   display: flex;
@@ -1482,6 +1542,12 @@ h1, h2, h3, h4 {
   font-family: var(--serif);
   font-size: clamp(1.2rem, 2.3vw, 1.55rem);
   line-height: 1.5;
+}
+.article-detail-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
 }
 .article-detail-tags {
   display: flex;
@@ -1519,6 +1585,172 @@ h1, h2, h3, h4 {
   font-size: 4.2rem;
   font-weight: 800;
   line-height: 0.78;
+}
+.article-detail-body h2,
+.article-section-heading h2 {
+  margin: 42px 0 14px;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+.article-quote {
+  margin: 34px 0;
+  padding: 22px 24px;
+  border-left: 3px solid var(--red);
+  background: rgba(176, 0, 32, 0.04);
+}
+.article-quote p {
+  margin: 0;
+  color: var(--charcoal);
+  font-family: var(--serif);
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  line-height: 1.6;
+  font-style: italic;
+}
+.article-project-card,
+.article-highlights,
+.article-sources-section,
+.article-author-card,
+.article-related-section {
+  width: min(860px, 100%);
+  margin: 0 auto 40px;
+  padding: 24px 24px 22px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--cream-2);
+}
+.article-project-eyebrow {
+  margin: 0 0 10px;
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.article-project-card h2,
+.article-author-card h2,
+.article-related-section h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+}
+.article-project-card p,
+.article-author-card p,
+.article-related-section p {
+  margin: 0;
+  color: var(--charcoal);
+  font-family: var(--sans);
+  line-height: 1.7;
+}
+.article-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.article-section-heading {
+  max-width: 760px;
+  margin: 0 auto 20px;
+}
+.article-section-heading p:last-child {
+  margin-top: 10px;
+}
+.article-stat-grid,
+.article-source-grid,
+.article-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.article-stat-card,
+.article-source-card,
+.article-related-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--white);
+}
+.article-stat-value {
+  margin: 0 0 10px;
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+  font-weight: 800;
+}
+.article-stat-label {
+  margin: 0;
+  color: var(--charcoal);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+.article-stat-note,
+.article-methodology-note,
+.article-source-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.article-methodology-note {
+  max-width: 760px;
+  margin: 18px auto 0;
+  font-style: italic;
+}
+.article-source-label {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.article-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.article-source-link:hover { color: var(--red-dark); }
+.article-author-card {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 22px;
+  align-items: start;
+}
+.article-author-links {
+  display: grid;
+  gap: 10px;
+  justify-content: end;
+}
+.article-author-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.article-author-links a:hover { color: var(--red-dark); }
+.article-related-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.14rem;
+  line-height: 1.3;
+}
+.article-related-card h3 a:hover { color: var(--red); }
+.article-related-card p {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.65;
 }
 .article-detail-actions {
   padding: 24px 0;
@@ -1781,6 +2013,11 @@ h1, h2, h3, h4 {
   .article-detail-meta span + span::before { display: none; }
   .article-detail-body { margin: 38px auto; }
   .article-detail-body p { font-size: 1.08rem; line-height: 1.72; }
+  .article-stat-grid,
+  .article-source-grid,
+  .article-related-grid { grid-template-columns: 1fr; }
+  .article-author-card { grid-template-columns: 1fr; }
+  .article-author-links { justify-content: start; }
   .project-card-image-wrap { height: 150px; }
   .highlight-card-image-wrap { height: 130px; }
 }
