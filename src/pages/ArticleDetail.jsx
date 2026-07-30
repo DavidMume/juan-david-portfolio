@@ -11,7 +11,7 @@ import {
   Share2,
 } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { contactDetails } from '../data/contact';
 import { articles } from '../data/articles';
@@ -97,6 +97,7 @@ function StatCard({ item, language }) {
 
 export default function ArticleDetail() {
   const { id } = useParams();
+  const location = useLocation();
   const { language, t } = useLanguage();
   const article = articles.find((a) => a.id === id);
   const [progress, setProgress] = useState(0);
@@ -223,6 +224,9 @@ export default function ArticleDetail() {
   if (!article) return <NotFound />;
 
   const articlePath = `/articulos/${article.id}`;
+  if (location.pathname !== articlePath) {
+    return <Navigate replace to={{ pathname: articlePath, search: location.search, hash: location.hash }} />;
+  }
   const projectUrl = article.projectUrl || article.analysisUrl;
   const hasProjectUrl = Boolean(projectUrl?.startsWith('http'));
   const hasSourcesUrl = Boolean(article.sourcesUrl?.startsWith('http'));

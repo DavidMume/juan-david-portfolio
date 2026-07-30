@@ -4,12 +4,20 @@ import { translations } from '../data/translations';
 const LanguageContext = createContext(null);
 const STORAGE_KEY = 'juan-david-portfolio-language';
 
+function resolveInitialLanguage() {
+  if (typeof window === 'undefined') return 'en';
+  const saved = window.localStorage.getItem(STORAGE_KEY);
+  if (saved === 'en' || saved === 'es') return saved;
+
+  const browserLanguage = window.navigator?.language?.toLowerCase?.() ?? '';
+  if (browserLanguage.startsWith('es')) return 'es';
+  if (browserLanguage.startsWith('en')) return 'en';
+
+  return 'es';
+}
+
 export function LanguageProvider({ children }) {
-  const [language, setLanguageState] = useState(() => {
-    if (typeof window === 'undefined') return null;
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    return saved === 'en' || saved === 'es' ? saved : null;
-  });
+  const [language, setLanguageState] = useState(resolveInitialLanguage);
 
   useEffect(() => {
     const activeLanguage = language ?? 'en';
