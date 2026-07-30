@@ -1085,6 +1085,14 @@ h1, h2, h3, h4 {
   object-position: center center;
   background: var(--cream);
 }
+.article-card--featured .article-card-media {
+  max-height: 230px;
+}
+.article-card--featured .article-card-media img {
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  object-position: center center;
+}
 
 .article-kicker {
   display: flex;
@@ -2055,6 +2063,7 @@ h1, h2, h3, h4 {
   .article-related-grid { grid-template-columns: 1fr; }
   .article-author-card { grid-template-columns: 1fr; }
   .article-author-links { justify-content: start; }
+  .article-card--featured .article-card-media { max-height: 170px; }
   .project-card-image-wrap { height: 150px; }
   .highlight-card-image-wrap { height: 130px; }
 }
