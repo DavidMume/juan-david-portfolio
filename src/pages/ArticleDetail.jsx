@@ -326,6 +326,20 @@ export default function ArticleDetail() {
         )}
       </header>
 
+      {article.image && (
+        <figure className="article-hero-image">
+          <img
+            src={article.image}
+            alt={article.imageAlt?.[language] ?? article.title[language]}
+            width="1448"
+            height="1086"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <figcaption>{article.imageCaption?.[language] ?? ''}</figcaption>
+        </figure>
+      )}
+
       {article.projectCard && (
         <section className="article-project-card">
           <p className="article-project-eyebrow">{(article.projectCard[language] ?? article.projectCard.en).eyebrow}</p>

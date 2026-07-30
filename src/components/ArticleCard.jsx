@@ -16,6 +16,17 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
       data-reveal
       style={{ transitionDelay: `${index * 60}ms` }}
     >
+      {article.image && (
+        <Link to={articlePath} className="article-card-media" aria-label={article.title[language]}>
+          <img
+            src={article.image}
+            alt={article.imageAlt?.[language] ?? article.title[language]}
+            loading={featured ? 'eager' : 'lazy'}
+            fetchPriority={featured ? 'high' : 'auto'}
+          />
+        </Link>
+      )}
+
       <p className="article-kicker">
         <span>{article.category[language]}</span>
         <span className="article-kicker-date">

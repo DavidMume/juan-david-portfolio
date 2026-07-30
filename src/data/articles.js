@@ -39,7 +39,16 @@ export const articles = [
         title: 'Healthy tax: ideology or evidence-based policy?',
         description: 'A review of the economic theory, international evidence and Colombia’s early data on the healthy tax.',
       },
-      image: '/images/brand/09-og-social-banner.png',
+      image: '/images/articles/impuesto-saludable-editorial.png',
+    },
+    image: '/images/articles/impuesto-saludable-editorial.png',
+    imageAlt: {
+      es: 'Ilustración editorial sobre el impuesto saludable en Colombia: una botella de bebida azucarada frente al mapa del país, sellos negros de exceso de azúcares, calorías y sodio, una gráfica económica y un símbolo de salud cardiovascular.',
+      en: 'Editorial illustration of Colombia’s healthy tax: a sugary drink bottle in front of the country’s map, black warning labels for excess sugar, calories and sodium, an economic chart and a cardiovascular health symbol.',
+    },
+    imageCaption: {
+      es: 'El impuesto saludable combina objetivos fiscales y de salud pública mediante gravámenes a bebidas azucaradas y productos ultraprocesados.',
+      en: 'Colombia’s healthy tax combines fiscal and public-health goals through levies on sugary drinks and ultra-processed products.',
     },
     projectCard: {
       es: {
