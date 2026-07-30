@@ -26,9 +26,9 @@ export default function App() {
 
           {/* Editorial / opinion articles */}
           <Route path="/articulos/:id" element={<ArticleDetail />} />
-          <Route path="/articulos/:id/*" element={<ArticleDetail />} />
+          <Route path="/articulos/:id/" element={<ArticleDetail />} />
           <Route path="/articles/:id" element={<ArticleDetail />} />
-          <Route path="/articles/:id/*" element={<ArticleDetail />} />
+          <Route path="/articles/:id/" element={<ArticleDetail />} />
 
           {/* Long-form project routes */}
           <Route path="/projects/studenthelper" element={<StudentHelper />} />

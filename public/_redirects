@@ -1,7 +1,8 @@
 /impuesto-saludable                     /impuesto-saludable/index.html   200
 /impuesto-saludable/                    /impuesto-saludable/index.html   200
-/articulos/impuesto-saludable-ideologia-datos   /index.html               200
-/articulos/impuesto-saludable-ideologia-datos/  /index.html               200
+/articulos/impuesto-saludable-ideologia-datos/  /articulos/impuesto-saludable-ideologia-datos  301
+/articles/impuesto-saludable-ideologia-datos    /articulos/impuesto-saludable-ideologia-datos  301
+/articles/impuesto-saludable-ideologia-datos/   /articulos/impuesto-saludable-ideologia-datos  301
 /articulos/*                            /index.html                       200
 /articles/*                             /index.html                       200
 /*                                      /index.html                       200
