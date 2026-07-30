@@ -2,7 +2,6 @@ import {
   ArrowLeft,
   ArrowUpRight,
   Check,
-  Clock3,
   Copy,
   ExternalLink,
   Github,
@@ -12,14 +11,13 @@ import {
   Share2,
 } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { contactDetails } from '../data/contact';
 import { articles } from '../data/articles';
 import NotFound from './NotFound';
 
 const SITE_URL = 'https://juandamunoz.com';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/brand/09-og-social-banner.png`;
 
 function upsertMeta(name, value, attr = 'name') {
   if (typeof document === 'undefined') return null;
@@ -99,7 +97,6 @@ function StatCard({ item, language }) {
 
 export default function ArticleDetail() {
   const { id } = useParams();
-  const location = useLocation();
   const { language, t } = useLanguage();
   const article = articles.find((a) => a.id === id);
   const [progress, setProgress] = useState(0);
@@ -275,55 +272,10 @@ export default function ArticleDetail() {
         {t.articleDetail.back}
       </Link>
 
-      <div className="article-topline">
-        <span>{article.category[language]}</span>
-        <span>{article.date[language]}</span>
-        {readingTime && (
-          <span className="article-topline-reading">
-            <Clock3 size={14} />
-            {readingTime}
-          </span>
-        )}
-      </div>
-
       <header className="article-detail-header">
         <p className="article-detail-kicker">{article.category[language]}</p>
         <h1>{article.title[language]}</h1>
         {article.subtitle && <p className="article-detail-subtitle">{article.subtitle[language]}</p>}
-        <div className="article-detail-meta">
-          <span>{article.date[language]}</span>
-          {article.status && <span>{article.status[language] ?? article.status}</span>}
-          {article.author && <span>{t.articleDetail.byline} {article.author}</span>}
-          {readingTime && <span>{readingTime}</span>}
-        </div>
-        <p className="article-detail-deck">{article.excerpt[language]}</p>
-
-        <div className="article-detail-cta-row">
-          {hasProjectUrl && (
-            <a href={projectUrl} target="_blank" rel="noreferrer" className="article-cta-primary">
-              {t.articleDetail.project}
-              <ArrowUpRight size={16} />
-            </a>
-          )}
-          {hasSourcesUrl && (
-            <a href={article.sourcesUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
-              <Link2 size={16} />
-              {t.articleDetail.sources}
-            </a>
-          )}
-          {hasRepoUrl && (
-            <a href={article.repoUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
-              <Github size={16} />
-              {t.articleDetail.ctaRepo}
-            </a>
-          )}
-        </div>
-
-        {article.tags?.length > 0 && (
-          <div className="article-detail-tags" aria-label={t.articleDetail.tags}>
-            {article.tags.map((tag) => <span key={tag}>{tag}</span>)}
-          </div>
-        )}
       </header>
 
       {article.image && (
@@ -338,6 +290,42 @@ export default function ArticleDetail() {
           />
           <figcaption>{article.imageCaption?.[language] ?? ''}</figcaption>
         </figure>
+      )}
+
+      <div className="article-detail-meta">
+        <span>{article.date[language]}</span>
+        {article.status && <span>{article.status[language] ?? article.status}</span>}
+        {article.author && <span>{t.articleDetail.byline} {article.author}</span>}
+        {readingTime && <span>{readingTime}</span>}
+      </div>
+
+      <p className="article-detail-deck">{article.excerpt[language]}</p>
+
+      <div className="article-detail-cta-row">
+        {hasProjectUrl && (
+          <a href={projectUrl} target="_blank" rel="noreferrer" className="article-cta-primary">
+            {t.articleDetail.project}
+            <ArrowUpRight size={16} />
+          </a>
+        )}
+        {hasSourcesUrl && (
+          <a href={article.sourcesUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
+            <Link2 size={16} />
+            {t.articleDetail.sources}
+          </a>
+        )}
+        {hasRepoUrl && (
+          <a href={article.repoUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
+            <Github size={16} />
+            {t.articleDetail.ctaRepo}
+          </a>
+        )}
+      </div>
+
+      {article.tags?.length > 0 && (
+        <div className="article-detail-tags" aria-label={t.articleDetail.tags}>
+          {article.tags.map((tag) => <span key={tag}>{tag}</span>)}
+        </div>
       )}
 
       {article.projectCard && (

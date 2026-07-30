@@ -15,8 +15,8 @@ export const articles = [
       en: 'A review of the economic theory, international evidence and Colombia’s early data on prices, consumption and tax revenue.',
     },
     excerpt: {
-      es: 'Un recorrido editorial por la teoría, la evidencia y los primeros datos sobre el impuesto saludable en Colombia, con cuidado de no confundir descripción con causalidad.',
-      en: 'An editorial walk-through of theory, evidence and early Colombian data on the healthy tax, with care not to confuse description with causality.',
+      es: 'Un repaso de la teoría, la evidencia y los primeros datos del impuesto saludable en Colombia, sin confundir descripción con causalidad.',
+      en: 'A reading of the theory, the evidence and the first Colombian data on the healthy tax, without confusing description with causality.',
     },
     date: { en: 'July 30, 2026', es: '30 de julio de 2026' },
     updatedAt: { en: 'July 30, 2026', es: '30 de julio de 2026' },
@@ -202,15 +202,31 @@ export const articles = [
       es: [
         {
           type: 'paragraph',
-          text: 'El 12 de junio de 2026, en entrevista con Caracol Radio, José Manuel Restrepo dijo que el impuesto saludable era una medida “puramente ideológica”. Lo dijo cuando era la fórmula vicepresidencial de Abelardo de la Espriella. Después, la conversación política se movió rápido: el 2 de julio Caracol Radio ya lo describía como vicepresidente electo, y Miguel Gómez Martínez, ministro de Hacienda designado, empezó a hablar de una reforma que simplificaría la estructura tributaria. Lo que en campaña sonaba a opinión hoy ya se parece bastante a agenda de gobierno.',
+          text: 'Hace unas semanas escuché a José Manuel Restrepo decir, en una entrevista con Caracol Radio, que el impuesto saludable es un impuesto que “terminaron poniendo por una razón puramente ideológica”. Y prometió eliminarlo. Cuando lo dijo, era la fórmula vicepresidencial de Abelardo de la Espriella. Hoy es el vicepresidente electo de Colombia, y el ministro de Hacienda designado, Miguel Gómez Martínez, ya confirmó que el nuevo gobierno tramitará una reforma tributaria para que la DIAN pase de recaudar 15 impuestos a solo tres: renta, IVA e IVA externo.',
         },
         {
           type: 'paragraph',
-          text: 'Yo no tomo “ideológico” como un insulto. Lo tomo como una afirmación que se puede comprobar. Y, para este caso, la pregunta no es si el impuesto resulta incómodo. La pregunta es si tiene fundamento económico, si responde a un problema de salud pública real y si los primeros datos disponibles se mueven en la dirección que uno esperaría.',
+          text: 'Lo que en junio era una opinión de campaña, hoy es una promesa de gobierno.',
         },
         {
           type: 'paragraph',
-          text: 'Así que me fui a revisar la Ley 2277, la literatura internacional, los documentos técnicos del proyecto y los datos disponibles del DANE y la DIAN. Este artículo resume esa lectura. El proyecto completo —con metodología, fuentes, gráficos y límites— está documentado aparte, precisamente para que la discusión no quede en opinión suelta.',
+          text: 'Y aquí va mi confesión: todos tenemos sesgo de confirmación. Yo, el primero. Y, al parecer, José Manuel Restrepo también. Lo entiendo porque, pese a que yo tampoco comparto muchas de las políticas de Gustavo Petro, no me atrevo a decir que este impuesto sea algo meramente ideológico.',
+        },
+        {
+          type: 'paragraph',
+          text: '“Ideológico” no es un insulto: es una afirmación. Y las afirmaciones se pueden someter a prueba.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Así que me di a la tarea de hacerlo. El ejercicio es honestamente desgastante —implica varias etapas y mucho tiempo—, pero acá estamos, por amor a la verdad y a la economía. Leí la Ley 2277 tal como está formulada: qué grava, con qué tarifas y con qué diseño. Revisé la literatura disponible, verificando qué estudios pasaron por revisión de pares y en qué contextos se hicieron, para saber qué tan aterrizables son sus resultados a Colombia. Y empecé a procesar datos del DANE y de la DIAN.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Todo el proceso, con sus fuentes, su metodología y sus límites, está documentado en el sitio del proyecto:',
+        },
+        {
+          type: 'paragraph',
+          text: 'Esto fue lo que encontré.',
         },
         {
           type: 'heading',
@@ -218,11 +234,23 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'En economía, un impuesto no es solo una forma de recaudar. También puede corregir una externalidad negativa: cuando el consumo de un producto genera costos para terceros, esos costos no siempre quedan reflejados en el precio final. En salud pública eso importa mucho, porque parte del costo de la enfermedad termina siendo asumido por el sistema de salud y, en Colombia, por todos los contribuyentes.',
+          text: 'En macroeconomía, los gobiernos tienen varias herramientas para incidir no solo en la economía, sino también en el comportamiento de las personas. Una de ellas es la política fiscal: a través de los impuestos y del gasto público se busca influir en el crecimiento, la inflación, el empleo y el bienestar social.',
         },
         {
           type: 'paragraph',
-          text: 'El impuesto saludable entra en esa familia de políticas. No es una prohibición, y tampoco pretende moralizar el consumo. Busca que el precio incorpore parte del costo social que hoy no se ve en la caja registradora. Esa es la lógica de los impuestos pigouvianos: no eliminar una decisión, sino hacerla un poco más fiel a sus consecuencias.',
+          text: 'El impuesto saludable pertenece a una familia particular: la de los impuestos que los economistas llamamos pigouvianos, en honor a Arthur Pigou.',
+        },
+        {
+          type: 'paragraph',
+          text: 'La idea es simple. Cuando alguien consume un producto que daña su salud, el costo de esa enfermedad no lo paga solamente esa persona: también lo paga el sistema de salud. Y en Colombia tenemos un sistema de salud universal —algo con lo que Estados Unidos no cuenta, por cierto—, así que ese costo lo terminamos pagando entre todos.',
+        },
+        {
+          type: 'paragraph',
+          text: 'En la jerga económica, eso se llama una externalidad negativa: mi decisión de consumo les genera costos a terceros que no participaron en ella.',
+        },
+        {
+          type: 'paragraph',
+          text: 'El impuesto busca que el precio del producto refleje una parte de ese costo. Es la misma razón por la que los cigarrillos y el alcohol tienen impuestos altos en casi todo el mundo.',
         },
         {
           type: 'heading',
@@ -230,11 +258,27 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'La discusión seria no es si los impuestos cambian el comportamiento. Claro que lo hacen. La discusión es cuánto, en qué productos, para quién y con qué sustituciones. Por eso importa la elasticidad precio de la demanda: algunos bienes reaccionan poco; otros, mucho. Y por eso también importa el diseño colombiano, que no grava todo por igual sino que escalona la tarifa según el contenido de azúcar o el perfil del producto.',
+          text: 'A la hora de diseñar este tipo de impuestos, la economía de la salud tiene en cuenta un concepto clave: la elasticidad precio de la demanda.',
         },
         {
           type: 'paragraph',
-          text: 'Ese diseño abre dos caminos. El consumidor puede moverse hacia alternativas menos gravadas. Y el productor puede reformular. Eso no prueba por sí solo que el impuesto “funcionó”, pero sí muestra que la política cambia incentivos reales, no solo símbolos.',
+          text: 'Es, básicamente, un índice de qué tan sensibles somos a los cambios en los precios. Hay bienes que, si suben un poco de precio, ven caer su demanda mucho más de lo esperado. Y hay otros que la gente sigue consumiendo casi sin importar cuánto suban. Las empresas también lo saben.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Las elasticidades dependen, además, de los sustitutos disponibles.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Aquí el diseño colombiano es más inteligente de lo que sus críticos admiten: el impuesto a las bebidas no es una tarifa plana, sino que está escalonado según los gramos de azúcar por cada 100 mililitros.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Eso crea dos incentivos al mismo tiempo: que el consumidor sustituya hacia versiones con menos azúcar —o hacia el agua, que sigue siendo gratis en la llave— y que el productor reformule sus productos para pagar menos impuesto, como ocurrió en el Reino Unido y en Sudáfrica.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Porque, a diferencia de la sal, el azúcar añadida no es esencial. Nuestro cuerpo no nos la pide para funcionar. Podemos vivir sin ella.',
         },
         {
           type: 'heading',
@@ -242,15 +286,27 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'La literatura internacional tampoco parte de cero. Lara-Castor et al., en Nature Medicine, estimaron que Colombia tiene la mayor carga atribuible a bebidas azucaradas entre los 30 países más poblados: 48,1% de los nuevos casos de diabetes tipo 2 y 23,0% de los nuevos casos de enfermedad cardiovascular. Esa no es una estimación del impuesto. Es una medida de la carga de enfermedad atribuible al consumo de bebidas azucaradas.',
+          text: 'El impuesto no llegó a un país sano.',
         },
         {
           type: 'paragraph',
-          text: 'La diferencia importa. Una cosa es decir que el impuesto explica esos porcentajes. Otra, muy distinta, es decir que el país ya cargaba con un problema serio de salud pública que hacía razonable discutir una política de este tipo. Yo me quedo con la segunda afirmación, porque es la que sí está soportada por la evidencia.',
+          text: 'Según un estudio publicado en *Nature Medicine* por Lara-Castor et al., Colombia tiene la mayor carga de diabetes tipo 2 atribuible a bebidas azucaradas entre los 30 países más poblados del mundo: el 48,1% de los casos nuevos de diabetes tipo 2 registrados en 2020 serían atribuibles a estas bebidas.',
         },
         {
-          type: 'quote',
-          text: 'Un impuesto puede ser incómodo. Ideológico es eliminarlo sin mirar los datos.',
+          type: 'paragraph',
+          text: 'En enfermedad cardiovascular, la cifra es del 23%.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Primer puesto en ambas.',
+        },
+        {
+          type: 'paragraph',
+          text: 'No es un podio del que uno quiera hacer parte.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Y estas enfermedades no son abstractas. La enfermedad isquémica del corazón es la primera causa de muerte en Colombia, según el DANE, y la diabetes se encuentra entre las diez primeras.',
         },
         {
           type: 'heading',
@@ -258,15 +314,43 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'Aquí es donde el debate se vuelve más interesante, porque ya hay datos. ANIF reportó que, entre 2022 y 2024, el consumo diario de bebidas azucaradas cayó de 24,6% a 22,6% entre jóvenes de 12 a 28 años, y de 24,9% a 19,2% entre adultos de 29 a 44 años. También reportó picos de inflación anual de 20,7% en frituras de paquete y 13,7% en gaseosas y maltas después de la entrada en vigor.',
+          text: 'Aquí es donde el debate se pone interesante, porque ya hay datos.',
         },
         {
           type: 'paragraph',
-          text: 'Además, ANIF reportó un recaudo acumulado de $1,6 billones a mayo de 2025 para los impuestos saludables. Eso confirma que el impuesto existe y recauda. No confirma, por sí solo, un efecto causal en salud ni separa su impacto de otros choques de precios, de la inflación alimentaria o de las dinámicas generales del consumo.',
+          text: 'ANIF —un centro de estudios que nadie acusaría de petrismo— publicó en 2025 un informe sobre lo que ha pasado desde la implementación del impuesto. El informe muestra tres hallazgos.',
         },
         {
-          type: 'quote',
-          text: 'Lo que no tiene todavía es una evaluación causal rigurosa. Eso no lo convierte en ideológico. Lo convierte en una política plausible pendiente de medición.',
+          type: 'paragraph',
+          text: 'Primero, el impuesto sí se trasladó a los precios. La inflación anual de las frituras de paquete llegó a un pico del 20,7%, mientras que la de las gaseosas y maltas llegó al 13,7% después de la entrada en vigor.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Segundo, el consumo diario de bebidas azucaradas cayó entre 2022 y 2024. Pasó del 24,6% al 22,6% entre los jóvenes de 12 a 28 años, y del 24,9% al 19,2% entre los adultos de 29 a 44 años, según la Encuesta Nacional de Calidad de Vida del DANE.',
+        },
+        {
+          type: 'paragraph',
+          text: 'La reducción fue más marcada en los hogares de menores ingresos.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Tercero, el impuesto recauda: $1,6 billones a mayo de 2025, equivalentes al 1,3% del recaudo total.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Ahora, seamos rigurosos, que para eso vinimos: estos son datos descriptivos, no una evaluación causal.',
+        },
+        {
+          type: 'paragraph',
+          text: 'La caída del consumo coincide con la entrada en vigor del impuesto y se mueve en la dirección que predice la teoría. Pero nadie ha separado todavía el efecto específico del impuesto de la inflación de alimentos de 2022 y 2023, ni de otros choques que también pudieron afectar las decisiones de consumo.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Correlación no implica causalidad. Y ese estándar aplica para los dos bandos: ni Restrepo puede afirmar que el impuesto no sirve, ni sus defensores pueden cantar victoria.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Lo que sí podemos decir es que los eslabones de la cadena —impuesto, precios y consumo— se están moviendo como se esperaba.',
         },
         {
           type: 'heading',
@@ -274,11 +358,35 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'Si alguien quiere criticar este impuesto con seriedad, el mejor argumento no es que sea ideológico. El mejor argumento es que puede ser regresivo: que golpea proporcionalmente más el bolsillo de los hogares de menores ingresos. Ese riesgo existe y merece tomarse en serio.',
+          text: 'Si yo quisiera atacar este impuesto, no diría que es ideológico.',
         },
         {
           type: 'paragraph',
-          text: 'Pero ahí mismo aparece la otra cara de la discusión. Si los hogares con menos ingreso reaccionan más al precio, también podrían ser los que más cambien su consumo. Y si el consumo baja en los grupos con mayor exposición al riesgo, la política puede tener beneficios sanitarios que todavía no sabemos medir bien con el nivel de evidencia disponible.',
+          text: 'Diría que es regresivo: que golpea proporcionalmente más el bolsillo de los hogares pobres, para quienes cada peso pesa más a la hora de decidir qué echar a la olla.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Ese es el argumento técnico más fuerte en contra del impuesto, y hay que tomárselo en serio.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Pero tiene una contracara.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Si los hogares de menores ingresos son más sensibles al precio —y los datos de ANIF sugieren que lo son, porque fueron quienes más redujeron el consumo—, entonces también podrían ser quienes más se beneficien en términos de salud.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Y hay algo más. En Colombia, los hogares de menores ingresos tienen una mayor presencia en la informalidad y una mayor dependencia del régimen subsidiado de salud. Es decir, cuando estas enfermedades llegan, una parte importante del costo la asume directamente el Estado.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Todos pagamos esa salud.',
+        },
+        {
+          type: 'paragraph',
+          text: 'El efecto distributivo neto del impuesto para Colombia todavía no está resuelto en la literatura, y lo honesto es decirlo así.',
         },
         {
           type: 'heading',
@@ -286,29 +394,77 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'El nuevo gobierno ya anunció que quiere simplificar el sistema tributario. El problema no es simplificar. El problema es simplificar a ciegas. Eliminar el impuesto sin mirar el conjunto de datos —precios, consumo, recaudo, carga de enfermedad y efectos distributivos— sería tan ideológico como la acusación que se le hace al impuesto.',
+          text: 'El gobierno entrante prometió dos cosas: eliminar el impuesto saludable y simplificar el sistema tributario hasta dejarlo en tres impuestos.',
         },
         {
           type: 'paragraph',
-          text: 'Mi lectura, después de revisar la evidencia, es simple: el impuesto saludable tiene una justificación económica y de salud pública seria, un diseño mejor de lo que a veces se le reconoce y unos primeros datos que van en la dirección esperada. Lo que todavía no tiene es una evaluación causal robusta. Eso no lo vuelve un capricho ideológico. Lo vuelve una política plausible que todavía espera medición rigurosa.',
+          text: 'Todavía no sabemos cómo van a plantear la reforma en detalle, y no voy a especular más de la cuenta. Pero el escenario que se dibuja es uno en el que los productos ultraprocesados quedarían relativamente más baratos frente a la comida del día a día.',
         },
         {
           type: 'paragraph',
-          text: 'La discusión completa —ley, literatura, datos, metodología, fuentes y límites— está documentada en el proyecto de datos vinculado más abajo. Esa parte importa tanto como el editorial, porque sin trazabilidad el debate se vuelve puro ruido.',
+          text: 'Y eso afectaría principalmente a los hogares de menores ingresos, donde los precios ejercen una mayor presión sobre las decisiones de consumo.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Mi lectura, después de este ejercicio, es esta: el impuesto saludable tiene una justificación económica y de salud pública seria, un diseño mejor de lo que se le reconoce y unos primeros datos que se mueven en la dirección esperada.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Lo que todavía no tiene es una evaluación causal rigurosa, porque lleva relativamente poco tiempo vigente.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Eso no lo convierte en ideológico.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Lo convierte en una política plausible, pendiente de medición.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Y ahí está la ironía.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Restrepo dice que el impuesto se puso por razones puramente ideológicas. Pero eliminarlo sin haberlo evaluado —sin mirar los precios, el consumo, el recaudo ni la salud— sería exactamente eso: una decisión ideológica.',
+        },
+        {
+          type: 'quote',
+          text: 'Un impuesto puede ser incómodo. Ideológico es eliminarlo sin mirar los datos.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Los datos, las fuentes, las limitaciones y la metodología completa de este ejercicio están documentados en:',
         },
       ],
       en: [
         {
           type: 'paragraph',
-          text: 'On 12 June 2026, José Manuel Restrepo told Caracol Radio that the healthy tax was “purely ideological”. He said it while he was Abelardo de la Espriella’s running mate. The political conversation moved quickly after that: by 2 July, Caracol Radio was already describing him as vice president elect, and Miguel Gómez Martínez, the designated finance minister, began talking about a tax reform that would simplify the tax architecture. What sounded like campaign rhetoric is now close to a governing agenda.',
+          text: 'A few weeks ago I heard José Manuel Restrepo say, in an interview with Caracol Radio, that the healthy tax is a tax they “ended up imposing for a purely ideological reason”. And he promised to abolish it. When he said that, he was Abelardo de la Espriella’s running mate. Today he is Colombia’s vice president elect, and the designated finance minister, Miguel Gómez Martínez, has already confirmed that the new government will push a tax reform so that DIAN goes from collecting 15 taxes to just three: income tax, VAT and external VAT.',
         },
         {
           type: 'paragraph',
-          text: 'I do not take “ideological” as an insult. I take it as a claim that can be checked. And on this issue, the real question is not whether the tax is inconvenient. The question is whether it has economic logic, whether it responds to a genuine public-health problem, and whether the first available data move in the direction theory would predict.',
+          text: 'What was a campaign opinion in June is now a government promise.',
         },
         {
           type: 'paragraph',
-          text: 'So I went back to Law 2277, the international literature, the project’s technical notes and the data available from DANE and DIAN. This article is the editorial version of that review. The full project — with methodology, sources, charts and limits — is documented separately so the argument is not left as free-floating opinion.',
+          text: 'And here is my confession: we all have confirmation bias. Me first. And, apparently, José Manuel Restrepo does too. I get it, because even though I also disagree with many of Gustavo Petro’s policies, I would not dare say that this tax is merely ideological.',
+        },
+        {
+          type: 'paragraph',
+          text: '“Ideological” is not an insult. It is a claim. And claims can be tested.',
+        },
+        {
+          type: 'paragraph',
+          text: 'So I set out to do that. The exercise is honestly draining — it takes several steps and a lot of time — but here we are, for the love of truth and economics. I read Law 2277 as it is written: what it taxes, at what rates and with what design. I reviewed the available literature, checking which studies were peer-reviewed and in what settings they were done, to see how well their results can travel to Colombia. And I started processing DANE and DIAN data.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The whole process, with its sources, methodology and limits, is documented on the project site:',
+        },
+        {
+          type: 'paragraph',
+          text: 'Here is what I found.',
         },
         {
           type: 'heading',
@@ -316,11 +472,23 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'In economics, a tax is more than a revenue instrument. It can also correct a negative externality: when the consumption of a product creates costs for other people, those costs are not always visible in the sticker price. In health policy that matters, because part of the cost of disease is ultimately absorbed by the health system and, in Colombia, by all taxpayers.',
+          text: 'In macroeconomics, governments have several tools to influence not only the economy, but also people’s behaviour. One of them is fiscal policy: through taxes and public spending, the state seeks to influence growth, inflation, employment and social welfare.',
         },
         {
           type: 'paragraph',
-          text: 'That is where the healthy tax belongs. It is not a ban, and it is not a moral sermon. It tries to make the price reflect part of the social cost that does not show up at the cashier. That is the basic logic of Pigouvian taxation: not to eliminate a choice, but to make it more honest about its consequences.',
+          text: 'The healthy tax belongs to a particular family: what economists call Pigouvian taxes, after Arthur Pigou.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The idea is simple. When someone consumes a product that harms their health, the cost of that illness is not paid by that person alone: the health system pays part of it too. And in Colombia we have a universal health system — something the United States does not have, by the way — so we all end up paying that cost.',
+        },
+        {
+          type: 'paragraph',
+          text: 'In economic jargon, that is called a negative externality: my consumption decision creates costs for third parties who did not take part in it.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The tax tries to make the product price reflect part of that cost. That is the same reason cigarettes and alcohol are heavily taxed almost everywhere.',
         },
         {
           type: 'heading',
@@ -328,11 +496,27 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'The serious debate is not whether taxes change behaviour. They do. The question is by how much, in which products, for whom and through which substitutions. That is why price elasticity matters: some goods barely move when prices rise, while others fall much more quickly. It is also why the Colombian design matters, because it does not levy a flat rate. It scales the tax according to sugar content and product profile.',
+          text: 'When designing this kind of tax, health economics pays attention to a key concept: price elasticity of demand.',
         },
         {
           type: 'paragraph',
-          text: 'That design opens two channels. Consumers may shift toward less taxed alternatives. Producers may reformulate. Neither of those outcomes proves the tax “worked” by itself, but both show that the policy changes real incentives, not just symbols.',
+          text: 'It is basically a measure of how sensitive we are to price changes. Some goods, if they get a little more expensive, see demand fall much more than expected. Others keep selling almost no matter how much they go up. Companies know that too.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Elasticities also depend on what substitutes are available.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Here the Colombian design is smarter than its critics admit: the tax on beverages is not a flat rate, but a stepped one based on grams of sugar per 100 millilitres.',
+        },
+        {
+          type: 'paragraph',
+          text: 'That creates two incentives at once: for consumers to switch to lower-sugar versions — or to water, which is still free at the tap — and for producers to reformulate their products to pay less tax, as happened in the UK and South Africa.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Because unlike salt, added sugar is not essential. Our bodies do not need it to function. We can live without it.',
         },
         {
           type: 'heading',
@@ -340,15 +524,27 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'The international literature does not start from zero either. Lara-Castor et al., in Nature Medicine, estimated that Colombia has the highest SSB-attributable burden among the 30 most populous countries: 48.1% of new type 2 diabetes cases and 23.0% of new cardiovascular disease cases. That is not a tax-effect estimate. It is a measure of disease burden attributable to sugary drink consumption.',
+          text: 'The tax did not arrive in a healthy country.',
         },
         {
           type: 'paragraph',
-          text: 'That distinction matters. It is one thing to say the tax explains those percentages. It is something else entirely to say the country was already carrying a serious public-health problem that made this type of policy worth debating. I stick to the second claim, because it is the one supported by the evidence.',
+          text: 'According to a study published in *Nature Medicine* by Lara-Castor et al., Colombia has the highest burden of type 2 diabetes attributable to sugary drinks among the 30 most populous countries in the world: 48.1% of the new type 2 diabetes cases recorded in 2020 would be attributable to these drinks.',
         },
         {
-          type: 'quote',
-          text: 'A tax can be uncomfortable. What is ideological is to abolish it without looking at the data.',
+          type: 'paragraph',
+          text: 'For cardiovascular disease, the figure is 23%.',
+        },
+        {
+          type: 'paragraph',
+          text: 'First place in both.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Not a podium you want to be on.',
+        },
+        {
+          type: 'paragraph',
+          text: 'And these diseases are not abstract. Ischaemic heart disease is the leading cause of death in Colombia, according to DANE, and diabetes is among the top ten.',
         },
         {
           type: 'heading',
@@ -356,15 +552,43 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'This is where the discussion gets more interesting, because there is already data. ANIF reported that between 2022 and 2024 daily sugary-drink consumption fell from 24.6% to 22.6% among people aged 12 to 28, and from 24.9% to 19.2% among adults aged 29 to 44. It also reported annual inflation peaks of 20.7% in packaged fried snacks and 13.7% in sodas and malt beverages after the law took effect.',
+          text: 'This is where the debate gets interesting, because there is already data.',
         },
         {
           type: 'paragraph',
-          text: 'ANIF also reported COP 1.6 trillion in accumulated revenue through May 2025 for the healthy taxes. That confirms the tax exists and raises revenue. It does not, by itself, prove a causal health effect, and it does not separate the tax from broader food inflation, other price shocks or the general dynamics of consumption.',
+          text: 'ANIF — a think tank nobody would accuse of petismo — published a report in 2025 on what has happened since the tax was implemented. The report shows three findings.',
         },
         {
-          type: 'quote',
-          text: 'It still does not have a rigorous causal evaluation. That does not make it ideological. It makes it a plausible policy still waiting to be measured.',
+          type: 'paragraph',
+          text: 'First, the tax did pass through to prices. Annual inflation for packaged fried snacks peaked at 20.7%, while sodas and malt drinks reached 13.7% after the law took effect.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Second, daily sugary-drink consumption fell between 2022 and 2024. It went from 24.6% to 22.6% among people aged 12 to 28, and from 24.9% to 19.2% among adults aged 29 to 44, according to DANE’s Quality of Life Survey.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The drop was more pronounced among lower-income households.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Third, the tax raises revenue: COP 1.6 trillion by May 2025, equal to 1.3% of total revenue.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Now, let us be rigorous, since that is why we came here: these are descriptive data, not a causal evaluation.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The drop in consumption coincides with the tax taking effect and moves in the direction theory predicts. But nobody has yet separated the specific effect of the tax from the 2022 and 2023 food inflation shock, or from other shocks that may also have affected consumption decisions.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Correlation does not imply causation. And that standard applies to both sides: Restrepo cannot say the tax does not work, and its defenders cannot declare victory.',
+        },
+        {
+          type: 'paragraph',
+          text: 'What we can say is that the links in the chain — tax, prices and consumption — are moving as expected.',
         },
         {
           type: 'heading',
@@ -372,11 +596,35 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'If someone wants to criticise this tax seriously, the best argument is not that it is ideological. The strongest argument is that it may be regressive: that it hits lower-income households harder in proportional terms. That risk is real and deserves to be taken seriously.',
+          text: 'If I wanted to attack this tax, I would not call it ideological.',
         },
         {
           type: 'paragraph',
-          text: 'But the other side of the debate appears right away. If lower-income households are more price-sensitive, they may also be the ones most likely to change consumption. And if consumption falls in the groups with the highest risk exposure, the policy may produce health benefits that we still do not know how to measure cleanly at this stage.',
+          text: 'I would call it regressive: something that hits poorer households harder in proportional terms, because every peso matters more when deciding what to put on the table.',
+        },
+        {
+          type: 'paragraph',
+          text: 'That is the strongest technical argument against the tax, and it deserves to be taken seriously.',
+        },
+        {
+          type: 'paragraph',
+          text: 'But there is another side to it.',
+        },
+        {
+          type: 'paragraph',
+          text: 'If lower-income households are more price-sensitive — and ANIF’s data suggest they are, because they were the ones who cut consumption the most — then they may also be the ones who benefit most in health terms.',
+        },
+        {
+          type: 'paragraph',
+          text: 'And there is something else. In Colombia, lower-income households are more likely to be in the informal sector and more likely to depend on the subsidised health regime. In other words, when these diseases show up, a large part of the cost is picked up directly by the state.',
+        },
+        {
+          type: 'paragraph',
+          text: 'We all pay for that health care.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The net distributional effect of the tax in Colombia is still unresolved in the literature, and the honest thing is to say it that way.',
         },
         {
           type: 'heading',
@@ -384,15 +632,47 @@ export const articles = [
         },
         {
           type: 'paragraph',
-          text: 'The incoming government has already said it wants to simplify the tax system. The problem is not simplification itself. The problem is simplifying blindly. Scrapping the tax without looking at the full set of data — prices, consumption, revenue, disease burden and distributional effects — would be as ideological as the accusation made against the tax.',
+          text: 'The incoming government promised two things: to abolish the healthy tax and to simplify the tax system down to three taxes.',
         },
         {
           type: 'paragraph',
-          text: 'My reading after going through the evidence is straightforward: the healthy tax has a serious economic and public-health rationale, a better design than it often gets credit for, and early data that move in the expected direction. What it still lacks is a robust causal evaluation. That does not make it a dogma. It makes it a plausible policy still waiting for proper measurement.',
+          text: 'We still do not know exactly how they will present the reform, and I do not want to speculate too much. But the picture that is emerging is one in which ultra-processed products would end up relatively cheaper than everyday food.',
         },
         {
           type: 'paragraph',
-          text: 'The full discussion — law, literature, data, methodology, sources and limitations — is documented in the linked data project below. That part matters as much as the editorial argument, because without traceability the debate collapses into noise.',
+          text: 'And that would hit lower-income households the hardest, because prices weigh more heavily on their consumption decisions.',
+        },
+        {
+          type: 'paragraph',
+          text: 'My reading after going through this exercise is this: the healthy tax has a serious economic and public-health rationale, a better design than it is often given credit for, and early data that move in the expected direction.',
+        },
+        {
+          type: 'paragraph',
+          text: 'What it still does not have is a rigorous causal evaluation, because it has not been in place for very long.',
+        },
+        {
+          type: 'paragraph',
+          text: 'That does not make it ideological.',
+        },
+        {
+          type: 'paragraph',
+          text: 'It makes it a plausible policy, still waiting to be measured.',
+        },
+        {
+          type: 'paragraph',
+          text: 'And there is the irony.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Restrepo says the tax was introduced for purely ideological reasons. But abolishing it without having evaluated it — without looking at prices, consumption, revenue or health — would be exactly that: an ideological decision.',
+        },
+        {
+          type: 'quote',
+          text: 'A tax can be uncomfortable. What is ideological is to abolish it without looking at the data.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The data, the sources, the limitations and the full methodology for this exercise are documented at:',
         },
       ],
     },
