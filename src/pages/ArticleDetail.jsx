@@ -233,6 +233,7 @@ export default function ArticleDetail() {
   const hasProjectUrl = Boolean(projectUrl?.startsWith('http'));
   const hasSourcesUrl = Boolean(article.sourcesUrl?.startsWith('http'));
   const hasRepoUrl = Boolean(article.repoUrl?.startsWith('http'));
+  const hasLinkedInUrl = Boolean(article.linkedInUrl?.startsWith('http'));
   const content = article.content?.[language] ?? article.content?.en ?? [];
   const highlights = article.highlights?.[language] ?? article.highlights?.en ?? [];
   const seo = article.seo?.[language] ?? article.seo?.en ?? {};
@@ -326,6 +327,12 @@ export default function ArticleDetail() {
             {t.articleDetail.ctaRepo}
           </a>
         )}
+        {hasLinkedInUrl && (
+          <a href={article.linkedInUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
+            <Linkedin size={16} />
+            {t.articleDetail.readOnLinkedIn}
+          </a>
+        )}
       </div>
 
       {article.tags?.length > 0 && (
@@ -358,6 +365,12 @@ export default function ArticleDetail() {
                 {t.articleDetail.ctaRepo}
               </a>
             )}
+            {hasLinkedInUrl && (
+              <a href={article.linkedInUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+                <Linkedin size={14} />
+                {t.articleDetail.readOnLinkedIn}
+              </a>
+            )}
           </div>
         </section>
       )}
@@ -367,7 +380,6 @@ export default function ArticleDetail() {
           <div className="article-section-heading">
             <p className="eyebrow">{t.articleDetail.projectCardEyebrow}</p>
             <h2>{t.articleDetail.projectCardTitle}</h2>
-            <p>{t.articleDetail.methodologyNote}</p>
           </div>
           <div className="article-stat-grid">
             {highlights.map((item) => (
@@ -421,23 +433,25 @@ export default function ArticleDetail() {
         </div>
       </section>
 
-      <section className="article-sources-section" id="sources">
-        <div className="article-section-heading">
-          <p className="eyebrow">{t.articleDetail.sources}</p>
-          <h2>{language === 'es' ? 'Fuentes y trazabilidad' : 'Sources and traceability'}</h2>
-          <p>
-            {language === 'es'
-              ? 'Estas fuentes sostienen las afirmaciones verificables del texto. Donde la evidencia sigue siendo descriptiva, el artículo lo dice explícitamente.'
-              : 'These sources support the verifiable claims in the text. Where the evidence remains descriptive, the article says so explicitly.'}
-          </p>
-        </div>
+      {article.sources?.length > 0 && (
+        <section className="article-sources-section" id="sources">
+          <div className="article-section-heading">
+            <p className="eyebrow">{t.articleDetail.sources}</p>
+            <h2>{language === 'es' ? 'Fuentes y trazabilidad' : 'Sources and traceability'}</h2>
+            <p>
+              {language === 'es'
+                ? 'Estas fuentes sostienen las afirmaciones verificables del texto. Donde la evidencia sigue siendo descriptiva, el artículo lo dice explícitamente.'
+                : 'These sources support the verifiable claims in the text. Where the evidence remains descriptive, the article says so explicitly.'}
+            </p>
+          </div>
 
-        <div className="article-source-grid">
-          {article.sources.map((source) => (
-            <SourceCard key={source.id} source={source} language={language} />
-          ))}
-        </div>
-      </section>
+          <div className="article-source-grid">
+            {article.sources.map((source) => (
+              <SourceCard key={source.id} source={source} language={language} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="article-author-card">
         <div className="article-author-copy">

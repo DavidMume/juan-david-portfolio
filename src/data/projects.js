@@ -205,7 +205,7 @@ export const projects = [
     liveUrl: 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev',
     liveLabel: { en: 'View analysis', es: 'Ver análisis' },
     repoUrl: 'https://github.com/DavidMume/analisis-plan-gobierno-ivan-cepeda-2026',
-    articleUrl: 'https://www.linkedin.com/pulse/el-programa-de-gobierno-iv%C3%A1n-cepeda-y-sus-433-p%C3%A1ginas-david-mu%C3%B1oz-w515c',
+    articleUrl: 'https://juandamunoz.com/articulos/cepeda-433-pages',
   },
   {
     slug: 'patria-milagro-analysis',
