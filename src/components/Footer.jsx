@@ -1,5 +1,5 @@
 import { ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useLanguage } from '../context/LanguageContext';
 import { contactDetails } from '../data/contact';
 

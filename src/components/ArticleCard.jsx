@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function ArticleCard({ article, featured = false, index = 0 }) {

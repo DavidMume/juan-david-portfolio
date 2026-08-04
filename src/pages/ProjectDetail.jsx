@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink, Github, Globe } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router';
 import { useLanguage } from '../context/LanguageContext';
 import { projects } from '../data/projects';
 import NotFound from './NotFound';

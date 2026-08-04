@@ -11,7 +11,7 @@ import {
   Share2,
 } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router';
 import { useLanguage } from '../context/LanguageContext';
 import { contactDetails } from '../data/contact';
 import { articles } from '../data/articles';

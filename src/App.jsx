@@ -1,4 +1,5 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router';
 import LanguageGate from './components/LanguageGate';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,6 +9,30 @@ import ProjectDetail from './pages/ProjectDetail';
 import NotFound from './pages/NotFound';
 import StudentHelper from './pages/StudentHelper';
 import { useLanguage } from './context/LanguageContext';
+
+const CEPEDA_ANALYSIS_URL = 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev/';
+
+function ExternalRedirect({ to }) {
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    window.location.replace(to);
+  }, [to]);
+
+  return (
+    <main className="not-found section-pad" aria-live="polite">
+      <h1>{language === 'es' ? 'Abriendo el análisis interactivo' : 'Opening the interactive analysis'}</h1>
+      <p>
+        {language === 'es'
+          ? 'Serás redirigido automáticamente.'
+          : 'You will be redirected automatically.'}
+      </p>
+      <a className="btn primary" href={to}>
+        {language === 'es' ? 'Continuar al análisis' : 'Continue to the analysis'}
+      </a>
+    </main>
+  );
+}
 
 export default function App() {
   const { hasLanguage } = useLanguage();
@@ -39,7 +64,7 @@ export default function App() {
           <Route path="/impuesto-saludable" element={<ProjectDetail slug="impuesto-saludable-colombia" />} />
           <Route path="/votar-desde-lejos" element={<ProjectDetail slug="votar-desde-lejos" />} />
           <Route path="/seq-transit" element={<ProjectDetail slug="seq-transit-predictor" />} />
-          <Route path="/cepeda-program" element={<ProjectDetail slug="ivan-cepeda-analysis" />} />
+          <Route path="/cepeda-program" element={<ExternalRedirect to={CEPEDA_ANALYSIS_URL} />} />
           <Route path="/patria-milagro" element={<ProjectDetail slug="patria-milagro-analysis" />} />
           <Route path="/cepeda-context" element={<ProjectDetail slug="cepeda-context-evaluation" />} />
           <Route path="/travel-planner" element={<ProjectDetail slug="travel-planner-colombia-australia" />} />

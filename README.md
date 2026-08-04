@@ -97,7 +97,7 @@ The main site is `https://juandamunoz.com/`. It is the editorial hub and the can
 | `https://juandamunoz.com/chocorramo-index` | Índice Chocorramo — case study page |
 | `https://juandamunoz.com/votar-desde-lejos` | Votar desde lejos — case study page |
 | `https://juandamunoz.com/seq-transit` | SEQ Transit Predictor — case study page |
-| `https://juandamunoz.com/cepeda-program` | Iván Cepeda NLP Analysis — case study page |
+| `https://juandamunoz.com/cepeda-program` | Redirect to the standalone Iván Cepeda interactive NLP analysis |
 | `https://juandamunoz.com/cepeda-context` | Colombia 2026 context evaluation — case study page |
 | `https://juandamunoz.com/patria-milagro` | Patria Milagro Analysis — case study page |
 | `https://juandamunoz.com/travel-planner` | Colombia–Australia Travel Planner — case study page |

@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, Database, Download, Github, GraduationCap, KeyRound, LayoutDashboard, Network, Server, ShieldCheck, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useLanguage } from '../context/LanguageContext';
 import { studentHelperContent, studentHelperRepo } from '../data/studentHelper';
 
