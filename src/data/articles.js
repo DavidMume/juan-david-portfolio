@@ -694,9 +694,10 @@ export const articles = [
     author: 'David Muñoz',
     status: { en: 'Published', es: 'Publicado' },
     tags: ['NLP', 'Colombia 2026', 'Political economy', 'Readability', 'Government plan', 'Economic analysis'],
-    projectUrl: 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev/',
+    projectUrl: 'https://juandamunoz.com/cepeda-program',
+    analysisUrl: 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev/',
     repoUrl: 'https://github.com/DavidMume/analisis-plan-gobierno-ivan-cepeda-2026',
-    linkedInUrl: 'https://www.linkedin.com/pulse/el-programa-de-gobierno-iv%C3%A1n-cepeda-y-sus-433-p%C3%A1ginas-david-mu%C3%B1oz-w515c',
+    linkedinUrl: 'https://www.linkedin.com/pulse/el-programa-de-gobierno-iv%C3%A1n-cepeda-y-sus-433-p%C3%A1ginas-david-mu%C3%B1oz-w515c',
     featured: true,
     language: 'es',
     seo: {

@@ -73,14 +73,20 @@ function renderBlock(block, language, index) {
 }
 
 function SourceCard({ source, language }) {
+  const title = source?.title?.[language] ?? source?.title?.es ?? source?.title?.en ?? source?.title ?? '';
+  const note = source?.note?.[language] ?? source?.note?.es ?? source?.note?.en ?? source?.note ?? '';
+  const url = typeof source?.url === 'string' ? source.url : '';
+
   return (
     <article className="article-source-card">
-      <p className="article-source-label">{source.title[language]}</p>
-      <a href={source.url} target="_blank" rel="noreferrer" className="article-source-link">
-        <span>{source.url}</span>
-        <ExternalLink size={14} />
-      </a>
-      <p className="article-source-note">{source.note[language]}</p>
+      {title && <p className="article-source-label">{title}</p>}
+      {url && (
+        <a href={url} target="_blank" rel="noreferrer" className="article-source-link">
+          <span>{url}</span>
+          <ExternalLink size={14} />
+        </a>
+      )}
+      {note && <p className="article-source-note">{note}</p>}
     </article>
   );
 }
@@ -233,11 +239,24 @@ export default function ArticleDetail() {
   const hasProjectUrl = Boolean(projectUrl?.startsWith('http'));
   const hasSourcesUrl = Boolean(article.sourcesUrl?.startsWith('http'));
   const hasRepoUrl = Boolean(article.repoUrl?.startsWith('http'));
-  const hasLinkedInUrl = Boolean(article.linkedInUrl?.startsWith('http'));
-  const content = article.content?.[language] ?? article.content?.en ?? [];
-  const highlights = article.highlights?.[language] ?? article.highlights?.en ?? [];
+  const linkedinUrl = article.linkedinUrl ?? article.linkedInUrl;
+  const hasLinkedInUrl = Boolean(linkedinUrl?.startsWith('http'));
+  const contentValue = article.content?.[language] ?? article.content?.es ?? article.content?.en ?? [];
+  const highlightsValue = article.highlights?.[language] ?? article.highlights?.en ?? [];
+  const sourcesValue = article.sources ?? [];
+  const content = Array.isArray(contentValue) ? contentValue : [];
+  const highlights = Array.isArray(highlightsValue) ? highlightsValue : [];
+  const sources = Array.isArray(sourcesValue) ? sourcesValue : [];
+  const tags = Array.isArray(article.tags) ? article.tags : [];
   const seo = article.seo?.[language] ?? article.seo?.en ?? {};
   const readingTime = article.readingTime?.[language] ?? article.readingTime?.en;
+  const title = article.title?.[language] ?? article.title?.es ?? article.title?.en ?? t.meta.title;
+  const category = article.category?.[language] ?? article.category?.es ?? article.category?.en ?? '';
+  const subtitle = article.subtitle?.[language] ?? article.subtitle?.es ?? article.subtitle?.en ?? '';
+  const date = article.date?.[language] ?? article.date?.es ?? article.date?.en ?? '';
+  const status = article.status?.[language] ?? article.status?.es ?? article.status?.en ?? article.status ?? '';
+  const excerpt = article.excerpt?.[language] ?? article.excerpt?.es ?? article.excerpt?.en ?? '';
+  const projectCard = article.projectCard?.[language] ?? article.projectCard?.es ?? article.projectCard?.en;
 
   async function handleCopyLink() {
     try {
@@ -251,8 +270,8 @@ export default function ArticleDetail() {
 
   async function handleShare() {
     const shareData = {
-      title: seo.title || article.title[language],
-      text: article.subtitle?.[language] || article.excerpt?.[language] || '',
+      title: seo.title || title,
+      text: subtitle || excerpt,
       url: `${SITE_URL}${articlePath}`,
     };
 
@@ -280,16 +299,16 @@ export default function ArticleDetail() {
       </Link>
 
       <header className="article-detail-header">
-        <p className="article-detail-kicker">{article.category[language]}</p>
-        <h1>{article.title[language]}</h1>
-        {article.subtitle && <p className="article-detail-subtitle">{article.subtitle[language]}</p>}
+        {category && <p className="article-detail-kicker">{category}</p>}
+        <h1>{title}</h1>
+        {subtitle && <p className="article-detail-subtitle">{subtitle}</p>}
       </header>
 
       {article.image && (
         <figure className="article-hero-image">
           <img
             src={article.image}
-            alt={article.imageAlt?.[language] ?? article.title[language]}
+            alt={article.imageAlt?.[language] ?? article.imageAlt?.es ?? article.imageAlt?.en ?? title}
             width="1448"
             height="1086"
             loading="eager"
@@ -300,13 +319,13 @@ export default function ArticleDetail() {
       )}
 
       <div className="article-detail-meta">
-        <span>{article.date[language]}</span>
-        {article.status && <span>{article.status[language] ?? article.status}</span>}
+        {date && <span>{date}</span>}
+        {status && <span>{status}</span>}
         {article.author && <span>{t.articleDetail.byline} {article.author}</span>}
         {readingTime && <span>{readingTime}</span>}
       </div>
 
-      <p className="article-detail-deck">{article.excerpt[language]}</p>
+      {excerpt && <p className="article-detail-deck">{excerpt}</p>}
 
       <div className="article-detail-cta-row">
         {hasProjectUrl && (
@@ -328,24 +347,24 @@ export default function ArticleDetail() {
           </a>
         )}
         {hasLinkedInUrl && (
-          <a href={article.linkedInUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
+          <a href={linkedinUrl} target="_blank" rel="noreferrer" className="article-cta-secondary">
             <Linkedin size={16} />
             {t.articleDetail.readOnLinkedIn}
           </a>
         )}
       </div>
 
-      {article.tags?.length > 0 && (
+      {tags.length > 0 && (
         <div className="article-detail-tags" aria-label={t.articleDetail.tags}>
-          {article.tags.map((tag) => <span key={tag}>{tag}</span>)}
+          {tags.map((tag) => <span key={tag}>{tag}</span>)}
         </div>
       )}
 
-      {article.projectCard && (
+      {projectCard && (
         <section className="article-project-card">
-          <p className="article-project-eyebrow">{(article.projectCard[language] ?? article.projectCard.en).eyebrow}</p>
-          <h2>{(article.projectCard[language] ?? article.projectCard.en).title}</h2>
-          <p>{(article.projectCard[language] ?? article.projectCard.en).body}</p>
+          <p className="article-project-eyebrow">{projectCard.eyebrow}</p>
+          <h2>{projectCard.title}</h2>
+          <p>{projectCard.body}</p>
           <div className="article-project-links">
             {hasProjectUrl && (
               <a href={projectUrl} target="_blank" rel="noreferrer" className="btn-card-primary">
@@ -366,7 +385,7 @@ export default function ArticleDetail() {
               </a>
             )}
             {hasLinkedInUrl && (
-              <a href={article.linkedInUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
+              <a href={linkedinUrl} target="_blank" rel="noreferrer" className="btn-card-secondary">
                 <Linkedin size={14} />
                 {t.articleDetail.readOnLinkedIn}
               </a>
@@ -391,7 +410,15 @@ export default function ArticleDetail() {
       )}
 
       <article className="article-detail-body">
-        {content.map((block, index) => renderBlock(block, language, index))}
+        {content.length > 0 ? (
+          content.map((block, index) => renderBlock(block, language, index))
+        ) : (
+          <p>
+            {language === 'es'
+              ? 'El contenido de este artículo no está disponible temporalmente.'
+              : 'This article’s content is temporarily unavailable.'}
+          </p>
+        )}
       </article>
 
       <section className="article-detail-actions" aria-label={t.articleDetail.share}>
@@ -415,7 +442,7 @@ export default function ArticleDetail() {
             {t.articleDetail.linkedIn}
           </a>
           <a
-            href={`https://x.com/intent/tweet?url=${encodeURIComponent(`${SITE_URL}${articlePath}`)}&text=${encodeURIComponent(article.title[language])}`}
+            href={`https://x.com/intent/tweet?url=${encodeURIComponent(`${SITE_URL}${articlePath}`)}&text=${encodeURIComponent(title)}`}
             target="_blank"
             rel="noreferrer"
             className="article-cta-secondary"
@@ -424,7 +451,7 @@ export default function ArticleDetail() {
             {t.articleDetail.x}
           </a>
           <a
-            href={`mailto:?subject=${encodeURIComponent(article.title[language])}&body=${encodeURIComponent(`${SITE_URL}${articlePath}`)}`}
+            href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${SITE_URL}${articlePath}`)}`}
             className="article-cta-secondary"
           >
             <Mail size={16} />
@@ -433,7 +460,7 @@ export default function ArticleDetail() {
         </div>
       </section>
 
-      {article.sources?.length > 0 && (
+      {sources.length > 0 && (
         <section className="article-sources-section" id="sources">
           <div className="article-section-heading">
             <p className="eyebrow">{t.articleDetail.sources}</p>
@@ -446,8 +473,8 @@ export default function ArticleDetail() {
           </div>
 
           <div className="article-source-grid">
-            {article.sources.map((source) => (
-              <SourceCard key={source.id} source={source} language={language} />
+            {sources.map((source, index) => (
+              <SourceCard key={source?.id ?? source?.url ?? index} source={source} language={language} />
             ))}
           </div>
         </section>
@@ -490,11 +517,11 @@ export default function ArticleDetail() {
           <div className="article-related-grid">
             {relatedArticles.map((related) => (
               <article className="article-related-card" key={related.id}>
-                <p className="article-related-kicker">{related.category[language]}</p>
+                <p className="article-related-kicker">{related.category?.[language] ?? related.category?.es ?? related.category?.en ?? ''}</p>
                 <h3>
-                  <Link to={`/articulos/${related.id}`}>{related.title[language]}</Link>
+                  <Link to={`/articulos/${related.id}`}>{related.title?.[language] ?? related.title?.es ?? related.title?.en ?? related.id}</Link>
                 </h3>
-                <p>{related.excerpt[language]}</p>
+                <p>{related.excerpt?.[language] ?? related.excerpt?.es ?? related.excerpt?.en ?? ''}</p>
               </article>
             ))}
           </div>

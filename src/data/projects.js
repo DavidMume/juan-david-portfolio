@@ -202,7 +202,7 @@ export const projects = [
     accent: 'saffron',
     internalPath: '/cepeda-program',
     caseStudyUrl: 'https://juandamunoz.com/cepeda-program',
-    liveUrl: 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev',
+    liveUrl: 'https://analisis-plan-gobierno-ivan-cepeda-2026-web.pages.dev/',
     liveLabel: { en: 'View analysis', es: 'Ver análisis' },
     repoUrl: 'https://github.com/DavidMume/analisis-plan-gobierno-ivan-cepeda-2026',
     articleUrl: 'https://juandamunoz.com/articulos/cepeda-433-pages',
