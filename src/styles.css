@@ -1085,6 +1085,11 @@ h1, h2, h3, h4 {
   object-position: center center;
   background: var(--cream);
 }
+.article-card-media img.article-card-image--compact {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center center;
+}
 .article-card--featured .article-card-media {
   max-height: 230px;
 }
@@ -1622,7 +1627,7 @@ h1, h2, h3, h4 {
   font-size: 1.16rem;
   line-height: 1.82;
 }
-.article-detail-body p:first-child::first-letter {
+.article-detail-body > p:first-of-type::first-letter {
   float: left;
   margin: 0.09em 0.08em 0 0;
   color: var(--red);
@@ -1651,6 +1656,16 @@ h1, h2, h3, h4 {
   font-size: clamp(1.12rem, 2vw, 1.38rem);
   line-height: 1.6;
   font-style: italic;
+}
+.article-quote cite {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 650;
+  letter-spacing: 0.05em;
 }
 .article-project-card,
 .article-highlights,

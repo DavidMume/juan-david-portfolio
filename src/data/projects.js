@@ -131,10 +131,10 @@ export const projects = [
     accent: 'violet',
     internalPath: '/votar-desde-lejos',
     caseStudyUrl: 'https://juandamunoz.com/votar-desde-lejos',
-    liveUrl: 'https://votar-desde-lejos.pages.dev',
+    liveUrl: 'https://votar-desde-lejos.pages.dev/',
     liveLabel: { en: 'Live tool', es: 'Herramienta en vivo' },
     repoUrl: 'https://github.com/DavidMume/votar-desde-lejos',
-    articleUrl: null,
+    articleUrl: 'https://juandamunoz.com/articulos/votar-desde-lejos',
   },
   {
     slug: 'seq-transit-predictor',

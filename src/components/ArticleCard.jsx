@@ -28,6 +28,7 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
           <img
             src={article.image}
             alt={article.imageAlt?.[language] ?? article.imageAlt?.es ?? article.imageAlt?.en ?? title}
+            className={article.cardImageClass ?? undefined}
             loading={featured ? 'eager' : 'lazy'}
             fetchPriority={featured ? 'high' : 'auto'}
           />

@@ -2,6 +2,8 @@
 // Articles are internal editorial pages. analysisUrl points to the verified
 // technical analysis, live report or full editorial experience related to it.
 
+import { votarDesdeLejosContent } from './votarDesdeLejosContent.js';
+
 const threePagePlanSpanishContent = [
   { type: 'heading', text: 'Una nota antes de empezar' },
   'Este artículo nació como un ejercicio privado. La intención original era compartirlo con uno o dos amigos que quisieran leerlo, sin más pretensión que esa. El punto de partida fue una incomodidad concreta: el programa de gobierno de Iván Cepeda tiene 433 páginas. No creo que ni el cinco por ciento de las personas que votan por él lo hayan leído completo, y francamente no sé cómo culparlos. Es un documento extenso, denso, técnico, escrito para un lector con tiempo, formación y disposición para procesar ese volumen de información. Al compararlo superficialmente con el documento de tres páginas de Abelardo de la Espriella, la diferencia visual es inmediata y, para algunos, fulminante: uno parece un candidato serio y el otro un improvisado.',
@@ -53,6 +55,33 @@ const threePagePlanSpanishContent = [
   { type: 'quote', text: 'Tres páginas es un índice. El análisis comienza en la página cuatro.' },
   'Este artículo es parte de un análisis documental más amplio disponible en github.com/DavidMume/patria-milagro-analysis.',
 ];
+
+function buildVotarDesdeLejosArticle(language) {
+  const source = votarDesdeLejosContent[language];
+  const articleBlocks = source.article.body.flatMap((section) => [
+    ...(section.heading ? [{ type: 'heading', text: section.heading }] : []),
+    ...section.paragraphs,
+  ]);
+
+  return [
+    {
+      type: 'quote',
+      text: source.pullquote.text,
+      attribution: source.pullquote.attribution,
+    },
+    ...articleBlocks,
+    { type: 'heading', text: source.methodology.title },
+    source.methodology.text,
+  ];
+}
+
+function buildVotarDesdeLejosHighlights(language) {
+  return votarDesdeLejosContent[language].metrics.items.map((item) => ({
+    value: item.value,
+    label: `${item.country} · ${item.label}`,
+    note: `${item.sub} · ${item.note}`,
+  }));
+}
 
 export const articles = [
   {
@@ -1006,6 +1035,7 @@ export const articles = [
   },
   {
     id: 'votar-desde-lejos',
+    slug: 'votar-desde-lejos',
     title: {
       en: 'Voting from afar',
       es: 'Votar desde lejos',
@@ -1015,33 +1045,70 @@ export const articles = [
       es: 'Algoritmos, memoria, poder adquisitivo y coca — un editorial político',
     },
     excerpt: {
-      en: 'A data-informed editorial on algorithms, political memory, purchasing power and coca in Colombia’s 2026 electoral cycle.',
-      es: 'Una editorial informada por datos sobre algoritmos, memoria política, poder adquisitivo y coca en el ciclo electoral colombiano de 2026.',
+      en: votarDesdeLejosContent.en.hero.subtitle,
+      es: votarDesdeLejosContent.es.hero.subtitle,
     },
-    date: { en: 'June 2026', es: 'Junio de 2026' },
+    date: { en: votarDesdeLejosContent.en.hero.date, es: votarDesdeLejosContent.es.hero.date },
+    publishedAt: '2026-06-19T00:00:00+10:00',
     category: { en: 'Opinion · Political economy', es: 'Opinión · Economía política' },
-    author: 'David Muñoz',
+    readingTime: { en: '10 min read', es: '10 min de lectura' },
+    author: 'Juan David Muñoz Mendivelso',
+    status: { en: 'Published', es: 'Publicado' },
     tags: ['Colombia 2026', 'Political economy', 'Editorial', 'Purchasing power', 'Algorithms', 'Public opinion'],
-    content: {
-      en: [
-        'Following a Colombian election from abroad means experiencing the campaign through distance, memory and an algorithmically filtered public conversation. What reaches the screen is not a neutral account of the country.',
-        'This editorial connects political memory with purchasing power, the coca economy and the incentives that shape online debate. It asks how voters interpret economic change when personal experience and digital narratives point in different directions.',
-        'The full editorial experience develops that argument with the references and visual framing behind the piece.',
-      ],
-      es: [
-        'Seguir una elección colombiana desde el exterior significa vivir la campaña a través de la distancia, la memoria y una conversación pública filtrada por algoritmos. Lo que llega a la pantalla no es un relato neutral del país.',
-        'Este editorial conecta la memoria política con el poder adquisitivo, la economía de la coca y los incentivos que moldean el debate digital. Pregunta cómo interpretan los votantes el cambio económico cuando la experiencia personal y las narrativas en línea apuntan en direcciones distintas.',
-        'La experiencia editorial completa desarrolla ese argumento con las referencias y el encuadre visual que sostienen la pieza.',
-      ],
-    },
-    articleUrl: null,
-    analysisUrl: 'https://votar-desde-lejos.pages.dev',
-    analysisLabel: 'fullArticle',
-    caseStudyUrl: 'https://juandamunoz.com/votar-desde-lejos',
+    projectUrl: 'https://votar-desde-lejos.pages.dev/',
+    analysisUrl: 'https://votar-desde-lejos.pages.dev/',
+    analysisLabel: { en: 'View interactive analysis', es: 'Ver análisis interactivo' },
     repoUrl: 'https://github.com/DavidMume/votar-desde-lejos',
+    caseStudyUrl: 'https://juandamunoz.com/votar-desde-lejos',
     internalProjectPath: '/votar-desde-lejos',
-    status: 'published',
-    language: 'es',
     featured: false,
+    language: 'es',
+    seo: {
+      es: {
+        title: 'Votar desde lejos',
+        description: votarDesdeLejosContent.es.hero.subtitle,
+      },
+      en: {
+        title: 'Voting from afar',
+        description: votarDesdeLejosContent.en.hero.subtitle,
+      },
+      image: '/images/articles/votar-desde-lejos.png',
+    },
+    image: '/images/articles/votar-desde-lejos.png',
+    cardImageClass: 'article-card-image--compact',
+    imageAlt: {
+      es: 'Ilustración editorial sobre votar desde Australia: algoritmos, poder adquisitivo, geografía colombiana, coca y decisiones políticas.',
+      en: 'Editorial illustration about voting from Australia: algorithms, purchasing power, Colombian geography, coca and political choices.',
+    },
+    imageCaption: {
+      es: votarDesdeLejosContent.es.hero.imageCaption,
+      en: votarDesdeLejosContent.en.hero.imageCaption,
+    },
+    highlights: {
+      es: buildVotarDesdeLejosHighlights('es'),
+      en: buildVotarDesdeLejosHighlights('en'),
+    },
+    methodologyNote: {
+      es: votarDesdeLejosContent.es.metrics.disclaimer,
+      en: votarDesdeLejosContent.en.metrics.disclaimer,
+    },
+    sources: [
+      {
+        id: 'votar-desde-lejos-external',
+        title: { es: 'Experiencia editorial — Votar desde lejos', en: 'Editorial experience — Voting from afar' },
+        url: 'https://votar-desde-lejos.pages.dev/',
+        note: { es: 'Página externa original del artículo.', en: 'Original external article page.' },
+      },
+      {
+        id: 'votar-desde-lejos-github',
+        title: { es: 'GitHub — código fuente del proyecto', en: 'GitHub — project source code' },
+        url: 'https://github.com/DavidMume/votar-desde-lejos',
+        note: { es: 'Repositorio confirmado del proyecto editorial.', en: 'Confirmed repository for the editorial project.' },
+      },
+    ],
+    content: {
+      en: buildVotarDesdeLejosArticle('en'),
+      es: buildVotarDesdeLejosArticle('es'),
+    },
   },
 ];

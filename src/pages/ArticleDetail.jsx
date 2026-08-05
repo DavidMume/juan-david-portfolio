@@ -65,6 +65,7 @@ function renderBlock(block, language, index) {
     return (
       <blockquote className="article-quote" key={`${index}-${block.text}`}>
         <p>{block.text}</p>
+        {block.attribution && <cite>{block.attribution}</cite>}
       </blockquote>
     );
   }
@@ -135,6 +136,7 @@ export default function ArticleDetail() {
     const canonicalPath = `${SITE_URL}/articulos/${article.id}`;
     const description = seo.description || article.excerpt?.[language] || article.excerpt?.en || '';
     const title = seo.title || article.title?.[language] || article.title?.en || t.meta.title;
+    const author = article.author || t.authorName;
     const image = `${SITE_URL}${article.seo?.image || '/images/brand/09-og-social-banner.png'}`;
     const published = new Date(article.publishedAt ?? '2026-07-30T00:00:00-05:00').toISOString();
 
@@ -151,7 +153,7 @@ export default function ArticleDetail() {
     upsertMeta('twitter:image', image);
     upsertMeta('article:published_time', published, 'property');
     upsertMeta('article:modified_time', published, 'property');
-    upsertMeta('article:author', t.authorName, 'property');
+    upsertMeta('article:author', author, 'property');
     upsertLink('canonical', canonicalPath);
 
     const jsonLd = {
@@ -161,7 +163,7 @@ export default function ArticleDetail() {
       description,
       author: {
         '@type': 'Person',
-        name: t.authorName,
+        name: author,
       },
       publisher: {
         '@type': 'Organization',
