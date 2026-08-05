@@ -8,7 +8,14 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
   const projectUrl = article.projectUrl || article.analysisUrl;
   const hasProjectUrl = Boolean(projectUrl && projectUrl.startsWith('http'));
   const hasSourcesUrl = Boolean(article.sourcesUrl && article.sourcesUrl.startsWith('http'));
-  const analysisLabel = article.projectUrl ? t.articles.viewProject : (t.articles.viewRelatedAnalysis || t.articles.readAnalysis);
+  const analysisLabel = article.analysisLabel?.[language]
+    ?? (article.projectUrl ? t.articles.viewProject : (t.articles.viewRelatedAnalysis || t.articles.readAnalysis));
+  const title = article.title?.[language] ?? article.title?.es ?? article.title?.en ?? article.id;
+  const category = article.category?.[language] ?? article.category?.es ?? article.category?.en ?? '';
+  const date = article.date?.[language] ?? article.date?.es ?? article.date?.en ?? '';
+  const subtitle = article.subtitle?.[language] ?? article.subtitle?.es ?? article.subtitle?.en ?? '';
+  const excerpt = article.excerpt?.[language] ?? article.excerpt?.es ?? article.excerpt?.en ?? '';
+  const tags = Array.isArray(article.tags) ? article.tags : [];
 
   return (
     <article
@@ -17,10 +24,10 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       {article.image && (
-        <Link to={articlePath} className="article-card-media" aria-label={article.title[language]}>
+        <Link to={articlePath} className="article-card-media" aria-label={title}>
           <img
             src={article.image}
-            alt={article.imageAlt?.[language] ?? article.title[language]}
+            alt={article.imageAlt?.[language] ?? article.imageAlt?.es ?? article.imageAlt?.en ?? title}
             loading={featured ? 'eager' : 'lazy'}
             fetchPriority={featured ? 'high' : 'auto'}
           />
@@ -28,9 +35,9 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
       )}
 
       <p className="article-kicker">
-        <span>{article.category[language]}</span>
+        <span>{category}</span>
         <span className="article-kicker-date">
-          {article.date[language]}
+          {date}
           {article.readingTime && (
             <span className="article-kicker-reading">
               · {article.readingTime[language] ?? article.readingTime}
@@ -40,15 +47,15 @@ export default function ArticleCard({ article, featured = false, index = 0 }) {
       </p>
 
       <h3 className="article-title">
-        <Link to={articlePath}>{article.title[language]}</Link>
+        <Link to={articlePath}>{title}</Link>
       </h3>
-      {article.subtitle && <p className="article-subtitle">{article.subtitle[language]}</p>}
+      {subtitle && <p className="article-subtitle">{subtitle}</p>}
 
-      <p className="article-excerpt">{article.excerpt[language]}</p>
+      <p className="article-excerpt">{excerpt}</p>
 
-      {article.tags?.length > 0 && (
+      {tags.length > 0 && (
         <div className="tag-list article-tags">
-          {article.tags.slice(0, featured ? 6 : 4).map((tag) => (
+          {tags.slice(0, featured ? 6 : 4).map((tag) => (
             <span key={tag}>{tag}</span>
           ))}
         </div>

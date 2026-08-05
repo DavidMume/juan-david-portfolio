@@ -239,10 +239,10 @@ export const projects = [
     accent: 'rose',
     internalPath: '/patria-milagro',
     caseStudyUrl: 'https://juandamunoz.com/patria-milagro',
-    liveUrl: 'https://patria-milagro-analysis-web.pages.dev',
+    liveUrl: 'https://patria-milagro-analysis-web.pages.dev/',
     liveLabel: { en: 'View analysis', es: 'Ver análisis' },
     repoUrl: 'https://github.com/DavidMume/patria-milagro-analysis',
-    articleUrl: 'https://www.linkedin.com/pulse/el-plan-de-tres-p%C3%A1ginas-por-qu%C3%A9-leer-solo-resumen-es-programa-mu%C3%B1oz-trfsc',
+    articleUrl: 'https://juandamunoz.com/articulos/three-page-plan',
   },
   {
     slug: 'cepeda-context-evaluation',

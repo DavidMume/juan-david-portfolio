@@ -136,7 +136,7 @@ export default function ArticleDetail() {
     const description = seo.description || article.excerpt?.[language] || article.excerpt?.en || '';
     const title = seo.title || article.title?.[language] || article.title?.en || t.meta.title;
     const image = `${SITE_URL}${article.seo?.image || '/images/brand/09-og-social-banner.png'}`;
-    const published = new Date('2026-07-30T00:00:00-05:00').toISOString();
+    const published = new Date(article.publishedAt ?? '2026-07-30T00:00:00-05:00').toISOString();
 
     document.title = `${title} | ${t.authorName}`;
     upsertMeta('description', description);
@@ -242,7 +242,7 @@ export default function ArticleDetail() {
   const linkedinUrl = article.linkedinUrl ?? article.linkedInUrl;
   const hasLinkedInUrl = Boolean(linkedinUrl?.startsWith('http'));
   const contentValue = article.content?.[language] ?? article.content?.es ?? article.content?.en ?? [];
-  const highlightsValue = article.highlights?.[language] ?? article.highlights?.en ?? [];
+  const highlightsValue = article.highlights?.[language] ?? article.highlights?.es ?? article.highlights?.en ?? [];
   const sourcesValue = article.sources ?? [];
   const content = Array.isArray(contentValue) ? contentValue : [];
   const highlights = Array.isArray(highlightsValue) ? highlightsValue : [];
