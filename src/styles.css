@@ -260,14 +260,27 @@ h1, h2, h3, h4 {
   width: 100%;
   min-height: 64px;
   padding: 0 clamp(16px, 4vw, 40px);
-  background: rgba(255, 253, 247, 0.82);
-  border-bottom: 1px solid var(--border);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  backdrop-filter: blur(20px) saturate(160%);
+  isolation: isolate;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 253, 247, 0.48));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), inset 0 -1px 0 rgba(28, 25, 23, 0.06);
   transition: background 300ms var(--motion-fluid), box-shadow 300ms var(--motion-fluid);
 }
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% -80%, rgba(255, 255, 255, 0.95), transparent 42%),
+    linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.28) 50%, transparent 62%);
+  opacity: 0.78;
+}
 .navbar.is-scrolled {
-  background: rgba(255, 253, 247, 0.93);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 253, 247, 0.58));
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.72), 0 14px 32px rgba(28, 25, 23, 0.07);
 }
 
@@ -319,8 +332,11 @@ h1, h2, h3, h4 {
   gap: 2px;
   padding: 3px;
   border-radius: 999px;
-  background: var(--cream-2);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.36);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88), 0 4px 14px rgba(28, 25, 23, 0.06);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
 }
 .language-switch button {
   border: 0;
@@ -2292,11 +2308,33 @@ h1, h2, h3, h4 {
 
 /* ── Action buttons ── */
 .hc-actions {
+  position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 28px;
+  width: fit-content;
+  padding: 8px;
+  border: 1px solid rgba(255, 253, 247, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.34);
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 253, 247, 0.035));
+  -webkit-backdrop-filter: blur(24px) saturate(175%);
+  backdrop-filter: blur(24px) saturate(175%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 18px 54px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+.hc-actions::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 18% -60%, rgba(255, 255, 255, 0.38), transparent 48%);
+}
+.hc-actions > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hc-btn-primary {
@@ -2307,7 +2345,7 @@ h1, h2, h3, h4 {
   min-height: 44px;
   background: #B00020;
   color: var(--cream);
-  border-radius: 3px;
+  border-radius: 9px;
   font-family: var(--sans);
   font-weight: 700;
   font-size: 0.86rem;
@@ -2326,9 +2364,9 @@ h1, h2, h3, h4 {
   gap: 8px;
   padding: 0 20px;
   min-height: 44px;
-  background: rgba(255, 253, 247, 0.06);
+  background: transparent;
   color: rgba(255, 253, 247, 0.80);
-  border-radius: 3px;
+  border-radius: 9px;
   font-family: var(--sans);
   font-weight: 700;
   font-size: 0.86rem;
@@ -2349,7 +2387,7 @@ h1, h2, h3, h4 {
   min-height: 44px;
   background: transparent;
   color: rgba(255, 253, 247, 0.55);
-  border-radius: 3px;
+  border-radius: 9px;
   font-family: var(--sans);
   font-weight: 600;
   font-size: 0.86rem;
@@ -2386,7 +2424,30 @@ h1, h2, h3, h4 {
 }
 
 /* ── Visual column ── */
-.hc-visual { position: relative; }
+.hc-visual { position: relative; isolation: isolate; }
+.hc-visual::before,
+.hc-visual::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(42px);
+}
+.hc-visual::before {
+  width: 58%;
+  aspect-ratio: 1;
+  top: 6%;
+  right: -8%;
+  background: rgba(176, 0, 32, 0.32);
+}
+.hc-visual::after {
+  width: 44%;
+  aspect-ratio: 1;
+  bottom: 5%;
+  left: -10%;
+  background: rgba(201, 162, 39, 0.18);
+}
 
 .hcv-frame {
   position: relative;
@@ -2395,8 +2456,21 @@ h1, h2, h3, h4 {
   border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 4 / 5;
-  background: linear-gradient(145deg, rgba(255, 253, 247, 0.045), rgba(255, 253, 247, 0.012));
+  background: linear-gradient(145deg, rgba(255, 253, 247, 0.1), rgba(255, 253, 247, 0.018));
+  -webkit-backdrop-filter: blur(24px) saturate(175%);
+  backdrop-filter: blur(24px) saturate(175%);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.hcv-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% -12%, rgba(255, 255, 255, 0.2), transparent 34%),
+    linear-gradient(115deg, transparent 36%, rgba(255, 255, 255, 0.045) 49%, transparent 62%);
+  mix-blend-mode: screen;
 }
 
 .hcv-universe {
@@ -2538,13 +2612,32 @@ h1, h2, h3, h4 {
   position: relative;
   z-index: 2;
   width: min(400px, 100%);
+  padding: clamp(34px, 7vw, 54px);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
+  border: 1px solid rgba(255, 253, 247, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.38);
+  border-radius: 26px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 253, 247, 0.025));
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 34px 90px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
   animation: hc-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+.lg-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% -14%, rgba(255, 255, 255, 0.34), transparent 34%),
+    radial-gradient(circle at 104% 104%, rgba(176, 0, 32, 0.18), transparent 40%);
+}
+.lg-panel > * { position: relative; z-index: 1; }
 
 .lg-logo {
   width: clamp(72px, 18vw, 100px);
@@ -2605,8 +2698,8 @@ h1, h2, h3, h4 {
   gap: 10px;
   min-height: 52px;
   border: 1px solid rgba(255,253,247,0.12);
-  border-radius: 3px;
-  background: rgba(255,253,247,0.04);
+  border-radius: 12px;
+  background: rgba(255,253,247,0.055);
   color: rgba(255,253,247,0.75);
   cursor: pointer;
   font-family: var(--sans);
@@ -2825,6 +2918,19 @@ h1, h2, h3, h4 {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+  .hc-actions,
+  .hcv-frame,
+  .lg-panel {
+    background: #1a1815;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .hc-visual::before,
+  .hc-visual::after,
+  .navbar::before,
+  .hc-actions::before,
+  .hcv-frame::before,
+  .lg-panel::before { display: none; }
 }
 
 @media (prefers-contrast: more) {
@@ -2834,4 +2940,7 @@ h1, h2, h3, h4 {
   .hc-cred,
   .hc-social-link { color: var(--cream); }
   :where(.btn-card-secondary, .hc-btn-ghost, .hc-btn-outline) { border-color: currentColor; }
+  .hc-actions,
+  .hcv-frame,
+  .lg-panel { border-color: var(--cream); }
 }
