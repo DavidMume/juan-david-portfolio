@@ -107,15 +107,31 @@ export default function Hero() {
     if (!hero) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    let frameId = 0;
+
     const handleMove = (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
-      hero.style.setProperty('--mx', `${x}px`);
-      hero.style.setProperty('--my', `${y}px`);
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        const rect = hero.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+        hero.style.setProperty('--mx', `${x}px`);
+        hero.style.setProperty('--my', `${y}px`);
+      });
     };
-    hero.addEventListener('mousemove', handleMove);
-    return () => hero.removeEventListener('mousemove', handleMove);
+
+    const handleLeave = () => {
+      hero.style.setProperty('--mx', '0px');
+      hero.style.setProperty('--my', '0px');
+    };
+
+    hero.addEventListener('pointermove', handleMove, { passive: true });
+    hero.addEventListener('pointerleave', handleLeave);
+    return () => {
+      cancelAnimationFrame(frameId);
+      hero.removeEventListener('pointermove', handleMove);
+      hero.removeEventListener('pointerleave', handleLeave);
+    };
   }, []);
 
   return (

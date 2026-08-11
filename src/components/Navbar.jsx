@@ -50,7 +50,7 @@ export default function Navbar() {
         <strong>{t.authorName}</strong>
       </Link>
 
-      <nav className={open ? 'nav-links is-open' : 'nav-links'} aria-label={t.nav.primaryLabel}>
+      <nav id="primary-navigation" className={open ? 'nav-links is-open' : 'nav-links'} aria-label={t.nav.primaryLabel}>
         {anchorLinks.map(([key, hash]) => (
           <button key={key} type="button" onClick={() => handleAnchorClick(hash)}>
             {t.nav[key]}
@@ -64,6 +64,7 @@ export default function Navbar() {
             type="button"
             className={language === 'en' ? 'active' : ''}
             onClick={() => setLanguage('en')}
+            aria-pressed={language === 'en'}
           >
             EN
           </button>
@@ -71,6 +72,7 @@ export default function Navbar() {
             type="button"
             className={language === 'es' ? 'active' : ''}
             onClick={() => setLanguage('es')}
+            aria-pressed={language === 'es'}
           >
             ES
           </button>
@@ -80,6 +82,8 @@ export default function Navbar() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="primary-navigation"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
