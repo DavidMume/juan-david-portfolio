@@ -1899,6 +1899,279 @@ h1, h2, h3, h4 {
   margin: 30px 0 0;
 }
 
+/* ── Article liquid-glass system ───────────────────────────
+   Glass frames navigation and supporting information while
+   the long-form reading column stays opaque and editorial. */
+.article-detail {
+  isolation: isolate;
+}
+.article-detail::before,
+.article-detail::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(58px);
+}
+.article-detail::before {
+  width: min(430px, 58vw);
+  aspect-ratio: 1;
+  top: 90px;
+  right: -150px;
+  background: rgba(176, 0, 32, 0.11);
+}
+.article-detail::after {
+  width: min(360px, 48vw);
+  aspect-ratio: 1;
+  top: 620px;
+  left: -150px;
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.article-progress {
+  height: 5px;
+  padding: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.42);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  box-shadow: 0 7px 22px rgba(28, 25, 23, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.article-detail .back-link {
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.46);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84), 0 7px 20px rgba(28, 25, 23, 0.055);
+}
+.article-detail .back-link:hover {
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(176, 0, 32, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 10px 28px rgba(28, 25, 23, 0.08);
+}
+
+.article-detail-header {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(30px, 5vw, 52px);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-top: 3px solid var(--red);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 253, 247, 0.38));
+  -webkit-backdrop-filter: blur(26px) saturate(175%);
+  backdrop-filter: blur(26px) saturate(175%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 28px 76px rgba(28, 25, 23, 0.1);
+}
+.article-detail-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% -30%, rgba(255, 255, 255, 0.92), transparent 38%),
+    radial-gradient(circle at 104% 108%, rgba(176, 0, 32, 0.11), transparent 42%),
+    linear-gradient(112deg, transparent 38%, rgba(255, 255, 255, 0.2) 51%, transparent 64%);
+}
+.article-detail-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.article-hero-image {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-top-color: rgba(255, 255, 255, 0.98);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 253, 247, 0.38));
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  backdrop-filter: blur(24px) saturate(170%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 26px 68px rgba(28, 25, 23, 0.11);
+}
+.article-hero-image img {
+  border-radius: 10px;
+}
+
+.article-detail-meta,
+.article-detail-cta-row {
+  width: fit-content;
+  max-width: 100%;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.43);
+  -webkit-backdrop-filter: blur(20px) saturate(175%);
+  backdrop-filter: blur(20px) saturate(175%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 34px rgba(28, 25, 23, 0.065);
+}
+.article-detail-meta {
+  margin-top: 20px;
+}
+.article-detail-cta-row {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.article-detail-tags span {
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.article-detail-tags span::before { content: '#'; margin-right: 4px; }
+
+.article-project-card,
+.article-highlights,
+.article-sources-section,
+.article-author-card,
+.article-related-section,
+.article-detail-actions {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-top-color: rgba(255, 255, 255, 0.96);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.64), rgba(247, 240, 223, 0.42));
+  -webkit-backdrop-filter: blur(26px) saturate(175%);
+  backdrop-filter: blur(26px) saturate(175%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 22px 62px rgba(28, 25, 23, 0.085);
+}
+.article-project-card::before,
+.article-highlights::before,
+.article-sources-section::before,
+.article-author-card::before,
+.article-related-section::before,
+.article-detail-actions::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% -24%, rgba(255, 255, 255, 0.78), transparent 34%),
+    linear-gradient(118deg, transparent 44%, rgba(255, 255, 255, 0.16) 54%, transparent 65%);
+}
+.article-project-card > *,
+.article-highlights > *,
+.article-sources-section > *,
+.article-author-card > *,
+.article-related-section > *,
+.article-detail-actions > * {
+  position: relative;
+  z-index: 1;
+}
+.article-detail-actions {
+  width: min(860px, 100%);
+  margin: 0 auto 40px;
+  padding: 24px;
+}
+
+.article-stat-card,
+.article-source-card,
+.article-related-card {
+  border-color: rgba(255, 255, 255, 0.82);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 28px rgba(28, 25, 23, 0.055);
+  transition: transform 300ms var(--motion-fluid), box-shadow 300ms var(--motion-fluid), background 220ms ease;
+}
+
+.article-cta-primary,
+.article-cta-secondary {
+  min-height: 42px;
+  border-radius: 10px;
+  transition: background 220ms ease, color 220ms ease, transform 300ms var(--motion-fluid), box-shadow 300ms var(--motion-fluid);
+}
+.article-cta-secondary {
+  border-color: rgba(176, 0, 32, 0.22);
+  background: rgba(255, 255, 255, 0.32);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  backdrop-filter: blur(10px) saturate(150%);
+}
+.article-cta-primary:active,
+.article-cta-secondary:active {
+  transform: scale(0.97);
+  transition-duration: 90ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .article-stat-card:hover,
+  .article-source-card:hover,
+  .article-related-card:hover {
+    transform: translateY(-3px) scale(1.004);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 16px 38px rgba(28, 25, 23, 0.085);
+  }
+}
+
+@media (max-width: 640px) {
+  .article-detail-header { border-radius: 17px; }
+  .article-detail-meta,
+  .article-detail-cta-row { width: 100%; }
+  .article-detail-cta-row > * { flex: 1 1 100%; justify-content: center; }
+  .article-project-card,
+  .article-highlights,
+  .article-sources-section,
+  .article-author-card,
+  .article-related-section,
+  .article-detail-actions { border-radius: 16px; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .article-detail .back-link,
+  .article-detail-header,
+  .article-hero-image,
+  .article-detail-meta,
+  .article-detail-cta-row,
+  .article-detail-tags span,
+  .article-project-card,
+  .article-highlights,
+  .article-sources-section,
+  .article-author-card,
+  .article-related-section,
+  .article-detail-actions,
+  .article-stat-card,
+  .article-source-card,
+  .article-related-card,
+  .article-cta-secondary {
+    background: var(--cream-2);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .article-detail::before,
+  .article-detail::after,
+  .article-detail-header::before,
+  .article-project-card::before,
+  .article-highlights::before,
+  .article-sources-section::before,
+  .article-author-card::before,
+  .article-related-section::before,
+  .article-detail-actions::before { display: none; }
+}
+
+@media (prefers-contrast: more) {
+  .article-detail-header,
+  .article-hero-image,
+  .article-detail-meta,
+  .article-detail-cta-row,
+  .article-project-card,
+  .article-highlights,
+  .article-sources-section,
+  .article-author-card,
+  .article-related-section,
+  .article-detail-actions,
+  .article-stat-card,
+  .article-source-card,
+  .article-related-card { border-color: var(--ink); }
+}
+
 /* ============================================================
    PROJECT DETAIL
    ============================================================ */
