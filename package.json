@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "sync:impuesto-saludable": "node scripts/sync-impuesto-saludable.mjs",
+    "sync:libro-de-la-verdad": "node scripts/sync-libro-de-la-verdad.mjs",
     "preview": "vite preview",
     "lint": "eslint src scripts"
   },
