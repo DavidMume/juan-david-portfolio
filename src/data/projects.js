@@ -1,5 +1,40 @@
 export const projects = [
   {
+    slug: 'libro-de-la-verdad-audit',
+    title: { en: 'Auditing “El Libro de la Verdad”', es: 'Auditoría de “El Libro de la Verdad”' },
+    subtitle: {
+      en: 'What a government transition report claims, how it argues and how its claims hold up',
+      es: 'Qué afirma un informe de empalme, cómo argumenta y qué tan bien se sostienen sus afirmaciones',
+    },
+    description: {
+      en: 'A reproducible NLP, data-analysis and claim-verification audit of the 135-page report published by Colombia’s 2026 anticorruption transition team about the 2022–2026 administration.',
+      es: 'Auditoría reproducible de NLP, análisis de datos y verificación de afirmaciones del informe de 135 páginas publicado por el empalme anticorrupción de 2026 sobre la administración 2022–2026.',
+    },
+    problem: {
+      en: 'Official reports mix verifiable figures, interpretation and political narrative. Readers need to trace each claim back to its page and to independent evidence instead of accepting or rejecting the document as a whole.',
+      es: 'Los informes oficiales mezclan cifras verificables, interpretación y narrativa política. El lector necesita rastrear cada afirmación hasta su página y hasta evidencia independiente, en lugar de aceptar o rechazar el documento completo.',
+    },
+    results: {
+      en: 'A traceable corpus, 635 rule-based claim candidates, exploratory NLP and stylometry, and a 10-claim verification pilot with an evidence ledger. Figures usually matched official sources; the recurring issue was omitted context. The pilot is pending human review and does not score the report or any government.',
+      es: 'Un corpus trazable, 635 afirmaciones candidatas extraídas con reglas, NLP y estilometría exploratorios, y un piloto de verificación de 10 afirmaciones con registro de evidencia. Las cifras solían coincidir con fuentes oficiales; el problema recurrente fue el contexto omitido. El piloto está pendiente de revisión humana y no califica al informe ni a ningún gobierno.',
+    },
+    date: { en: 'September 2026', es: 'Septiembre de 2026' },
+    category: 'data-journalism',
+    categoryLabel: { en: 'Data journalism · NLP', es: 'Periodismo de datos · NLP' },
+    status: 'research',
+    statusLabel: { en: 'In progress', es: 'En desarrollo' },
+    tags: ['NLP', 'Fact-checking', 'Colombia 2026', 'Public policy', 'Reproducible research', 'Stylometry'],
+    technologies: ['Python', 'spaCy', 'scikit-learn', 'pandas', 'React', 'TypeScript', 'Recharts'],
+    accent: 'cyan',
+    internalPath: '/libro-de-la-verdad/',
+    staticBundle: true,
+    caseStudyUrl: 'https://juandamunoz.com/libro-de-la-verdad/',
+    liveUrl: null,
+    liveLabel: { en: 'Interactive audit', es: 'Auditoría interactiva' },
+    repoUrl: 'https://github.com/DavidMume/petro-report-nlp-audit',
+    articleUrl: null,
+  },
+  {
     slug: 'impuesto-saludable-colombia',
     title: { en: 'Colombia’s healthy tax', es: 'Impuesto saludable en Colombia' },
     subtitle: {

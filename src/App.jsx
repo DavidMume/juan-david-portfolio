@@ -62,6 +62,7 @@ export default function App() {
           {/* Canonical clean case-study paths */}
           <Route path="/chocorramo-index" element={<ProjectDetail slug="chocorramo-index" />} />
           <Route path="/impuesto-saludable" element={<ProjectDetail slug="impuesto-saludable-colombia" />} />
+          <Route path="/libro-de-la-verdad" element={<ProjectDetail slug="libro-de-la-verdad-audit" />} />
           <Route path="/votar-desde-lejos" element={<ProjectDetail slug="votar-desde-lejos" />} />
           <Route path="/seq-transit" element={<ProjectDetail slug="seq-transit-predictor" />} />
           <Route path="/cepeda-program" element={<ExternalRedirect to={CEPEDA_ANALYSIS_URL} />} />
