@@ -14,13 +14,14 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Projects />
+      <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <WhatIInvestigate />
       <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <About />
       <ArticlesSection />
       <Highlights />
       <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
-      <Projects />
       <Skills />
       <img src="/images/brand/10-editorial-section-divider-transparent.png" className="section-divider" alt="" aria-hidden="true" />
       <Contact />

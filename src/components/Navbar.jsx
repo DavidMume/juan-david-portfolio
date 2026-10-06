@@ -5,9 +5,9 @@ import { useLanguage } from '../context/LanguageContext';
 
 const anchorLinks = [
   ['home', '#home'],
+  ['projects', '#projects'],
   ['about', '#about'],
   ['articles', '#articles'],
-  ['projects', '#projects'],
   ['skills', '#skills'],
   ['contact', '#contact'],
 ];
