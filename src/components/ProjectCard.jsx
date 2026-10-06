@@ -17,6 +17,7 @@ const PROJECT_IMAGES = {
   'votar-desde-lejos':      '/images/portfolio/09-project-votar-desde-lejos.png',
   'seq-transit-predictor':  '/images/portfolio/10-project-seq-transit-predictor.png',
   'careerops-agent':        '/images/portfolio/12-project-careerops-agent.svg',
+  'studenthelper':          '/images/studenthelper/03-chat.png',
 };
 const PLACEHOLDER_IMG = '/images/brand/11-project-placeholder-editorial.png';
 

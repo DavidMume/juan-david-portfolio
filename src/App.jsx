@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router';
+import { Route, Routes } from 'react-router';
 import LanguageGate from './components/LanguageGate';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -36,16 +36,12 @@ function ExternalRedirect({ to }) {
 
 export default function App() {
   const { hasLanguage } = useLanguage();
-  const location = useLocation();
-  const isStudentHelper =
-    location.pathname === '/projects/studenthelper' ||
-    location.pathname === '/studenthelper';
 
   return (
     <>
       {!hasLanguage && <LanguageGate />}
       <div className={hasLanguage ? 'site-shell is-ready' : 'site-shell'} aria-hidden={!hasLanguage}>
-        {!isStudentHelper && <Navbar />}
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -89,7 +85,7 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {!isStudentHelper && <Footer />}
+        <Footer />
       </div>
     </>
   );

@@ -119,6 +119,10 @@ export const translations = {
       publishedWork: 'Published work',
       featuredVisual: 'Featured visual analysis',
       inDevelopment: 'In development',
+      featuredLabel: 'Featured project',
+      featuredCta: 'Explore the case study',
+      featuredEvidence: 'Research behind it',
+      moreProjects: 'More projects',
     },
     skills: {
       eyebrow: 'Capabilities',
@@ -339,6 +343,10 @@ export const translations = {
       publishedWork: 'Trabajo publicado',
       featuredVisual: 'Análisis visual destacado',
       inDevelopment: 'En desarrollo',
+      featuredLabel: 'Proyecto destacado',
+      featuredCta: 'Ver el caso completo',
+      featuredEvidence: 'La investigación detrás',
+      moreProjects: 'Más proyectos',
     },
     skills: {
       eyebrow: 'Capacidades',

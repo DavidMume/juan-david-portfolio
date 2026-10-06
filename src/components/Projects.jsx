@@ -3,6 +3,8 @@ import { Search } from 'lucide-react';
 import { projects } from '../data/projects';
 import { useLanguage } from '../context/LanguageContext';
 import ProjectCard from './ProjectCard';
+import FeaturedProject from './FeaturedProject';
+import { useReveal } from '../hooks/useReveal';
 
 const CATEGORIES = [
   { key: 'all', labelKey: 'filterAll' },
@@ -30,6 +32,10 @@ export default function Projects() {
       return matchCat && matchSearch;
     });
   }, [activeCategory, searchQuery, language]);
+
+  const featured = filtered.find((p) => p.featured);
+  const rest = filtered.filter((p) => !p.featured);
+  useReveal(`${activeCategory}|${searchQuery}|${language}`);
 
   return (
     <section id="projects" className="section-pad projects-section">
@@ -70,12 +76,20 @@ export default function Projects() {
         {t.projects.projectsWord}
       </p>
 
-      {/* Grid */}
-      <div className="project-grid">
-        {filtered.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))}
-      </div>
+      {/* Flagship project */}
+      {featured && <FeaturedProject project={featured} />}
+
+      {/* Remaining projects — compact grid */}
+      {rest.length > 0 && (
+        <>
+          {featured && <p className="projects-more-label">{t.projects.moreProjects}</p>}
+          <div className="project-grid is-compact">
+            {rest.map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} />
+            ))}
+          </div>
+        </>
+      )}
     </section>
   );
 }

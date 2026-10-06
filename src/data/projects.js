@@ -1,5 +1,52 @@
 export const projects = [
   {
+    slug: 'studenthelper',
+    featured: true,
+    featuredHighlights: {
+      en: [
+        ['Entra ID', 'School sign-in + domain allowlist'],
+        ['Audit trail', 'Persistent logs, admin review, CSV export'],
+        ['5 studies', 'Design grounded in peer-reviewed research'],
+      ],
+      es: [
+        ['Entra ID', 'Ingreso escolar + dominio permitido'],
+        ['Trazabilidad', 'Registros, revisión admin y CSV'],
+        ['5 estudios', 'Diseño basado en investigación revisada por pares'],
+      ],
+    },
+    title: { en: 'StudentHelper — AI Learning Assistant', es: 'StudentHelper — Asistente IA de Aprendizaje' },
+    subtitle: {
+      en: 'Institution-controlled AI for safer, auditable learning in schools',
+      es: 'IA institucional para un aprendizaje más seguro y trazable en colegios',
+    },
+    description: {
+      en: 'Institution-controlled AI learning assistant for schools. A responsible AI and EdTech proof of concept with school identity, domain control, configurable pedagogy and persistent audit logs.',
+      es: 'Asistente de IA institucional para aprendizaje seguro en colegios. Una prueba de concepto de IA responsable y EdTech con identidad escolar, control de dominio, pedagogía configurable y registros de auditoría persistentes.',
+    },
+    problem: {
+      en: 'Schools need a safer, auditable alternative to students using public chatbots without institutional oversight.',
+      es: 'Los colegios necesitan una alternativa más segura y trazable al uso de chatbots públicos sin supervisión institucional.',
+    },
+    results: {
+      en: 'A functional prototype combining school identity, domain control, configurable pedagogy, persistent logs and managed deployment.',
+      es: 'Un prototipo funcional que combina identidad escolar, control de dominio, pedagogía configurable, registros persistentes y despliegue administrado.',
+    },
+    date: { en: '2025', es: '2025' },
+    category: 'ai-tools',
+    categoryLabel: { en: 'AI tools · EdTech', es: 'Herramientas IA · EdTech' },
+    status: 'prototype',
+    statusLabel: { en: 'Prototype', es: 'Prototipo' },
+    tags: ['Responsible AI', 'EdTech', 'Education', 'Institutional AI'],
+    technologies: ['Python', 'FastAPI', 'OpenAI API', 'Azure OpenAI', 'Entra ID', 'SQLite'],
+    accent: 'emerald',
+    internalPath: '/studenthelper',
+    caseStudyUrl: 'https://juandamunoz.com/studenthelper',
+    liveUrl: null,
+    liveLabel: { en: 'Case study', es: 'Caso de estudio' },
+    repoUrl: 'https://github.com/DavidMume/Student-Helper-Power-by-Open-AI-',
+    articleUrl: null,
+  },
+  {
     slug: 'impuesto-saludable-colombia',
     title: { en: 'Colombia’s healthy tax', es: 'Impuesto saludable en Colombia' },
     subtitle: {
@@ -313,40 +360,6 @@ export const projects = [
     liveUrl: 'https://colombia-australia-travel-planner.juan-mu-me.workers.dev',
     liveLabel: { en: 'Live tool', es: 'Herramienta en vivo' },
     repoUrl: 'https://github.com/DavidMume/colombia-australia-travel-planner',
-    articleUrl: null,
-  },
-  {
-    slug: 'studenthelper',
-    title: { en: 'StudentHelper — AI Learning Assistant', es: 'StudentHelper — Asistente IA de Aprendizaje' },
-    subtitle: {
-      en: 'Institution-controlled AI for safer, auditable learning in schools',
-      es: 'IA institucional para un aprendizaje más seguro y trazable en colegios',
-    },
-    description: {
-      en: 'Institution-controlled AI learning assistant for schools. A responsible AI and EdTech proof of concept with school identity, domain control, configurable pedagogy and persistent audit logs.',
-      es: 'Asistente de IA institucional para aprendizaje seguro en colegios. Una prueba de concepto de IA responsable y EdTech con identidad escolar, control de dominio, pedagogía configurable y registros de auditoría persistentes.',
-    },
-    problem: {
-      en: 'Schools need a safer, auditable alternative to students using public chatbots without institutional oversight.',
-      es: 'Los colegios necesitan una alternativa más segura y trazable al uso de chatbots públicos sin supervisión institucional.',
-    },
-    results: {
-      en: 'A functional prototype combining school identity, domain control, configurable pedagogy, persistent logs and managed deployment.',
-      es: 'Un prototipo funcional que combina identidad escolar, control de dominio, pedagogía configurable, registros persistentes y despliegue administrado.',
-    },
-    date: { en: '2025', es: '2025' },
-    category: 'ai-tools',
-    categoryLabel: { en: 'AI tools · EdTech', es: 'Herramientas IA · EdTech' },
-    status: 'prototype',
-    statusLabel: { en: 'Prototype', es: 'Prototipo' },
-    tags: ['Responsible AI', 'EdTech', 'Education', 'Institutional AI'],
-    technologies: ['Python', 'FastAPI', 'OpenAI API', 'Azure OpenAI', 'Entra ID', 'SQLite'],
-    accent: 'emerald',
-    internalPath: '/studenthelper',
-    caseStudyUrl: 'https://juandamunoz.com/studenthelper',
-    liveUrl: null,
-    liveLabel: { en: 'Case study', es: 'Caso de estudio' },
-    repoUrl: 'https://github.com/DavidMume/Student-Helper-Power-by-Open-AI-',
     articleUrl: null,
   },
   {
